@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C95E3722543D2930028FDFD /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E3712543D2930028FDFD /* CircularView.swift */; };
+		9C95E3752543D2DD0028FDFD /* ProModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; };
+		9C95E3762543D2DD0028FDFD /* ProModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4342542FF89008AD754 /* AppDelegate.swift */; };
 		9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4362542FF89008AD754 /* SceneDelegate.swift */; };
 		9CE8F4392542FF89008AD754 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4382542FF89008AD754 /* ViewController.swift */; };
@@ -15,7 +18,23 @@
 		9CE8F4412542FF89008AD754 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE8F43F2542FF89008AD754 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9C95E3772543D2DD0028FDFD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9C95E3762543D2DD0028FDFD /* ProModule.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		9C95E3712543D2930028FDFD /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
+		9C95E3742543D2DD0028FDFD /* ProModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4312542FF89008AD754 /* Anything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anything.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4342542FF89008AD754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE8F4362542FF89008AD754 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +50,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C95E3752543D2DD0028FDFD /* ProModule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C95E3732543D2DD0028FDFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C95E3742543D2DD0028FDFD /* ProModule.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9CE8F4282542FF89008AD754 = {
 			isa = PBXGroup;
 			children = (
 				9CE8F4332542FF89008AD754 /* Anything */,
 				9CE8F4322542FF89008AD754 /* Products */,
+				9C95E3732543D2DD0028FDFD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +88,7 @@
 				9CE8F4342542FF89008AD754 /* AppDelegate.swift */,
 				9CE8F4362542FF89008AD754 /* SceneDelegate.swift */,
 				9CE8F4382542FF89008AD754 /* ViewController.swift */,
+				9C95E3712543D2930028FDFD /* CircularView.swift */,
 				9CE8F43A2542FF89008AD754 /* Main.storyboard */,
 				9CE8F43D2542FF89008AD754 /* Assets.xcassets */,
 				9CE8F43F2542FF89008AD754 /* LaunchScreen.storyboard */,
@@ -77,6 +107,7 @@
 				9CE8F42D2542FF89008AD754 /* Sources */,
 				9CE8F42E2542FF89008AD754 /* Frameworks */,
 				9CE8F42F2542FF89008AD754 /* Resources */,
+				9C95E3772543D2DD0028FDFD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CE8F4392542FF89008AD754 /* ViewController.swift in Sources */,
+				9C95E3722543D2930028FDFD /* CircularView.swift in Sources */,
 				9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */,
 				9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */,
 			);
