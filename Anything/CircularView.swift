@@ -9,6 +9,12 @@
 import UIKit
 
 class CircularView: UIView {
+    var currentIndex: Int = 0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
@@ -22,55 +28,41 @@ class CircularView: UIView {
         let midX = bounds.midX
         let midY = bounds.midY
         let center = CGPoint(x: midX, y: midY)
-        let radius = bounds.width / 2 + 5
 
-        let borderWidth: CGFloat = 10
-        let clipWidth: CGFloat = 38
-        let inset = midX - clipWidth
-
-        let pathSmallOval = UIBezierPath(ovalIn: bounds.insetBy(dx: inset, dy: inset))
-        let pathForeground = UIBezierPath(ovalIn: bounds.insetBy(dx: borderWidth, dy: borderWidth))
-        let pathBackground = UIBezierPath(ovalIn: bounds)
-
-        print(cos(30.0))
-
-        guard let context = UIGraphicsGetCurrentContext() else { return }
-
-        pathBackground.append(pathForeground.reversing())
-        UIColor.white.withAlphaComponent(0.4).setFill()
-        pathBackground.fill()
-
-        pathForeground.append(pathSmallOval.reversing())
-        UIColor.white.withAlphaComponent(0.04).setFill()
-        pathForeground.fill()
-
-        context.saveGState()
-        context.setBlendMode(.destinationOut)
-
+        let spacing: CGFloat = 14
         let numberOfSlice = 6
+        let sliceAngle = 360 / numberOfSlice
+        let start = 0 // -90 + sliceAngle / 2
+        let end = start + 360
 
-        for angle in stride(from: -90, to: 270, by: 360 / numberOfSlice) {
-            let angle = CGFloat(angle) * .pi / 180
+        for (index, angle) in stride(from: start, to: end, by: sliceAngle).enumerated() {
+            let alpha: CGFloat = index == currentIndex ? 1 : 0.3
+            let angle = angle.radians
+            let radius: CGFloat = (spacing / 2) / sin((sliceAngle / 2).radians)
             let x = center.x + radius * cos(angle)
             let y = center.y + radius * sin(angle)
+            let point = CGPoint(x: x, y: y)
 
-            let pathClip = UIBezierPath()
-            pathClip.move(to: center)
-            pathClip.addLine(to: .init(x: x, y: y))
-            pathClip.close()
-            pathClip.lineWidth = 14
+            let startAngle = angle - (sliceAngle / 2).radians
+            let endAngle = startAngle + sliceAngle.radians
+            let radiusLight: CGFloat = 100
+            let radiusDark: CGFloat = 90
 
-            UIColor.white.setStroke()
-            pathClip.stroke()
+            UIColor.red.withAlphaComponent(alpha).setFill()
+
+            let pathLight = UIBezierPath()
+            pathLight.move(to: point)
+            pathLight.addArc(withCenter: point, radius: radiusLight, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+            pathLight.close()
+            pathLight.fill()
+
+            UIColor.orange.withAlphaComponent(alpha).setFill()
+
+            let pathDark = UIBezierPath()
+            pathDark.move(to: point)
+            pathDark.addArc(withCenter: point, radius: radiusDark, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+            pathDark.close()
+            pathDark.fill()
         }
-
-        context.restoreGState()
-
-        UIColor.white.setFill()
-        pathSmallOval.fill()
-    }
-
-    private func angle(angle: CGFloat) -> CGFloat {
-        return angle * CGFloat.pi / 180
     }
 }

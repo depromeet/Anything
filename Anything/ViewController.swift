@@ -45,3 +45,9 @@ extension UIColor {
         )
     }
 }
+
+extension Int {
+    var radians: CGFloat {
+        return CGFloat(self) * .pi / 180
+    }
+}
