@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../ProModule.xcodeproj">
+      location = "group:ProModule.xcodeproj">
    </FileRef>
    <FileRef
-      location = "self:">
+      location = "container:Anything.xcodeproj">
    </FileRef>
 </Workspace>
