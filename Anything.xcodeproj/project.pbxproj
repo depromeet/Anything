@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3C2557DA8D001F8F56 /* Radians.swift */; };
+		9C8DCD3F2557DAB9001F8F56 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3E2557DAB9001F8F56 /* UIColor+.swift */; };
+		9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD412557DB80001F8F56 /* Cubic.swift */; };
 		9C95E3722543D2930028FDFD /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E3712543D2930028FDFD /* CircularView.swift */; };
 		9C95E3752543D2DD0028FDFD /* ProModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; };
 		9C95E3762543D2DD0028FDFD /* ProModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -33,6 +36,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9C8DCD3C2557DA8D001F8F56 /* Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
+		9C8DCD3E2557DAB9001F8F56 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		9C8DCD412557DB80001F8F56 /* Cubic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubic.swift; sourceTree = "<group>"; };
 		9C95E3712543D2930028FDFD /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		9C95E3742543D2DD0028FDFD /* ProModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4312542FF89008AD754 /* Anything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anything.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +63,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C8DCD3A2557DA67001F8F56 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9C8DCD3E2557DAB9001F8F56 /* UIColor+.swift */,
+				9C8DCD3C2557DA8D001F8F56 /* Radians.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9C8DCD402557DB6E001F8F56 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				9C8DCD412557DB80001F8F56 /* Cubic.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 		9C95E3732543D2DD0028FDFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +108,8 @@
 		9CE8F4332542FF89008AD754 /* Anything */ = {
 			isa = PBXGroup;
 			children = (
+				9C8DCD402557DB6E001F8F56 /* Module */,
+				9C8DCD3A2557DA67001F8F56 /* Extension */,
 				9CE8F4342542FF89008AD754 /* AppDelegate.swift */,
 				9CE8F4362542FF89008AD754 /* SceneDelegate.swift */,
 				9CE8F4382542FF89008AD754 /* ViewController.swift */,
@@ -169,10 +194,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */,
 				9CE8F4392542FF89008AD754 /* ViewController.swift in Sources */,
 				9C95E3722543D2930028FDFD /* CircularView.swift in Sources */,
 				9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */,
 				9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */,
+				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
+				9C8DCD3F2557DAB9001F8F56 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
