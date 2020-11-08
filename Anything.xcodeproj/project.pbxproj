@@ -80,6 +80,14 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		9C8DCD432557DC8F001F8F56 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				9C95E3712543D2930028FDFD /* CircularView.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		9C95E3732543D2DD0028FDFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,10 +118,10 @@
 			children = (
 				9C8DCD402557DB6E001F8F56 /* Module */,
 				9C8DCD3A2557DA67001F8F56 /* Extension */,
+				9C8DCD432557DC8F001F8F56 /* Custom */,
 				9CE8F4342542FF89008AD754 /* AppDelegate.swift */,
 				9CE8F4362542FF89008AD754 /* SceneDelegate.swift */,
 				9CE8F4382542FF89008AD754 /* ViewController.swift */,
-				9C95E3712543D2930028FDFD /* CircularView.swift */,
 				9CE8F43A2542FF89008AD754 /* Main.storyboard */,
 				9CE8F43D2542FF89008AD754 /* Assets.xcassets */,
 				9CE8F43F2542FF89008AD754 /* LaunchScreen.storyboard */,
