@@ -6,7 +6,7 @@
 //  Copyright © 2020 Soso. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 typealias Easing = (_ t: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat) -> CGFloat
 typealias BackEasing = (_ t: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat, _ s: CGFloat) -> CGFloat
