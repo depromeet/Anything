@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Anything
 //
 //  Created by Soso on 2020/10/23.
@@ -9,7 +9,8 @@
 import SnapKit
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
