@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */; };
+		9C2437C0255F5E6600EB9C38 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437BF255F5E6600EB9C38 /* View.swift */; };
+		9C2437C2255F5EBA00EB9C38 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */; };
+		9C2437C5255F5F6000EB9C38 /* PresentableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437C4255F5F6000EB9C38 /* PresentableType.swift */; };
+		9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */; };
 		9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3C2557DA8D001F8F56 /* Radians.swift */; };
-		9C8DCD3F2557DAB9001F8F56 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3E2557DAB9001F8F56 /* UIColor+.swift */; };
 		9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD412557DB80001F8F56 /* Cubic.swift */; };
 		9C8DCD482557DD18001F8F56 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD472557DD18001F8F56 /* Category.swift */; };
 		9C95E3722543D2930028FDFD /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E3712543D2930028FDFD /* CircularView.swift */; };
@@ -36,8 +40,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9C2437BF255F5E6600EB9C38 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		9C2437C4255F5F6000EB9C38 /* PresentableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableType.swift; sourceTree = "<group>"; };
+		9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
 		9C8DCD3C2557DA8D001F8F56 /* Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
-		9C8DCD3E2557DAB9001F8F56 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		9C8DCD412557DB80001F8F56 /* Cubic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubic.swift; sourceTree = "<group>"; };
 		9C8DCD472557DD18001F8F56 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9C95E3712543D2930028FDFD /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
@@ -75,10 +83,28 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		9C2437BC255F5C7900EB9C38 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */,
+				9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9C2437C3255F5F2D00EB9C38 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9C2437BF255F5E6600EB9C38 /* View.swift */,
+				9C2437C4255F5F6000EB9C38 /* PresentableType.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		9C8DCD3A2557DA67001F8F56 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9C8DCD3E2557DAB9001F8F56 /* UIColor+.swift */,
+				9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */,
 				9C8DCD3C2557DA8D001F8F56 /* Radians.swift */,
 			);
 			path = Extension;
@@ -156,6 +182,8 @@
 				9C8DCD402557DB6E001F8F56 /* Module */,
 				9C8DCD3A2557DA67001F8F56 /* Extension */,
 				9C8DCD442557DCF9001F8F56 /* Model */,
+				9C2437C3255F5F2D00EB9C38 /* Protocol */,
+				9C2437BC255F5C7900EB9C38 /* Base */,
 				9C8DCD432557DC8F001F8F56 /* Custom */,
 				9C8DCD492557DD3F001F8F56 /* Scene */,
 			);
@@ -234,13 +262,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */,
+				9C2437C2255F5EBA00EB9C38 /* BaseViewModel.swift in Sources */,
 				9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */,
+				9C2437C0255F5E6600EB9C38 /* View.swift in Sources */,
 				9C95E3722543D2930028FDFD /* CircularView.swift in Sources */,
 				9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */,
 				9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */,
+				9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */,
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
-				9C8DCD3F2557DAB9001F8F56 /* UIColor+.swift in Sources */,
 				9C8DCD482557DD18001F8F56 /* Category.swift in Sources */,
+				9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */,
+				9C2437C5255F5F6000EB9C38 /* PresentableType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

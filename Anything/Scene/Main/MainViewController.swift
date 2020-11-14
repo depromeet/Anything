@@ -9,15 +9,14 @@
 import RxGesture
 import RxSwift
 import SnapKit
+import SwiftyColor
 import UIKit
 
-class MainViewController: UIViewController {
-    let disposeBag = DisposeBag()
-
+class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(hex: 0x262626)
+        view.backgroundColor = 0x262626.color
 
         let circularView = CircularView()
         view.addSubview(circularView)
@@ -34,7 +33,7 @@ class MainViewController: UIViewController {
                 return Observable<Int>
                     .interval(.milliseconds(10), scheduler: MainScheduler.instance).take(total)
                     .map { value -> CGFloat in
-                        return Cubic.EaseOut(CGFloat(value), 0, 360 * 5 + random, CGFloat(total))
+                        Cubic.EaseOut(CGFloat(value), 0, 360 * 5 + random, CGFloat(total))
                     }
             }
             .map { Int($0 / 72) % 5 }

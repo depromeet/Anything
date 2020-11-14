@@ -9,6 +9,7 @@
 import RxCocoa
 import RxSwift
 import UIKit
+import SwiftyColor
 
 class CircularView: UIView {
     var currentIndex: Int = 0 {
@@ -50,9 +51,9 @@ class CircularView: UIView {
             let radiusDark: CGFloat = 110
 
             if index == currentIndex {
-                UIColor(hex: 0x3C3C3C).set()
+                0x3C3C3C.color.set()
             } else {
-                UIColor(hex: 0x2D2D2D).set()
+                0x2D2D2D.color.set()
             }
 
             let pathDark = UIBezierPath()
