@@ -104,8 +104,8 @@
 		9C8DCD3A2557DA67001F8F56 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */,
 				9C8DCD3C2557DA8D001F8F56 /* Radians.swift */,
+				9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -179,13 +179,13 @@
 			isa = PBXGroup;
 			children = (
 				9C1B6B182557DEF100854566 /* App */,
-				9C8DCD402557DB6E001F8F56 /* Module */,
-				9C8DCD3A2557DA67001F8F56 /* Extension */,
 				9C8DCD442557DCF9001F8F56 /* Model */,
+				9C8DCD492557DD3F001F8F56 /* Scene */,
 				9C2437C3255F5F2D00EB9C38 /* Protocol */,
 				9C2437BC255F5C7900EB9C38 /* Base */,
 				9C8DCD432557DC8F001F8F56 /* Custom */,
-				9C8DCD492557DD3F001F8F56 /* Scene */,
+				9C8DCD3A2557DA67001F8F56 /* Extension */,
+				9C8DCD402557DB6E001F8F56 /* Module */,
 			);
 			path = Anything;
 			sourceTree = "<group>";
