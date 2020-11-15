@@ -8,10 +8,16 @@
 
 import RxCocoa
 import RxSwift
-import UIKit
 import SwiftyColor
+import UIKit
 
 class CircularView: UIView {
+    var categories: [Category] = Category.allCases {
+        didSet {
+            currentIndex = 0
+        }
+    }
+
     var currentIndex: Int = 0 {
         didSet {
             setNeedsDisplay()
@@ -32,43 +38,76 @@ class CircularView: UIView {
         let midY = bounds.midY
         let center = CGPoint(x: midX, y: midY)
 
-        let spacing: CGFloat = 35
-        let numberOfSlice = 5
-        let sliceAngle = 360 / numberOfSlice
+        let cornerRadius: CGFloat = 20
+        let spacing: CGFloat = 14 + cornerRadius
+        let numberOfSlices = categories.count
+        let sliceAngle = 360 / numberOfSlices
         let start = -90
         let end = start + 360
 
         for (index, angle) in stride(from: start, to: end, by: sliceAngle).enumerated() {
-            let angle = angle.radians
-            let radius: CGFloat = (spacing / 2) / sin((sliceAngle / 2).radians)
-            let x = center.x + radius * cos(angle)
-            let y = center.y + radius * sin(angle)
-            let point = CGPoint(x: x, y: y)
-
-            let startAngle = angle - (sliceAngle / 2).radians
-            let endAngle = startAngle + sliceAngle.radians
-
-            let radiusDark: CGFloat = 110
-
+            var image: UIImage
+            var textColor: UIColor
             if index == currentIndex {
-                0x3C3C3C.color.set()
+                0xFF7375.color.set()
+                image = categories[index].iconSelected
+                textColor = .white
             } else {
-                0x2D2D2D.color.set()
+                0xFFFFFF.color.set()
+                image = categories[index].iconNormal
+                textColor = .rgb3C3C3C
             }
 
-            let pathDark = UIBezierPath()
-            pathDark.move(to: point)
-            pathDark.addArc(withCenter: point, radius: radiusDark, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-            pathDark.close()
-            pathDark.lineJoinStyle = .round
-            pathDark.lineWidth = 25
-            pathDark.stroke()
-            pathDark.fill()
+            let radiusControl: CGFloat = (spacing / 2) / sin((sliceAngle / 2).radians)
+            let xControl = center.x + radiusControl * cos(angle.radians)
+            let yControl = center.y + radiusControl * sin(angle.radians)
+            let pointControl = CGPoint(x: xControl, y: yControl)
+
+            let startAngle = angle.radians - (sliceAngle / 2).radians
+            let endAngle = startAngle + sliceAngle.radians
+
+            let radiusSlice: CGFloat = bounds.midY - radiusControl - cornerRadius / 2
+
+            let pathSlice = UIBezierPath()
+            pathSlice.move(to: pointControl)
+            pathSlice.addArc(withCenter: pointControl, radius: radiusSlice, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+            pathSlice.close()
+            pathSlice.lineJoinStyle = .round
+            pathSlice.lineWidth = cornerRadius
+            pathSlice.stroke()
+            pathSlice.fill()
+
+            let radiusItem: CGFloat = radiusSlice / 5 * 3
+            let xItem = pointControl.x + radiusItem * cos(angle.radians)
+            let yItem = pointControl.y + radiusItem * sin(angle.radians)
+            let pointItem = CGPoint(x: xItem, y: yItem)
+
+            let xIcon = pointItem.x - image.size.width / 2
+            let yIcon = pointItem.y - image.size.height / 2 - 10
+            let pointIcon = CGPoint(x: xIcon, y: yIcon)
+            image.draw(at: pointIcon)
+
+            let attributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: textColor,
+                .font: UIFont.sdgothicneo(size: 16, weight: .bold) ?? .systemFont(ofSize: 16, weight: .bold),
+            ]
+            let text = categories[index].name
+            let size = text.size(withAttributes: attributes)
+            let xName = pointItem.x - size.width / 2
+            let yName = pointItem.y + image.size.height / 2 - 10
+            let pointName = CGPoint(x: xName, y: yName)
+            text.draw(at: pointName, withAttributes: attributes)
         }
     }
 }
 
 extension Reactive where Base: CircularView {
+    var categories: Binder<[Category]> {
+        return Binder(base) { view, categories in
+            view.categories = categories
+        }
+    }
+
     var currentIndex: Binder<Int> {
         return Binder(base) { view, currentIndex in
             view.currentIndex = currentIndex
