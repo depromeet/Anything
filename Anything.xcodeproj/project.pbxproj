@@ -12,6 +12,10 @@
 		9C2437C2255F5EBA00EB9C38 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */; };
 		9C2437C5255F5F6000EB9C38 /* PresentableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437C4255F5F6000EB9C38 /* PresentableType.swift */; };
 		9C2AF7292560DE4A007F3FAE /* AnythingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7282560DE4A007F3FAE /* AnythingAPI.swift */; };
+		9C2AF72F2560DE6E007F3FAE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72B2560DE6E007F3FAE /* Logger.swift */; };
+		9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72C2560DE6E007F3FAE /* NetworkService.swift */; };
+		9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72D2560DE6E007F3FAE /* ServiceProvider.swift */; };
+		9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72E2560DE6E007F3FAE /* BaseService.swift */; };
 		9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */; };
 		9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3C2557DA8D001F8F56 /* Radians.swift */; };
 		9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD412557DB80001F8F56 /* Cubic.swift */; };
@@ -46,6 +50,10 @@
 		9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9C2437C4255F5F6000EB9C38 /* PresentableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableType.swift; sourceTree = "<group>"; };
 		9C2AF7282560DE4A007F3FAE /* AnythingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnythingAPI.swift; sourceTree = "<group>"; };
+		9C2AF72B2560DE6E007F3FAE /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9C2AF72C2560DE6E007F3FAE /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9C2AF72D2560DE6E007F3FAE /* ServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		9C2AF72E2560DE6E007F3FAE /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
 		9C8DCD3C2557DA8D001F8F56 /* Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
 		9C8DCD412557DB80001F8F56 /* Cubic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubic.swift; sourceTree = "<group>"; };
@@ -109,6 +117,17 @@
 				9C2AF7282560DE4A007F3FAE /* AnythingAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		9C2AF72A2560DE6E007F3FAE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9C2AF72B2560DE6E007F3FAE /* Logger.swift */,
+				9C2AF72C2560DE6E007F3FAE /* NetworkService.swift */,
+				9C2AF72D2560DE6E007F3FAE /* ServiceProvider.swift */,
+				9C2AF72E2560DE6E007F3FAE /* BaseService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		9C8DCD3A2557DA67001F8F56 /* Extension */ = {
@@ -190,6 +209,7 @@
 			children = (
 				9C1B6B182557DEF100854566 /* App */,
 				9C2AF7272560DE4A007F3FAE /* API */,
+				9C2AF72A2560DE6E007F3FAE /* Service */,
 				9C8DCD442557DCF9001F8F56 /* Model */,
 				9C8DCD492557DD3F001F8F56 /* Scene */,
 				9C2437C3255F5F2D00EB9C38 /* Protocol */,
@@ -282,7 +302,11 @@
 				9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */,
 				9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */,
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
+				9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */,
 				9C8DCD482557DD18001F8F56 /* Category.swift in Sources */,
+				9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */,
+				9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */,
+				9C2AF72F2560DE6E007F3FAE /* Logger.swift in Sources */,
 				9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */,
 				9C2437C5255F5F6000EB9C38 /* PresentableType.swift in Sources */,
 			);
