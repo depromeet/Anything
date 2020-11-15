@@ -10,8 +10,10 @@ import Foundation
 
 protocol ServiceProviderType: class {
     var networkService: NetworkServiceType { get }
+    var locationService: LocationServiceType { get }
 }
 
 class ServiceProvider: ServiceProviderType {
     lazy var networkService: NetworkServiceType = NetworkService(provider: self)
+    lazy var locationService: LocationServiceType = LocationService(provider: self)
 }

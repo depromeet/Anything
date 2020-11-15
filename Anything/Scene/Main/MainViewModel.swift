@@ -6,8 +6,10 @@
 //  Copyright © 2020 Soso. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
 import RxCocoa
+import RxOptional
 import RxSwift
 
 enum MainAction {
@@ -27,6 +29,7 @@ class MainViewModel: BaseViewModel {
     let categoriesCount: Observable<[Int]>
 
     let distance: Observable<Distance>
+    let location: Observable<CLLocation?>
 
     override init(serviceProvider: ServiceProviderType) {
         let isAnimating = BehaviorRelay(value: false)
@@ -44,6 +47,8 @@ class MainViewModel: BaseViewModel {
 
         let distance = BehaviorRelay<Distance>(value: .nearest)
         self.distance = distance.asObservable()
+        let location = BehaviorRelay<CLLocation?>(value: nil)
+        self.location = location.asObservable()
 
         super.init(serviceProvider: serviceProvider)
 
@@ -78,11 +83,11 @@ class MainViewModel: BaseViewModel {
             .disposed(by: disposeBag)
 
         Observable
-            .combineLatest(categories, distance)
-            .flatMap { _, distance in
+            .combineLatest(location.filterNil(), distance)
+            .flatMap { location, distance in
                 Single.zip(Category.allCases.map { category in
                     serviceProvider.networkService
-                        .request(.search(category.name, 127.108212, 37.402056, distance.rawValue, 1), type: List<Restaurant>.self, #file, #function, #line)
+                        .request(.search(category.name, location.coordinate.latitude, location.coordinate.longitude, distance.rawValue, 1), type: List<Restaurant>.self, #file, #function, #line)
                         .map { ($0.documents, $0.meta.totalCount) }
                 })
             }
@@ -96,6 +101,11 @@ class MainViewModel: BaseViewModel {
                 categoriesList.accept(restaurants)
                 categoriesCount.accept(counts)
             })
+            .disposed(by: disposeBag)
+
+        serviceProvider.locationService
+            .requestLocation()
+            .bind(to: location)
             .disposed(by: disposeBag)
     }
 }

@@ -29,11 +29,11 @@ extension AnythingAPI: SugarTargetType {
 
     var parameters: Parameters? {
         switch self {
-        case let .search(keyword, x, y, radius, page):
+        case let .search(keyword, latitude, longitude, radius, page):
             let values: [String: Any] = [
                 "query": keyword,
-                "x": x,
-                "y": y,
+                "x": longitude,
+                "y": latitude,
                 "page": page,
                 "radius": radius,
                 "size": 15,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BaseService {
+class BaseService: NSObject {
     let provider: ServiceProviderType
 
     init(provider: ServiceProviderType) {
