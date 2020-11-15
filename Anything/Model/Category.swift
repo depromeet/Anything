@@ -6,19 +6,41 @@
 //  Copyright © 2020 Soso. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Category: CaseIterable {
     case 한식, 양식, 중식, 분식, 일식, 그외
 
-    var icon: String {
+    var iconNormal: UIImage {
         switch self {
-        case .한식: return "🍚"
-        case .양식: return "🍕"
-        case .중식: return "🍕"
-        case .분식: return "🍜"
-        case .일식: return "🍣"
-        case .그외: return "🍛"
+        case .한식: return #imageLiteral(resourceName: "ic_korea_bl_44pt")
+        case .양식: return #imageLiteral(resourceName: "ic_western_bl_44pt")
+        case .중식: return #imageLiteral(resourceName: "ic_china_bl_44pt")
+        case .분식: return #imageLiteral(resourceName: "ic_schoolfood_bl_44pt")
+        case .일식: return #imageLiteral(resourceName: "ic_japan_bl_44pt")
+        case .그외: return #imageLiteral(resourceName: "ic_taco_bl_44pt")
+        }
+    }
+
+    var iconSelected: UIImage {
+        switch self {
+        case .한식: return #imageLiteral(resourceName: "ic_korea_wh_44pt")
+        case .양식: return #imageLiteral(resourceName: "ic_western_wh_44pt")
+        case .중식: return #imageLiteral(resourceName: "ic_china_wh_44pt")
+        case .분식: return #imageLiteral(resourceName: "ic_schoolfood_wh_44pt")
+        case .일식: return #imageLiteral(resourceName: "ic_japan_wh_44pt")
+        case .그외: return #imageLiteral(resourceName: "ic_taco_wh_44pt")
+        }
+    }
+    
+    var iconSmall: UIImage {
+        switch self {
+        case .한식: return #imageLiteral(resourceName: "ic_korea_bl_26pt")
+        case .양식: return #imageLiteral(resourceName: "ic_western_bl_26pt")
+        case .중식: return #imageLiteral(resourceName: "ic_china_bl_26pt")
+        case .분식: return #imageLiteral(resourceName: "ic_schoolfood_bl_26pt")
+        case .일식: return #imageLiteral(resourceName: "ic_japan_bl_26pt")
+        case .그외: return #imageLiteral(resourceName: "ic_taco_bl_26pt")
         }
     }
 
