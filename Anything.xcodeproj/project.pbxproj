@@ -27,6 +27,7 @@
 		9C2AF7452560DF44007F3FAE /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7432560DF44007F3FAE /* NavigationBar.swift */; };
 		9C2AF7462560DF44007F3FAE /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7442560DF44007F3FAE /* CategoryView.swift */; };
 		9C2AF7482560DFCF007F3FAE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7472560DFCF007F3FAE /* MainViewModel.swift */; };
+		9C2AF74A2560E519007F3FAE /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7492560E519007F3FAE /* Distance.swift */; };
 		9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */; };
 		9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3C2557DA8D001F8F56 /* Radians.swift */; };
 		9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD412557DB80001F8F56 /* Cubic.swift */; };
@@ -76,6 +77,7 @@
 		9C2AF7432560DF44007F3FAE /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		9C2AF7442560DF44007F3FAE /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		9C2AF7472560DFCF007F3FAE /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		9C2AF7492560E519007F3FAE /* Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 		9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
 		9C8DCD3C2557DA8D001F8F56 /* Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
 		9C8DCD412557DB80001F8F56 /* Cubic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubic.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				9C2AF7332560DECA007F3FAE /* List.swift */,
 				9C2AF7342560DECA007F3FAE /* Restaurant.swift */,
 				9C8DCD472557DD18001F8F56 /* Category.swift */,
+				9C2AF7492560E519007F3FAE /* Distance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
 				9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */,
 				9C8DCD482557DD18001F8F56 /* Category.swift in Sources */,
+				9C2AF74A2560E519007F3FAE /* Distance.swift in Sources */,
 				9C2AF7452560DF44007F3FAE /* NavigationBar.swift in Sources */,
 				9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */,
 				9C2AF7412560DF06007F3FAE /* Array+Subscript.swift in Sources */,

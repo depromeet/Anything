@@ -26,6 +26,8 @@ class MainViewModel: BaseViewModel {
     let categoriesList: Observable<[[Restaurant]]>
     let categoriesCount: Observable<[Int]>
 
+    let distance: Observable<Distance>
+
     override init(serviceProvider: ServiceProviderType) {
         let isAnimating = BehaviorRelay(value: false)
         self.isAnimating = isAnimating.asObservable()
@@ -39,6 +41,9 @@ class MainViewModel: BaseViewModel {
         self.categoriesList = categoriesList.asObservable()
         let categoriesCount = BehaviorRelay<[Int]>(value: [])
         self.categoriesCount = categoriesCount.asObservable()
+
+        let distance = BehaviorRelay<Distance>(value: .nearest)
+        self.distance = distance.asObservable()
 
         super.init(serviceProvider: serviceProvider)
 
@@ -72,12 +77,16 @@ class MainViewModel: BaseViewModel {
             })
             .disposed(by: disposeBag)
 
-        Single
-            .zip(Category.allCases
-                .compactMap { [weak self] category in
-                    self?.requestData(category: category, x: 127.108212, y: 37.402056, radius: 1000) ?? Single.just(([], 0))
+        Observable
+            .combineLatest(categories, distance)
+            .flatMap { _, distance in
+                Single.zip(Category.allCases.map { category in
+                    serviceProvider.networkService
+                        .request(.search(category.name, 127.108212, 37.402056, distance.rawValue, 1), type: List<Restaurant>.self, #file, #function, #line)
+                        .map { ($0.documents, $0.meta.totalCount) }
                 })
-            .subscribe(onSuccess: { list in
+            }
+            .subscribe(onNext: { list in
                 var restaurants: [[Restaurant]] = []
                 var counts: [Int] = []
                 for (restaurant, count) in list {
@@ -88,16 +97,5 @@ class MainViewModel: BaseViewModel {
                 categoriesCount.accept(counts)
             })
             .disposed(by: disposeBag)
-    }
-
-    private func requestData(
-        category: Category,
-        x: Double,
-        y: Double,
-        radius: Int
-    ) -> Single<([Restaurant], Int)> {
-        return serviceProvider.networkService
-            .request(.search(category.name, x, y, radius, 1), type: List<Restaurant>.self, #file, #function, #line)
-            .map { ($0.documents, $0.meta.totalCount) }
     }
 }
