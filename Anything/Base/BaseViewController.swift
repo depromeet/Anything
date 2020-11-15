@@ -15,24 +15,11 @@ class BaseViewController: UIViewController {
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
+        layout(parent: view)
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    private(set) var didSetupConstraints = false
-
-    override func viewDidLoad() {
-        view.setNeedsUpdateConstraints()
-    }
-
-    override func updateViewConstraints() {
-        if !didSetupConstraints {
-            didSetupConstraints = true
-            layout(parent: view)
-        }
-        super.updateViewConstraints()
     }
 
     func layout(parent: UIView) {}

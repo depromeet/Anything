@@ -7,21 +7,23 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 class BaseViewModel: Disposable {
     var disposeBag = DisposeBag()
     let presentable = PublishRelay<PresentableType>()
-    
-    init() {
+    let serviceProvider: ServiceProviderType
+
+    init(serviceProvider: ServiceProviderType) {
+        self.serviceProvider = serviceProvider
         setup()
     }
-    
+
     func dispose() {
         disposeBag = DisposeBag()
     }
-    
+
     func setup() {
     }
 }
