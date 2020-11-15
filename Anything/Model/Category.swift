@@ -8,8 +8,8 @@
 
 import UIKit
 
-enum Category: CaseIterable {
-    case 한식, 양식, 중식, 분식, 일식, 그외
+enum Category: String, CaseIterable {
+    case 한식, 양식, 중식, 분식, 일식, 그외 = "아시아음식"
 
     var iconNormal: UIImage {
         switch self {

@@ -87,7 +87,7 @@ class MainViewModel: BaseViewModel {
             .flatMap { location, distance in
                 Single.zip(Category.allCases.map { category in
                     serviceProvider.networkService
-                        .request(.search(category.name, location.coordinate.latitude, location.coordinate.longitude, distance.rawValue, 1), type: List<Restaurant>.self, #file, #function, #line)
+                        .request(.search(category.rawValue, location.coordinate.latitude, location.coordinate.longitude, distance.rawValue, 1), type: List<Restaurant>.self, #file, #function, #line)
                         .map { ($0.documents, $0.meta.totalCount) }
                 })
             }
