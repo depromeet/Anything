@@ -16,6 +16,8 @@
 		9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72C2560DE6E007F3FAE /* NetworkService.swift */; };
 		9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72D2560DE6E007F3FAE /* ServiceProvider.swift */; };
 		9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72E2560DE6E007F3FAE /* BaseService.swift */; };
+		9C2AF7352560DECA007F3FAE /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7332560DECA007F3FAE /* List.swift */; };
+		9C2AF7362560DECA007F3FAE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7342560DECA007F3FAE /* Restaurant.swift */; };
 		9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */; };
 		9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3C2557DA8D001F8F56 /* Radians.swift */; };
 		9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD412557DB80001F8F56 /* Cubic.swift */; };
@@ -54,6 +56,8 @@
 		9C2AF72C2560DE6E007F3FAE /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9C2AF72D2560DE6E007F3FAE /* ServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		9C2AF72E2560DE6E007F3FAE /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		9C2AF7332560DECA007F3FAE /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		9C2AF7342560DECA007F3FAE /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
 		9C8DCD3C2557DA8D001F8F56 /* Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
 		9C8DCD412557DB80001F8F56 /* Cubic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubic.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 		9C8DCD442557DCF9001F8F56 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9C2AF7332560DECA007F3FAE /* List.swift */,
+				9C2AF7342560DECA007F3FAE /* Restaurant.swift */,
 				9C8DCD472557DD18001F8F56 /* Category.swift */,
 			);
 			path = Model;
@@ -306,9 +312,11 @@
 				9C8DCD482557DD18001F8F56 /* Category.swift in Sources */,
 				9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */,
 				9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */,
+				9C2AF7362560DECA007F3FAE /* Restaurant.swift in Sources */,
 				9C2AF72F2560DE6E007F3FAE /* Logger.swift in Sources */,
 				9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */,
 				9C2437C5255F5F6000EB9C38 /* PresentableType.swift in Sources */,
+				9C2AF7352560DECA007F3FAE /* List.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
