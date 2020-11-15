@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9C1D557424DADC0C0048BBDF /* URLNavigator in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1D557324DADC0C0048BBDF /* URLNavigator */; };
+		9C2AF7512560ED35007F3FAE /* RxCoreLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 9C2AF7502560ED35007F3FAE /* RxCoreLocation */; };
+		9C2AF7552560F02F007F3FAE /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = 9C2AF7542560F02F007F3FAE /* RxOptional */; };
 		9C39B5B324AF27BA0003D013 /* SwiftyColor in Frameworks */ = {isa = PBXBuildFile; productRef = 9C39B5B224AF27BA0003D013 /* SwiftyColor */; };
 		9C39B5B624AF27E20003D013 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9C39B5B524AF27E20003D013 /* ReactorKit */; };
 		9C59C2F224B190BA00402BC5 /* ReusableKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9C59C2F124B190BA00402BC5 /* ReusableKit */; };
@@ -45,6 +47,7 @@
 				9C59C2F724B190E700402BC5 /* Differentiator in Frameworks */,
 				9C39B5B324AF27BA0003D013 /* SwiftyColor in Frameworks */,
 				9CB525A524B05D15005CEFEA /* RxViewController in Frameworks */,
+				9C2AF7552560F02F007F3FAE /* RxOptional in Frameworks */,
 				9CEE727A24AADBEC00F649EC /* SnapKit in Frameworks */,
 				9C697D4B24ED4D4500ABCC7C /* RxKingfisher in Frameworks */,
 				9CFDA61A24B4166C00097BF0 /* RxGesture in Frameworks */,
@@ -61,6 +64,7 @@
 				9CEE728524AADD1600F649EC /* RIBs in Frameworks */,
 				9C59C2F924B190E700402BC5 /* RxDataSources in Frameworks */,
 				9C59C2F424B190BA00402BC5 /* RxReusableKit in Frameworks */,
+				9C2AF7512560ED35007F3FAE /* RxCoreLocation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +145,8 @@
 				9C697D3324ED247E00ABCC7C /* CocoaLumberjackSwift */,
 				9C697D3524ED247E00ABCC7C /* CocoaLumberjack */,
 				9C697D4A24ED4D4500ABCC7C /* RxKingfisher */,
+				9C2AF7502560ED35007F3FAE /* RxCoreLocation */,
+				9C2AF7542560F02F007F3FAE /* RxOptional */,
 			);
 			productName = ProModule;
 			productReference = 9CEE726D24AADBAD00F649EC /* ProModule.framework */;
@@ -186,6 +192,8 @@
 				9CA2CBC124E8C81D00AE5322 /* XCRemoteSwiftPackageReference "PanModal" */,
 				9C697D3224ED247E00ABCC7C /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
 				9C697D4924ED4D4500ABCC7C /* XCRemoteSwiftPackageReference "RxKingfisher" */,
+				9C2AF74F2560ED35007F3FAE /* XCRemoteSwiftPackageReference "RxCoreLocation" */,
+				9C2AF7532560F02F007F3FAE /* XCRemoteSwiftPackageReference "RxOptional" */,
 			);
 			productRefGroup = 9CEE726E24AADBAD00F649EC /* Products */;
 			projectDirPath = "";
@@ -429,6 +437,22 @@
 				minimumVersion = 2.3.0;
 			};
 		};
+		9C2AF74F2560ED35007F3FAE /* XCRemoteSwiftPackageReference "RxCoreLocation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxCoreLocation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+		9C2AF7532560F02F007F3FAE /* XCRemoteSwiftPackageReference "RxOptional" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxOptional";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 		9C39B5B124AF27BA0003D013 /* XCRemoteSwiftPackageReference "SwiftyColor" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/SwiftyColor";
@@ -556,6 +580,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9C1D557224DADC0C0048BBDF /* XCRemoteSwiftPackageReference "URLNavigator" */;
 			productName = URLNavigator;
+		};
+		9C2AF7502560ED35007F3FAE /* RxCoreLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C2AF74F2560ED35007F3FAE /* XCRemoteSwiftPackageReference "RxCoreLocation" */;
+			productName = RxCoreLocation;
+		};
+		9C2AF7542560F02F007F3FAE /* RxOptional */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C2AF7532560F02F007F3FAE /* XCRemoteSwiftPackageReference "RxOptional" */;
+			productName = RxOptional;
 		};
 		9C39B5B224AF27BA0003D013 /* SwiftyColor */ = {
 			isa = XCSwiftPackageProductDependency;
