@@ -18,6 +18,12 @@
 		9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72E2560DE6E007F3FAE /* BaseService.swift */; };
 		9C2AF7352560DECA007F3FAE /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7332560DECA007F3FAE /* List.swift */; };
 		9C2AF7362560DECA007F3FAE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7342560DECA007F3FAE /* Restaurant.swift */; };
+		9C2AF73D2560DF06007F3FAE /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7372560DF06007F3FAE /* Global.swift */; };
+		9C2AF73E2560DF06007F3FAE /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7382560DF06007F3FAE /* UIFont+Custom.swift */; };
+		9C2AF73F2560DF06007F3FAE /* UIView+Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7392560DF06007F3FAE /* UIView+Tap.swift */; };
+		9C2AF7402560DF06007F3FAE /* CALayer+SketchSahdow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF73A2560DF06007F3FAE /* CALayer+SketchSahdow.swift */; };
+		9C2AF7412560DF06007F3FAE /* Array+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF73B2560DF06007F3FAE /* Array+Subscript.swift */; };
+		9C2AF7422560DF06007F3FAE /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF73C2560DF06007F3FAE /* UIColor+Custom.swift */; };
 		9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */; };
 		9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3C2557DA8D001F8F56 /* Radians.swift */; };
 		9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD412557DB80001F8F56 /* Cubic.swift */; };
@@ -58,6 +64,12 @@
 		9C2AF72E2560DE6E007F3FAE /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		9C2AF7332560DECA007F3FAE /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		9C2AF7342560DECA007F3FAE /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		9C2AF7372560DF06007F3FAE /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		9C2AF7382560DF06007F3FAE /* UIFont+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
+		9C2AF7392560DF06007F3FAE /* UIView+Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Tap.swift"; sourceTree = "<group>"; };
+		9C2AF73A2560DF06007F3FAE /* CALayer+SketchSahdow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+SketchSahdow.swift"; sourceTree = "<group>"; };
+		9C2AF73B2560DF06007F3FAE /* Array+Subscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Subscript.swift"; sourceTree = "<group>"; };
+		9C2AF73C2560DF06007F3FAE /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
 		9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
 		9C8DCD3C2557DA8D001F8F56 /* Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
 		9C8DCD412557DB80001F8F56 /* Cubic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubic.swift; sourceTree = "<group>"; };
@@ -137,7 +149,13 @@
 		9C8DCD3A2557DA67001F8F56 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9C2AF7372560DF06007F3FAE /* Global.swift */,
 				9C8DCD3C2557DA8D001F8F56 /* Radians.swift */,
+				9C2AF73B2560DF06007F3FAE /* Array+Subscript.swift */,
+				9C2AF73A2560DF06007F3FAE /* CALayer+SketchSahdow.swift */,
+				9C2AF73C2560DF06007F3FAE /* UIColor+Custom.swift */,
+				9C2AF7382560DF06007F3FAE /* UIFont+Custom.swift */,
+				9C2AF7392560DF06007F3FAE /* UIView+Tap.swift */,
 				9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */,
 			);
 			path = Extension;
@@ -299,18 +317,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */,
+				9C2AF73E2560DF06007F3FAE /* UIFont+Custom.swift in Sources */,
 				9C2437C2255F5EBA00EB9C38 /* BaseViewModel.swift in Sources */,
 				9C2AF7292560DE4A007F3FAE /* AnythingAPI.swift in Sources */,
+				9C2AF73F2560DF06007F3FAE /* UIView+Tap.swift in Sources */,
 				9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */,
+				9C2AF7402560DF06007F3FAE /* CALayer+SketchSahdow.swift in Sources */,
 				9C2437C0255F5E6600EB9C38 /* View.swift in Sources */,
 				9C95E3722543D2930028FDFD /* CircularView.swift in Sources */,
 				9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */,
 				9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */,
+				9C2AF73D2560DF06007F3FAE /* Global.swift in Sources */,
 				9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */,
+				9C2AF7422560DF06007F3FAE /* UIColor+Custom.swift in Sources */,
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
 				9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */,
 				9C8DCD482557DD18001F8F56 /* Category.swift in Sources */,
 				9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */,
+				9C2AF7412560DF06007F3FAE /* Array+Subscript.swift in Sources */,
 				9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */,
 				9C2AF7362560DECA007F3FAE /* Restaurant.swift in Sources */,
 				9C2AF72F2560DE6E007F3FAE /* Logger.swift in Sources */,
