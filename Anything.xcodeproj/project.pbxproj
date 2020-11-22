@@ -46,6 +46,7 @@
 		9CBCE9F3256A6D8400308C64 /* ResizableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9F2256A6D8400308C64 /* ResizableTableView.swift */; };
 		9CBCEA02256A709A00308C64 /* Reusable+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA01256A709A00308C64 /* Reusable+Rx.swift */; };
 		9CBCEA04256A716700308C64 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA03256A716700308C64 /* PaddingLabel.swift */; };
+		9CBCEA06256A892800308C64 /* CategoryOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA05256A892800308C64 /* CategoryOptionCell.swift */; };
 		9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4342542FF89008AD754 /* AppDelegate.swift */; };
 		9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4362542FF89008AD754 /* SceneDelegate.swift */; };
 		9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4382542FF89008AD754 /* MainViewController.swift */; };
@@ -106,6 +107,7 @@
 		9CBCE9F2256A6D8400308C64 /* ResizableTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizableTableView.swift; sourceTree = "<group>"; };
 		9CBCEA01256A709A00308C64 /* Reusable+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+Rx.swift"; sourceTree = "<group>"; };
 		9CBCEA03256A716700308C64 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		9CBCEA05256A892800308C64 /* CategoryOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryOptionCell.swift; sourceTree = "<group>"; };
 		9CE8F4312542FF89008AD754 /* Anything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anything.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4342542FF89008AD754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE8F4362542FF89008AD754 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				9CBCE9E6256A65C100308C64 /* CategoryViewController.swift */,
+				9CBCEA05256A892800308C64 /* CategoryOptionCell.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */,
 				9C2AF7402560DF06007F3FAE /* CALayer+SketchSahdow.swift in Sources */,
 				9C2AF7482560DFCF007F3FAE /* MainViewModel.swift in Sources */,
+				9CBCEA06256A892800308C64 /* CategoryOptionCell.swift in Sources */,
 				9C2437C0255F5E6600EB9C38 /* View.swift in Sources */,
 				9C95E3722543D2930028FDFD /* CircularView.swift in Sources */,
 				9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */,
