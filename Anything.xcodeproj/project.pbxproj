@@ -118,7 +118,6 @@
 			children = (
 				9CE8F4342542FF89008AD754 /* AppDelegate.swift */,
 				9CE8F4362542FF89008AD754 /* SceneDelegate.swift */,
-				9CE8F43D2542FF89008AD754 /* Assets.xcassets */,
 				9CE8F43F2542FF89008AD754 /* LaunchScreen.storyboard */,
 				9CE8F4422542FF89008AD754 /* Info.plist */,
 			);
@@ -243,6 +242,14 @@
 			path = Spinning;
 			sourceTree = "<group>";
 		};
+		9CBCE9DA256A64DD00308C64 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9CE8F43D2542FF89008AD754 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		9CE8F4282542FF89008AD754 = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +280,7 @@
 				9C8DCD432557DC8F001F8F56 /* Custom */,
 				9C8DCD3A2557DA67001F8F56 /* Extension */,
 				9C8DCD402557DB6E001F8F56 /* Module */,
+				9CBCE9DA256A64DD00308C64 /* Resource */,
 			);
 			path = Anything;
 			sourceTree = "<group>";
