@@ -14,7 +14,8 @@ import RxSwift
 
 enum SpinningAction {
     case animate
-    case select(Int)
+    case selectCategory(Int)
+    case setCategories([Category])
 }
 
 class SpinningViewModel: BaseViewModel {
@@ -76,8 +77,11 @@ class SpinningViewModel: BaseViewModel {
                         })
                         .bind(to: currentIndex)
                         .disposed(by: self.disposeBag)
-                case let .select(index):
+                case let .selectCategory(index):
                     print(index)
+                case let .setCategories(newCategories):
+                    guard newCategories.count > 1 else { return }
+                    categories.accept(newCategories)
                 }
             })
             .disposed(by: disposeBag)

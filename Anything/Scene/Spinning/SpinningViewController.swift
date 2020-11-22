@@ -62,7 +62,7 @@ extension SpinningViewController {
                 .bind(to: view.rx.count)
                 .disposed(by: disposeBag)
             view.whenTapped()
-                .map { _ in .select(index) }
+                .map { _ in .selectCategory(index) }
                 .bind(to: viewModel.actions)
                 .disposed(by: disposeBag)
         }
