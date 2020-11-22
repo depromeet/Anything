@@ -54,11 +54,18 @@ class MainViewController: BaseViewController, View {
 
 extension MainViewController {
     func bindChilds(viewModel: ViewModelType) {
-        spinning.viewModel = .init(serviceProvider: viewModel.serviceProvider)
+        let spinningViewModel = SpinningViewModel(serviceProvider: viewModel.serviceProvider)
+        spinning.viewModel = spinningViewModel
         spinning.imageViewEdit.whenTapped()
             .map { _ in .category }
             .bind(to: viewModel.actions)
             .disposed(by: disposeBag)
+        let categoryViewModel = CategoryViewModel(serviceProvider: viewModel.serviceProvider)
+        categoryViewModel.onAction = { categories in
+            spinningViewModel.actions.accept(.setCategories(categories))
+            viewModel.actions.accept(.spinning)
+        }
+        category.viewModel = categoryViewModel
 
         viewModel.selectedChild
             .map { [weak self] tab -> UIViewController in

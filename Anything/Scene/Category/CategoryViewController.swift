@@ -10,13 +10,54 @@ import Reusable
 import RxSwift
 import UIKit
 
-class CategoryViewController: BaseViewController {
+class CategoryViewController: BaseViewController, View {
+    typealias ViewModelType = CategoryViewModel
+
     private var tableViewCategory: UITableView!
     private var buttonCancel: UILabel!
     private var buttonSave: UILabel!
 
     override func layout(parent: UIView) {
         layoutContent(parent: parent)
+    }
+
+    func bind(viewModel: ViewModelType) {
+        bindCategory(viewModel: viewModel)
+        bindButton(viewModel: viewModel)
+        bindPresentable(viewModel: viewModel)
+    }
+}
+
+extension CategoryViewController {
+    func bindCategory(viewModel: ViewModelType) {
+        viewModel.categoryList
+            .bind(to: tableViewCategory.rx.items(cellType: CategoryOptionCell.self)) { _, category, cell in
+                cell.imageViewCategory.image = category.iconSmall
+                cell.labelCategory.text = category.name
+                cell.whenTapped()
+                    .map { _ in .toggleCategory(category) }
+                    .bind(to: viewModel.actions)
+                    .disposed(by: cell.disposeBag)
+                viewModel.selectedList
+                    .map { $0.contains(category) }
+                    .distinctUntilChanged()
+                    .subscribe(onNext: { isSelected in
+                        cell.setSelected(isSelected: isSelected)
+                    })
+                    .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
+    }
+
+    func bindButton(viewModel: ViewModelType) {
+        buttonCancel.whenTapped()
+            .map { _ in .cancel }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
+        buttonSave.whenTapped()
+            .map { _ in .save }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
     }
 }
 

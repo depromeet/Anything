@@ -6,10 +6,8 @@
 //  Copyright © 2020 Soso. All rights reserved.
 //
 
-import CoreLocation
 import Foundation
 import RxCocoa
-import RxOptional
 import RxSwift
 
 enum MainAction {
@@ -32,8 +30,7 @@ class MainViewModel: BaseViewModel {
         super.init(serviceProvider: serviceProvider)
 
         actions
-            .subscribe(onNext: { [weak self] action in
-                guard let self = self else { return }
+            .subscribe(onNext: { action in
                 switch action {
                 case .spinning:
                     selectedChild.accept(.spinning)
