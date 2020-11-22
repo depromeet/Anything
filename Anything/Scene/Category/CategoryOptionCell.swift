@@ -30,6 +30,7 @@ extension CategoryOptionCell {
     private func layoutContent(parent: UIView) {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
+        selectionStyle = .none
 
         let viewContent = UIView().then { v in
             v.backgroundColor = .white
