@@ -12,8 +12,6 @@
 		9C2AF7552560F02F007F3FAE /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = 9C2AF7542560F02F007F3FAE /* RxOptional */; };
 		9C39B5B324AF27BA0003D013 /* SwiftyColor in Frameworks */ = {isa = PBXBuildFile; productRef = 9C39B5B224AF27BA0003D013 /* SwiftyColor */; };
 		9C39B5B624AF27E20003D013 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9C39B5B524AF27E20003D013 /* ReactorKit */; };
-		9C59C2F224B190BA00402BC5 /* ReusableKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9C59C2F124B190BA00402BC5 /* ReusableKit */; };
-		9C59C2F424B190BA00402BC5 /* RxReusableKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9C59C2F324B190BA00402BC5 /* RxReusableKit */; };
 		9C59C2F724B190E700402BC5 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 9C59C2F624B190E700402BC5 /* Differentiator */; };
 		9C59C2F924B190E700402BC5 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 9C59C2F824B190E700402BC5 /* RxDataSources */; };
 		9C697D3424ED247E00ABCC7C /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9C697D3324ED247E00ABCC7C /* CocoaLumberjackSwift */; };
@@ -24,6 +22,10 @@
 		9C7AD86024C0212A00AAEBB0 /* MoyaSugar in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7AD85F24C0212A00AAEBB0 /* MoyaSugar */; };
 		9CA2CBC324E8C81D00AE5322 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 9CA2CBC224E8C81D00AE5322 /* PanModal */; };
 		9CB525A524B05D15005CEFEA /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB525A424B05D15005CEFEA /* RxViewController */; };
+		9CBCE9F6256A6E9B00308C64 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBCE9F5256A6E9B00308C64 /* Reusable */; };
+		9CBCE9FB256A6F4000308C64 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBCE9FA256A6F4000308C64 /* RxCocoa */; };
+		9CBCE9FD256A6F4000308C64 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBCE9FC256A6F4000308C64 /* RxSwift */; };
+		9CBCE9FF256A6F4000308C64 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBCE9FE256A6F4000308C64 /* RxRelay */; };
 		9CEE727224AADBAD00F649EC /* ProModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CEE727024AADBAD00F649EC /* ProModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CEE727A24AADBEC00F649EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9CEE727924AADBEC00F649EC /* SnapKit */; };
 		9CEE728224AADC8D00F649EC /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 9CEE728124AADC8D00F649EC /* Then */; };
@@ -43,13 +45,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C59C2F224B190BA00402BC5 /* ReusableKit in Frameworks */,
 				9C59C2F724B190E700402BC5 /* Differentiator in Frameworks */,
+				9CBCE9FD256A6F4000308C64 /* RxSwift in Frameworks */,
 				9C39B5B324AF27BA0003D013 /* SwiftyColor in Frameworks */,
+				9CBCE9FB256A6F4000308C64 /* RxCocoa in Frameworks */,
 				9CB525A524B05D15005CEFEA /* RxViewController in Frameworks */,
 				9C2AF7552560F02F007F3FAE /* RxOptional in Frameworks */,
+				9CBCE9FF256A6F4000308C64 /* RxRelay in Frameworks */,
 				9CEE727A24AADBEC00F649EC /* SnapKit in Frameworks */,
 				9C697D4B24ED4D4500ABCC7C /* RxKingfisher in Frameworks */,
+				9CBCE9F6256A6E9B00308C64 /* Reusable in Frameworks */,
 				9CFDA61A24B4166C00097BF0 /* RxGesture in Frameworks */,
 				9CA2CBC324E8C81D00AE5322 /* PanModal in Frameworks */,
 				9C39B5B624AF27E20003D013 /* ReactorKit in Frameworks */,
@@ -63,7 +68,6 @@
 				9C1D557424DADC0C0048BBDF /* URLNavigator in Frameworks */,
 				9CEE728524AADD1600F649EC /* RIBs in Frameworks */,
 				9C59C2F924B190E700402BC5 /* RxDataSources in Frameworks */,
-				9C59C2F424B190BA00402BC5 /* RxReusableKit in Frameworks */,
 				9C2AF7512560ED35007F3FAE /* RxCoreLocation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,8 +135,6 @@
 				9C39B5B224AF27BA0003D013 /* SwiftyColor */,
 				9C39B5B524AF27E20003D013 /* ReactorKit */,
 				9CB525A424B05D15005CEFEA /* RxViewController */,
-				9C59C2F124B190BA00402BC5 /* ReusableKit */,
-				9C59C2F324B190BA00402BC5 /* RxReusableKit */,
 				9C59C2F624B190E700402BC5 /* Differentiator */,
 				9C59C2F824B190E700402BC5 /* RxDataSources */,
 				9CFDA61924B4166C00097BF0 /* RxGesture */,
@@ -147,6 +149,10 @@
 				9C697D4A24ED4D4500ABCC7C /* RxKingfisher */,
 				9C2AF7502560ED35007F3FAE /* RxCoreLocation */,
 				9C2AF7542560F02F007F3FAE /* RxOptional */,
+				9CBCE9F5256A6E9B00308C64 /* Reusable */,
+				9CBCE9FA256A6F4000308C64 /* RxCocoa */,
+				9CBCE9FC256A6F4000308C64 /* RxSwift */,
+				9CBCE9FE256A6F4000308C64 /* RxRelay */,
 			);
 			productName = ProModule;
 			productReference = 9CEE726D24AADBAD00F649EC /* ProModule.framework */;
@@ -182,7 +188,6 @@
 				9C39B5B124AF27BA0003D013 /* XCRemoteSwiftPackageReference "SwiftyColor" */,
 				9C39B5B424AF27E20003D013 /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				9CB525A324B05D15005CEFEA /* XCRemoteSwiftPackageReference "RxViewController" */,
-				9C59C2F024B190BA00402BC5 /* XCRemoteSwiftPackageReference "ReusableKit" */,
 				9C59C2F524B190E700402BC5 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				9CFDA61824B4166C00097BF0 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				9C7AD85924C020FA00AAEBB0 /* XCRemoteSwiftPackageReference "Moya" */,
@@ -194,6 +199,8 @@
 				9C697D4924ED4D4500ABCC7C /* XCRemoteSwiftPackageReference "RxKingfisher" */,
 				9C2AF74F2560ED35007F3FAE /* XCRemoteSwiftPackageReference "RxCoreLocation" */,
 				9C2AF7532560F02F007F3FAE /* XCRemoteSwiftPackageReference "RxOptional" */,
+				9CBCE9F4256A6E9B00308C64 /* XCRemoteSwiftPackageReference "Reusable" */,
+				9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 9CEE726E24AADBAD00F649EC /* Products */;
 			projectDirPath = "";
@@ -469,14 +476,6 @@
 				revision = 17c33781d2f1285ef3a8b562dc40a1438e8d3df8;
 			};
 		};
-		9C59C2F024B190BA00402BC5 /* XCRemoteSwiftPackageReference "ReusableKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/ReusableKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		9C59C2F524B190E700402BC5 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
@@ -531,6 +530,22 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
+			};
+		};
+		9CBCE9F4256A6E9B00308C64 /* XCRemoteSwiftPackageReference "Reusable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/Reusable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.1;
+			};
+		};
+		9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
 			};
 		};
 		9CEE727824AADBEC00F649EC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -601,16 +616,6 @@
 			package = 9C39B5B424AF27E20003D013 /* XCRemoteSwiftPackageReference "ReactorKit" */;
 			productName = ReactorKit;
 		};
-		9C59C2F124B190BA00402BC5 /* ReusableKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C59C2F024B190BA00402BC5 /* XCRemoteSwiftPackageReference "ReusableKit" */;
-			productName = ReusableKit;
-		};
-		9C59C2F324B190BA00402BC5 /* RxReusableKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C59C2F024B190BA00402BC5 /* XCRemoteSwiftPackageReference "ReusableKit" */;
-			productName = RxReusableKit;
-		};
 		9C59C2F624B190E700402BC5 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9C59C2F524B190E700402BC5 /* XCRemoteSwiftPackageReference "RxDataSources" */;
@@ -660,6 +665,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9CB525A324B05D15005CEFEA /* XCRemoteSwiftPackageReference "RxViewController" */;
 			productName = RxViewController;
+		};
+		9CBCE9F5256A6E9B00308C64 /* Reusable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CBCE9F4256A6E9B00308C64 /* XCRemoteSwiftPackageReference "Reusable" */;
+			productName = Reusable;
+		};
+		9CBCE9FA256A6F4000308C64 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		9CBCE9FC256A6F4000308C64 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		9CBCE9FE256A6F4000308C64 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
 		};
 		9CEE727924AADBEC00F649EC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

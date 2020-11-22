@@ -119,12 +119,12 @@
         }
       },
       {
-        "package": "ReusableKit",
-        "repositoryURL": "https://github.com/devxoul/ReusableKit",
+        "package": "Reusable",
+        "repositoryURL": "https://github.com/AliSoftware/Reusable",
         "state": {
           "branch": null,
-          "revision": "9a5756ba41f7a864ff0738c21876d52b9e67eec7",
-          "version": "3.0.0"
+          "revision": "86cd17aa27e80d20bfe2ea57dd08958cf64664f4",
+          "version": "4.1.1"
         }
       },
       {
@@ -210,7 +210,7 @@
       },
       {
         "package": "RxSwift",
-        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
         "state": {
           "branch": null,
           "revision": "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
