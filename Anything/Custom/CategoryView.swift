@@ -48,7 +48,7 @@ class CategoryView: UIView {
             v.font = UIFont.sdgothicneo(size: 14, weight: .bold)
             v.textAlignment = .right
         }.layout(self) { m in
-            m.left.equalTo(imageViewIcon.snp.right).offset(8)
+            m.left.equalTo(imageViewIcon.snp.right).offset(0)
             m.right.equalToSuperview().inset(8)
             m.centerY.equalToSuperview()
         }
