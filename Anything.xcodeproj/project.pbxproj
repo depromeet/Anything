@@ -36,6 +36,9 @@
 		9C95E3722543D2930028FDFD /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E3712543D2930028FDFD /* CircularView.swift */; };
 		9C95E3752543D2DD0028FDFD /* ProModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; };
 		9C95E3762543D2DD0028FDFD /* ProModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9C9FEA21256A3DA10071DC86 /* SpinningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA20256A3DA10071DC86 /* SpinningViewController.swift */; };
+		9C9FEA23256A3DF40071DC86 /* SpinningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */; };
+		9C9FEA25256A43520071DC86 /* RxSwift+Previous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */; };
 		9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4342542FF89008AD754 /* AppDelegate.swift */; };
 		9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4362542FF89008AD754 /* SceneDelegate.swift */; };
 		9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4382542FF89008AD754 /* MainViewController.swift */; };
@@ -86,6 +89,9 @@
 		9C8DCD472557DD18001F8F56 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9C95E3712543D2930028FDFD /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		9C95E3742543D2DD0028FDFD /* ProModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C9FEA20256A3DA10071DC86 /* SpinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningViewController.swift; sourceTree = "<group>"; };
+		9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningViewModel.swift; sourceTree = "<group>"; };
+		9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+Previous.swift"; sourceTree = "<group>"; };
 		9CE8F4312542FF89008AD754 /* Anything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anything.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4342542FF89008AD754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE8F4362542FF89008AD754 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 				9C2AF7382560DF06007F3FAE /* UIFont+Custom.swift */,
 				9C2AF7392560DF06007F3FAE /* UIView+Tap.swift */,
 				9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */,
+				9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -205,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				9C8DCD4A2557DD45001F8F56 /* Main */,
+				9C9FEA1E256A3D660071DC86 /* Spinning */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -224,6 +232,15 @@
 				9C95E3742543D2DD0028FDFD /* ProModule.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C9FEA1E256A3D660071DC86 /* Spinning */ = {
+			isa = PBXGroup;
+			children = (
+				9C9FEA20256A3DA10071DC86 /* SpinningViewController.swift */,
+				9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */,
+			);
+			path = Spinning;
 			sourceTree = "<group>";
 		};
 		9CE8F4282542FF89008AD754 = {
@@ -335,6 +352,7 @@
 				9C2AF73E2560DF06007F3FAE /* UIFont+Custom.swift in Sources */,
 				9C2437C2255F5EBA00EB9C38 /* BaseViewModel.swift in Sources */,
 				9C2AF7292560DE4A007F3FAE /* AnythingAPI.swift in Sources */,
+				9C9FEA23256A3DF40071DC86 /* SpinningViewModel.swift in Sources */,
 				9C2AF73F2560DF06007F3FAE /* UIView+Tap.swift in Sources */,
 				9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */,
 				9C2AF7402560DF06007F3FAE /* CALayer+SketchSahdow.swift in Sources */,
@@ -350,9 +368,11 @@
 				9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */,
 				9C8DCD482557DD18001F8F56 /* Category.swift in Sources */,
 				9C2AF74A2560E519007F3FAE /* Distance.swift in Sources */,
+				9C9FEA21256A3DA10071DC86 /* SpinningViewController.swift in Sources */,
 				9C2AF7452560DF44007F3FAE /* NavigationBar.swift in Sources */,
 				9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */,
 				9C2AF7412560DF06007F3FAE /* Array+Subscript.swift in Sources */,
+				9C9FEA25256A43520071DC86 /* RxSwift+Previous.swift in Sources */,
 				9C2AF74E2560ECEC007F3FAE /* LocationService.swift in Sources */,
 				9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */,
 				9C2AF7362560DECA007F3FAE /* Restaurant.swift in Sources */,
