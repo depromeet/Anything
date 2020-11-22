@@ -15,6 +15,8 @@ import UIKit
 class SpinningViewController: BaseViewController, View {
     typealias ViewModelType = SpinningViewModel
 
+    private var imageViewEdit: UIImageView!
+
     private var circularView: CircularView!
     private var viewAnimate: UIImageView!
     private var viewCategories: [CategoryView]!
@@ -71,14 +73,46 @@ extension SpinningViewController {
     private func layoutContent(parent: UIView) {
         view.backgroundColor = .clear
 
-        let imageViewBackground = UIImageView(image: #imageLiteral(resourceName: "image_main_background")).layout(parent) { m in
+        UIImageView(image: #imageLiteral(resourceName: "image_main_background")).layout(parent) { m in
             m.top.left.right.equalToSuperview()
         }
 
-        circularView = CircularView().layout(parent) { m in
-            m.top.equalTo(imageViewBackground.snp.bottom)
-            m.centerX.equalToSuperview()
-            m.width.height.equalTo(325)
+        let viewTitle = UIView().layout(parent) { m in
+            m.top.left.right.equalToSuperview()
+            m.height.equalToSuperview().multipliedBy(0.15)
+        }
+        UIView().then { v in
+            let labelTitle = UILabel().then { v in
+                v.text = "오늘 뭐먹지?"
+                v.font = UIFont.sdgothicneo(size: 30, weight: .heavy)
+                v.textColor = .white
+            }.layout(v) { m in
+                m.top.equalToSuperview().inset(3)
+                m.bottom.equalToSuperview()
+                m.left.equalToSuperview()
+            }
+            imageViewEdit = UIImageView(image: #imageLiteral(resourceName: "btn_edit")).then { v in
+                v.contentMode = .scaleAspectFit
+            }.layout(v) { m in
+                m.top.right.bottom.equalToSuperview()
+                m.left.equalTo(labelTitle.snp.right).offset(10)
+                m.width.height.equalTo(40)
+            }
+        }.layout(viewTitle) { m in
+            m.center.equalToSuperview()
+        }
+
+        let viewCenter = UIView().layout(parent) { m in
+            m.top.equalTo(viewTitle.snp.bottom)
+            m.left.right.equalToSuperview()
+        }
+        circularView = CircularView()
+        circularView.layout(viewCenter) { m in
+            m.top.greaterThanOrEqualToSuperview()
+            m.bottom.lessThanOrEqualToSuperview()
+            m.left.right.equalToSuperview().inset(25)
+            m.centerY.equalToSuperview()
+            m.height.equalTo(circularView.snp.width)
         }
         UIImageView(image: #imageLiteral(resourceName: "btn_start_disabled")).layout(parent) { m in
             m.center.equalTo(circularView)
@@ -92,6 +126,7 @@ extension SpinningViewController {
         let viewBottom = UIView().then { v in
             v.backgroundColor = 0x141414.color
         }.layout(parent) { m in
+            m.top.equalTo(viewCenter.snp.bottom)
             m.left.right.equalToSuperview()
             m.bottom.equalTo(parent.safeAreaLayoutGuide)
         }
