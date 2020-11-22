@@ -82,8 +82,14 @@ extension MainViewController {
         }.layout(parent) { m in
             m.edges.equalTo(parent.safeAreaLayoutGuide)
         }
+        let labelTitle = UILabel().then { v in
+            v.text = "서울 관악구 신림동 538"
+            v.textColor = .white
+            v.font = .sdgothicneo(size: 17, weight: .medium)
+            v.textAlignment = .center
+        }
         viewNavigation = NavigationBar(
-            title: "서울 관악구 신림동 538"
+            titleView: labelTitle
         ).then { v in
             v.backgroundColor = 0x141414.color
         }.layout(parent) { m in

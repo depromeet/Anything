@@ -12,47 +12,48 @@ import UIKit
 
 class NavigationBar: UIView {
     init(
-        title: String? = nil,
+        titleView: UIView? = nil,
         leftView: UIView? = nil,
         rightViews: [UIView] = []
     ) {
         super.init(frame: .zero)
-        setupViews(title: title, leftView: leftView, rightViews: rightViews)
+        setupViews(titleView: titleView, leftView: leftView, rightViews: rightViews)
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    let labelTitle = UILabel().then {
-        $0.textColor = .white
-        $0.font = UIFont(name: "AppleSDGothicNeo-Heavy", size: 30)
-        $0.textAlignment = .center
-    }
-
-    let stackViewRight = UIStackView().then {
+    private let stackViewRight = UIStackView().then {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
     }
 
     func setupViews(
-        title: String?,
+        titleView: UIView?,
         leftView: UIView?,
         rightViews: [UIView]
     ) {
+        if let title = titleView {
+            addSubview(title)
+            title.snp.makeConstraints {
+                $0.top.bottom.equalToSuperview()
+                $0.leading.trailing.equalToSuperview().inset(60)
+            }
+        }
         if let left = leftView {
             addSubview(left)
             left.snp.makeConstraints {
-                $0.top.bottom.equalToSuperview().inset(4)
-                $0.leading.equalToSuperview().inset(12)
+                $0.top.bottom.equalToSuperview().inset(7)
+                $0.leading.equalToSuperview().inset(20)
                 $0.width.equalTo(left.snp.height)
             }
         }
         if !rightViews.isEmpty {
             addSubview(stackViewRight)
             stackViewRight.snp.makeConstraints {
-                $0.top.bottom.equalToSuperview().inset(4)
-                $0.trailing.equalToSuperview().inset(12)
+                $0.top.bottom.equalToSuperview().inset(7)
+                $0.trailing.equalToSuperview().inset(20)
             }
             for rightView in rightViews {
                 stackViewRight.addArrangedSubview(rightView)
@@ -60,12 +61,6 @@ class NavigationBar: UIView {
                     $0.width.equalTo(rightView.snp.height)
                 }
             }
-        }
-        labelTitle.text = title
-        addSubview(labelTitle)
-        labelTitle.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(49)
-            $0.centerY.equalToSuperview()
         }
     }
 }
