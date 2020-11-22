@@ -42,6 +42,10 @@
 		9CBCE9E2256A653100308C64 /* AppleSDGothicNeo.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */; };
 		9CBCE9E4256A655C00308C64 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */; };
 		9CBCE9E7256A65C100308C64 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E6256A65C100308C64 /* CategoryViewController.swift */; };
+		9CBCE9EF256A69B900308C64 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9EE256A69B900308C64 /* BaseTableViewCell.swift */; };
+		9CBCE9F3256A6D8400308C64 /* ResizableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9F2256A6D8400308C64 /* ResizableTableView.swift */; };
+		9CBCEA02256A709A00308C64 /* Reusable+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA01256A709A00308C64 /* Reusable+Rx.swift */; };
+		9CBCEA04256A716700308C64 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA03256A716700308C64 /* PaddingLabel.swift */; };
 		9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4342542FF89008AD754 /* AppDelegate.swift */; };
 		9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4362542FF89008AD754 /* SceneDelegate.swift */; };
 		9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4382542FF89008AD754 /* MainViewController.swift */; };
@@ -98,6 +102,10 @@
 		9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeo.ttc; sourceTree = "<group>"; };
 		9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		9CBCE9E6256A65C100308C64 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		9CBCE9EE256A69B900308C64 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		9CBCE9F2256A6D8400308C64 /* ResizableTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizableTableView.swift; sourceTree = "<group>"; };
+		9CBCEA01256A709A00308C64 /* Reusable+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+Rx.swift"; sourceTree = "<group>"; };
+		9CBCEA03256A716700308C64 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		9CE8F4312542FF89008AD754 /* Anything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anything.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4342542FF89008AD754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE8F4362542FF89008AD754 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 			children = (
 				9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */,
 				9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */,
+				9CBCE9EE256A69B900308C64 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 				9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */,
 				9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */,
 				9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */,
+				9CBCEA01256A709A00308C64 /* Reusable+Rx.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -199,6 +209,8 @@
 				9C2AF7432560DF44007F3FAE /* NavigationBar.swift */,
 				9C2AF7442560DF44007F3FAE /* CategoryView.swift */,
 				9C95E3712543D2930028FDFD /* CircularView.swift */,
+				9CBCE9F2256A6D8400308C64 /* ResizableTableView.swift */,
+				9CBCEA03256A716700308C64 /* PaddingLabel.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -338,7 +350,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = Soso;
 				TargetAttributes = {
 					9CE8F4302542FF89008AD754 = {
@@ -402,8 +414,10 @@
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
 				9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */,
 				9C8DCD482557DD18001F8F56 /* Category.swift in Sources */,
+				9CBCEA02256A709A00308C64 /* Reusable+Rx.swift in Sources */,
 				9C2AF74A2560E519007F3FAE /* Distance.swift in Sources */,
 				9C9FEA21256A3DA10071DC86 /* SpinningViewController.swift in Sources */,
+				9CBCE9EF256A69B900308C64 /* BaseTableViewCell.swift in Sources */,
 				9C2AF7452560DF44007F3FAE /* NavigationBar.swift in Sources */,
 				9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */,
 				9C2AF7412560DF06007F3FAE /* Array+Subscript.swift in Sources */,
@@ -413,7 +427,9 @@
 				9C2AF7362560DECA007F3FAE /* Restaurant.swift in Sources */,
 				9C2AF72F2560DE6E007F3FAE /* Logger.swift in Sources */,
 				9CBCE9E7256A65C100308C64 /* CategoryViewController.swift in Sources */,
+				9CBCE9F3256A6D8400308C64 /* ResizableTableView.swift in Sources */,
 				9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */,
+				9CBCEA04256A716700308C64 /* PaddingLabel.swift in Sources */,
 				9C2437C5255F5F6000EB9C38 /* PresentableType.swift in Sources */,
 				9C2AF7352560DECA007F3FAE /* List.swift in Sources */,
 				9C2AF7462560DF44007F3FAE /* CategoryView.swift in Sources */,
@@ -460,6 +476,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -520,6 +537,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
