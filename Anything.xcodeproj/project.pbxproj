@@ -40,6 +40,7 @@
 		9C9FEA23256A3DF40071DC86 /* SpinningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */; };
 		9C9FEA25256A43520071DC86 /* RxSwift+Previous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */; };
 		9CBCE9E2256A653100308C64 /* AppleSDGothicNeo.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */; };
+		9CBCE9E4256A655C00308C64 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */; };
 		9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4342542FF89008AD754 /* AppDelegate.swift */; };
 		9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4362542FF89008AD754 /* SceneDelegate.swift */; };
 		9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4382542FF89008AD754 /* MainViewController.swift */; };
@@ -94,6 +95,7 @@
 		9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningViewModel.swift; sourceTree = "<group>"; };
 		9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+Previous.swift"; sourceTree = "<group>"; };
 		9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeo.ttc; sourceTree = "<group>"; };
+		9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		9CE8F4312542FF89008AD754 /* Anything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anything.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4342542FF89008AD754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE8F4362542FF89008AD754 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				9C2AF7392560DF06007F3FAE /* UIView+Tap.swift */,
 				9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */,
 				9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */,
+				9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				9C2437C2255F5EBA00EB9C38 /* BaseViewModel.swift in Sources */,
 				9C2AF7292560DE4A007F3FAE /* AnythingAPI.swift in Sources */,
 				9C9FEA23256A3DF40071DC86 /* SpinningViewModel.swift in Sources */,
+				9CBCE9E4256A655C00308C64 /* NSAttributedString.swift in Sources */,
 				9C2AF73F2560DF06007F3FAE /* UIView+Tap.swift in Sources */,
 				9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */,
 				9C2AF7402560DF06007F3FAE /* CALayer+SketchSahdow.swift in Sources */,
