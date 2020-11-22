@@ -41,6 +41,7 @@
 		9C9FEA25256A43520071DC86 /* RxSwift+Previous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */; };
 		9CBCE9E2256A653100308C64 /* AppleSDGothicNeo.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */; };
 		9CBCE9E4256A655C00308C64 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */; };
+		9CBCE9E7256A65C100308C64 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E6256A65C100308C64 /* CategoryViewController.swift */; };
 		9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4342542FF89008AD754 /* AppDelegate.swift */; };
 		9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4362542FF89008AD754 /* SceneDelegate.swift */; };
 		9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4382542FF89008AD754 /* MainViewController.swift */; };
@@ -96,6 +97,7 @@
 		9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+Previous.swift"; sourceTree = "<group>"; };
 		9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeo.ttc; sourceTree = "<group>"; };
 		9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
+		9CBCE9E6256A65C100308C64 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		9CE8F4312542FF89008AD754 /* Anything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anything.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4342542FF89008AD754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE8F4362542FF89008AD754 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				9C8DCD4A2557DD45001F8F56 /* Main */,
 				9C9FEA1E256A3D660071DC86 /* Spinning */,
+				9CBCE9E5256A65AC00308C64 /* Category */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -262,6 +265,14 @@
 				9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		9CBCE9E5256A65AC00308C64 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				9CBCE9E6256A65C100308C64 /* CategoryViewController.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		9CE8F4282542FF89008AD754 = {
@@ -401,6 +412,7 @@
 				9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */,
 				9C2AF7362560DECA007F3FAE /* Restaurant.swift in Sources */,
 				9C2AF72F2560DE6E007F3FAE /* Logger.swift in Sources */,
+				9CBCE9E7256A65C100308C64 /* CategoryViewController.swift in Sources */,
 				9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */,
 				9C2437C5255F5F6000EB9C38 /* PresentableType.swift in Sources */,
 				9C2AF7352560DECA007F3FAE /* List.swift in Sources */,

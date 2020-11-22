@@ -16,6 +16,7 @@ class MainViewController: BaseViewController, View {
     typealias ViewModelType = MainViewModel
 
     private var spinning = SpinningViewController()
+    private var category = CategoryViewController()
 
     private var viewNavigation: UIView!
     private var viewContainer: UIView!
@@ -54,13 +55,17 @@ class MainViewController: BaseViewController, View {
 extension MainViewController {
     func bindChilds(viewModel: ViewModelType) {
         spinning.viewModel = .init(serviceProvider: viewModel.serviceProvider)
+        spinning.imageViewEdit.whenTapped()
+            .map { _ in .category }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
 
         viewModel.selectedChild
             .map { [weak self] tab -> UIViewController in
                 guard let self = self else { return .init() }
                 switch tab {
                 case .spinning: return self.spinning
-                case .category: return .init()
+                case .category: return self.category
                 }
             }
             .withPrevious()

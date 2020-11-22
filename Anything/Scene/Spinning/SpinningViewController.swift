@@ -15,7 +15,7 @@ import UIKit
 class SpinningViewController: BaseViewController, View {
     typealias ViewModelType = SpinningViewModel
 
-    private var imageViewEdit: UIImageView!
+    var imageViewEdit: UIImageView!
 
     private var circularView: CircularView!
     private var viewAnimate: UIImageView!
