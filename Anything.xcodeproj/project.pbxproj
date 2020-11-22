@@ -39,6 +39,7 @@
 		9C9FEA21256A3DA10071DC86 /* SpinningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA20256A3DA10071DC86 /* SpinningViewController.swift */; };
 		9C9FEA23256A3DF40071DC86 /* SpinningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */; };
 		9C9FEA25256A43520071DC86 /* RxSwift+Previous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */; };
+		9CBCE9E2256A653100308C64 /* AppleSDGothicNeo.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */; };
 		9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4342542FF89008AD754 /* AppDelegate.swift */; };
 		9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4362542FF89008AD754 /* SceneDelegate.swift */; };
 		9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4382542FF89008AD754 /* MainViewController.swift */; };
@@ -92,6 +93,7 @@
 		9C9FEA20256A3DA10071DC86 /* SpinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningViewController.swift; sourceTree = "<group>"; };
 		9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningViewModel.swift; sourceTree = "<group>"; };
 		9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+Previous.swift"; sourceTree = "<group>"; };
+		9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeo.ttc; sourceTree = "<group>"; };
 		9CE8F4312542FF89008AD754 /* Anything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anything.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4342542FF89008AD754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE8F4362542FF89008AD754 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,9 +247,18 @@
 		9CBCE9DA256A64DD00308C64 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9CBCE9E0256A653100308C64 /* Font */,
 				9CE8F43D2542FF89008AD754 /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		9CBCE9E0256A653100308C64 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		9CE8F4282542FF89008AD754 = {
@@ -345,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CE8F4412542FF89008AD754 /* LaunchScreen.storyboard in Resources */,
+				9CBCE9E2256A653100308C64 /* AppleSDGothicNeo.ttc in Resources */,
 				9CE8F43E2542FF89008AD754 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -62,5 +62,9 @@
 	<string>위치 정보를 요청합니다.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>위치 정보를 요청합니다.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AppleSDGothicNeo.ttc</string>
+	</array>
 </dict>
 </plist>
