@@ -87,7 +87,7 @@ extension SpinningViewController {
                 m.bottom.equalToSuperview()
                 m.left.equalToSuperview()
             }
-            imageViewEdit = UIImageView(image: #imageLiteral(resourceName: "btn_edit")).then { v in
+            imageViewEdit = UIImageView(image: #imageLiteral(resourceName: "btn_slice")).then { v in
                 v.contentMode = .scaleAspectFit
             }.layout(v) { m in
                 m.top.right.bottom.equalToSuperview()
