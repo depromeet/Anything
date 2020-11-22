@@ -28,10 +28,23 @@ extension CategoryViewController {
             m.top.left.right.equalToSuperview()
             m.height.equalToSuperview().multipliedBy(0.15)
         }
-        UILabel().then { v in
-            v.text = "돌림판 편집"
-            v.font = UIFont.sdgothicneo(size: 30, weight: .heavy)
-            v.textColor = .white
+        UIView().then { v in
+            let labelTitle = UILabel().then { v in
+                v.text = "오늘 뭐먹지?"
+                v.font = UIFont.sdgothicneo(size: 30, weight: .heavy)
+                v.textColor = .white
+            }.layout(v) { m in
+                m.top.equalToSuperview().inset(3)
+                m.bottom.equalToSuperview()
+                m.left.equalToSuperview()
+            }
+            UIImageView(image: #imageLiteral(resourceName: "btn_edit")).then { v in
+                v.contentMode = .scaleAspectFit
+            }.layout(v) { m in
+                m.top.right.bottom.equalToSuperview()
+                m.left.equalTo(labelTitle.snp.right).offset(10)
+                m.width.height.equalTo(40)
+            }
         }.layout(viewTitle) { m in
             m.center.equalToSuperview()
         }
