@@ -24,10 +24,6 @@ extension CategoryViewController {
     private func layoutContent(parent: UIView) {
         view.backgroundColor = .clear
 
-        UIImageView(image: #imageLiteral(resourceName: "image_main_background")).layout(parent) { m in
-            m.top.left.right.equalToSuperview()
-        }
-
         let viewTitle = UIView().layout(parent) { m in
             m.top.left.right.equalToSuperview()
             m.height.equalToSuperview().multipliedBy(0.15)
