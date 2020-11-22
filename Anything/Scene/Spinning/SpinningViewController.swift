@@ -131,7 +131,7 @@ extension SpinningViewController {
 
     private func layoutBottom(parent: UIView) {
         let labelTitle = UILabel().then { v in
-            v.text = "바로가기"
+            v.text = "카테고리"
             v.font = .sdgothicneo(size: 18, weight: .bold)
             v.textColor = .rgbFFFFFF
         }.layout(parent) { m in
