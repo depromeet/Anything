@@ -61,12 +61,12 @@ class SpinningViewModel: BaseViewModel {
                 case .animate:
                     guard !isAnimating.value else { return }
 
-                    let total = 500
+                    let total = 100
                     let angle = 360 / categories.value.count
                     let start = Float(currentIndex.value * angle)
                     let random = Float.random(in: 0 ... 360)
                     Observable<Int>
-                        .interval(.milliseconds(10), scheduler: MainScheduler.instance).take(total)
+                        .interval(.milliseconds(50), scheduler: MainScheduler.instance).take(total)
                         .map { value -> Float in
                             Cubic.EaseOut(Float(value), start, 360 * 5 - start + random, Float(total))
                         }
