@@ -18,7 +18,7 @@ enum Category: String, CaseIterable {
         case .중식: return #imageLiteral(resourceName: "ic_china_bl_44pt")
         case .분식: return #imageLiteral(resourceName: "ic_schoolfood_bl_44pt")
         case .일식: return #imageLiteral(resourceName: "ic_japan_bl_44pt")
-        case .그외: return #imageLiteral(resourceName: "ic_taco_bl_44pt")
+        case .그외: return #imageLiteral(resourceName: "ic_asia_bl_44pt")
         }
     }
 
@@ -29,7 +29,7 @@ enum Category: String, CaseIterable {
         case .중식: return #imageLiteral(resourceName: "ic_china_wh_44pt")
         case .분식: return #imageLiteral(resourceName: "ic_schoolfood_wh_44pt")
         case .일식: return #imageLiteral(resourceName: "ic_japan_wh_44pt")
-        case .그외: return #imageLiteral(resourceName: "ic_taco_wh_44pt")
+        case .그외: return #imageLiteral(resourceName: "ic_asia_wh_44pt")
         }
     }
     
@@ -40,7 +40,7 @@ enum Category: String, CaseIterable {
         case .중식: return #imageLiteral(resourceName: "ic_china_bl_26pt")
         case .분식: return #imageLiteral(resourceName: "ic_schoolfood_bl_26pt")
         case .일식: return #imageLiteral(resourceName: "ic_japan_bl_26pt")
-        case .그외: return #imageLiteral(resourceName: "ic_taco_bl_26pt")
+        case .그외: return #imageLiteral(resourceName: "ic_asia_bl_26pt")
         }
     }
 
