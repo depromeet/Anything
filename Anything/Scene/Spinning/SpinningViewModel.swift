@@ -14,6 +14,7 @@ import RxSwift
 
 enum SpinningAction {
     case animate
+    case changeDistance
     case selectCategory(Int)
     case setCategories([Category])
 }
@@ -77,6 +78,14 @@ class SpinningViewModel: BaseViewModel {
                         })
                         .bind(to: currentIndex)
                         .disposed(by: self.disposeBag)
+                case .changeDistance:
+                    let vc = DistanceViewController(distances: Distance.allCases, selectedDistance: distance.value)
+                    vc.rx.itemSelected
+                        .distinctUntilChanged()
+                        .compactMap { Distance.allCases[safe: $0.row] }
+                        .bind(to: distance)
+                        .disposed(by: vc.disposeBag)
+                    self.presentable.accept(.panModal(vc))
                 case let .selectCategory(index):
                     print(index)
                 case let .setCategories(newCategories):
@@ -87,7 +96,7 @@ class SpinningViewModel: BaseViewModel {
             .disposed(by: disposeBag)
 
         Observable
-            .combineLatest(location.filterNil(), distance)
+            .combineLatest(location.filterNil(), distance.distinctUntilChanged())
             .flatMap { location, distance in
                 Single.zip(Category.allCases.map { category in
                     serviceProvider.networkService

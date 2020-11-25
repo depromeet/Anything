@@ -59,6 +59,15 @@ extension SpinningViewController {
     }
 
     func bindInfo(viewModel: ViewModelType) {
+        viewModel.distance
+            .map { $0.titleText }
+            .bind(to: labelDistance.rx.text)
+            .disposed(by: disposeBag)
+
+        viewDistance.whenTapped()
+            .map { _ in .changeDistance }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
         viewCategories.enumerated().forEach { index, view in
             viewModel.categoriesCount
                 .compactMap { $0[safe: index] }
