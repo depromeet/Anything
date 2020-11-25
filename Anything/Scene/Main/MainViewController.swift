@@ -18,7 +18,8 @@ class MainViewController: BaseViewController, View {
     private var spinning = SpinningViewController()
     private var category = CategoryViewController()
 
-    private var viewNavigation: UIView!
+    private var viewTitle: UIView!
+    private var viewBlacklist: UIView!
     private var viewContainer: UIView!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -94,21 +95,41 @@ extension MainViewController {
         }.layout(parent) { m in
             m.edges.equalTo(parent.safeAreaLayoutGuide)
         }
-        let labelTitle = UILabel().then { v in
-            v.text = "서울 관악구 신림동 538"
-            v.textColor = .white
-            v.font = .sdgothicneo(size: 17, weight: .medium)
-            v.textAlignment = .center
-        }
-        viewNavigation = NavigationBar(
-            titleView: labelTitle
-        ).then { v in
+
+        let viewNavigation = UIView().then { v in
             v.backgroundColor = 0x141414.color
+            viewTitle = UIView().then { v in
+                let labelTitle = UILabel().then { v in
+                    v.text = "서울 관악구 신림동 538"
+                    v.textColor = .white
+                    v.font = .sdgothicneo(size: 17, weight: .medium)
+                    v.textAlignment = .center
+                }.layout(v) { m in
+                    m.top.left.bottom.equalToSuperview()
+                }
+                UIImageView(image: #imageLiteral(resourceName: "ic_arrow_down_16")).then { v in
+                    v.contentMode = .scaleAspectFit
+                }.layout(v) { m in
+                    m.left.equalTo(labelTitle.snp.right).offset(4)
+                    m.right.centerY.equalToSuperview()
+                }
+            }.layout(v) { m in
+                m.left.equalToSuperview().inset(20)
+                m.centerY.equalToSuperview()
+            }
+            viewBlacklist = UIImageView(image: #imageLiteral(resourceName: "ic_blacklist")).then { v in
+                v.contentMode = .scaleAspectFit
+            }.layout(v) { m in
+                m.right.equalToSuperview().inset(20)
+                m.centerY.equalToSuperview()
+                m.width.height.equalTo(30)
+            }
         }.layout(parent) { m in
             m.top.equalTo(parent.safeAreaLayoutGuide)
             m.left.right.equalToSuperview()
             m.height.equalTo(44)
         }
+
         viewContainer = UIView().then { v in
             v.backgroundColor = .clear
         }.layout(parent) { m in
