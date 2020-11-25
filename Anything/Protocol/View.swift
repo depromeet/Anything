@@ -52,6 +52,8 @@ extension View where Self: BaseViewController {
                     self.present(vc, animated: true, completion: completion)
                 case let .dismiss(completion):
                     self.dismiss(animated: true, completion: completion)
+                case let .panModal(vc):
+                    self.presentPanModal(vc)
                 }
             })
             .disposed(by: disposeBag)
