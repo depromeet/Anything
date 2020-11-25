@@ -19,6 +19,9 @@ class SpinningViewController: BaseViewController, View {
 
     private var circularView: CircularView!
     private var viewAnimate: UIImageView!
+
+    private var viewDistance: UIView!
+    private var labelDistance: UILabel!
     private var viewCategories: [CategoryView]!
 
     override func layout(parent: UIView) {
@@ -137,6 +140,26 @@ extension SpinningViewController {
         }.layout(parent) { m in
             m.top.equalToSuperview().inset(22)
             m.left.equalToSuperview().inset(20)
+        }
+
+        viewDistance = UIView().then { v in
+            labelDistance = UILabel().then { v in
+                v.text = "도보 10분 이내"
+                v.textColor = .white
+                v.font = .sdgothicneo(size: 15, weight: .bold)
+                v.textAlignment = .center
+            }.layout(v) { m in
+                m.top.left.bottom.equalToSuperview()
+            }
+            UIImageView(image: #imageLiteral(resourceName: "ic_arrow_down_bold_16")).then { v in
+                v.contentMode = .scaleAspectFit
+            }.layout(v) { m in
+                m.left.equalTo(labelDistance.snp.right).offset(2)
+                m.right.centerY.equalToSuperview()
+            }
+        }.layout(parent) { m in
+            m.right.equalToSuperview().inset(20)
+            m.centerY.equalTo(labelTitle)
         }
 
         viewCategories = Category.allCases.map(CategoryView.init)
