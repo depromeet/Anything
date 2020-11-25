@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_arrow_down.png",
+      "filename" : "ic_pin_24.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_arrow_down@2x.png",
+      "filename" : "ic_pin_24@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_arrow_down@3x.png",
+      "filename" : "ic_pin_24@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
