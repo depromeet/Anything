@@ -22,9 +22,6 @@ class MainViewController: BaseViewController, View {
     private var viewBlacklist: UIView!
     private var viewContainer: UIView!
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 
     override func layout(parent: UIView) {
         layoutContent(parent: parent)

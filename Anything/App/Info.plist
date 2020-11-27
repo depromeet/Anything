@@ -20,6 +20,16 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NMFClientId</key>
+	<string>hpgmjs1loe</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>위치 정보를 요청합니다.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>위치 정보를 요청합니다.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AppleSDGothicNeo.ttc</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -44,7 +54,7 @@
 		<string>armv7</string>
 	</array>
 	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDefault</string>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -58,15 +68,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치 정보를 요청합니다.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>위치 정보를 요청합니다.</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>AppleSDGothicNeo.ttc</string>
-	</array>
-	<key>NMFClientId</key>
-	<string>hpgmjs1loe</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
