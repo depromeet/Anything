@@ -20,7 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let serviceProvider = ServiceProvider()
         let vc = MainViewController()
         vc.viewModel = MainViewModel(serviceProvider: serviceProvider)
-        window.rootViewController = vc
+        let navC = UINavigationController(rootViewController: vc)
+        navC.navigationBar.isOpaque = false
+        navC.navigationBar.isHidden = true
+        window.rootViewController = navC
         window.makeKeyAndVisible()
         self.window = window
     }
