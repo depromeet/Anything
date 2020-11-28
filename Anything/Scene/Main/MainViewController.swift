@@ -28,6 +28,7 @@ class MainViewController: BaseViewController, View {
     }
 
     func bind(viewModel: ViewModelType) {
+        bindNavigation(viewModel: viewModel)
         bindChilds(viewModel: viewModel)
         bindPresentable(viewModel: viewModel)
     }
@@ -51,6 +52,13 @@ class MainViewController: BaseViewController, View {
 }
 
 extension MainViewController {
+    func bindNavigation(viewModel: ViewModelType) {
+        viewTitle.whenTapped()
+            .map { _ in .address }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
+    }
+
     func bindChilds(viewModel: ViewModelType) {
         let spinningViewModel = SpinningViewModel(serviceProvider: viewModel.serviceProvider)
         spinning.viewModel = spinningViewModel

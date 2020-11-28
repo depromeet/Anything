@@ -11,7 +11,7 @@ import RxRelay
 import RxSwift
 
 enum MainAction {
-    case spinning, category
+    case address, spinning, category
 }
 
 enum MainTab {
@@ -35,8 +35,17 @@ class MainViewModel: BaseViewModel {
         super.init(serviceProvider: serviceProvider)
 
         actions
-            .subscribe(onNext: { action in
+            .subscribe(onNext: { [weak self] action in
+                guard let self = self else { return }
                 switch action {
+                case .address:
+                    let vc = AddressViewController()
+                    let viewModel = AddressViewModel(serviceProvider: serviceProvider)
+                    viewModel.onSelect = { newCoordinate in
+                        coordinate.accept(newCoordinate)
+                    }
+                    vc.viewModel = viewModel
+                    self.presentable.accept(.push(vc))
                 case .spinning:
                     selectedChild.accept(.spinning)
                 case .category:
