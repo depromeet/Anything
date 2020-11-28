@@ -58,6 +58,12 @@ extension MainViewController {
             .map { _ in .category }
             .bind(to: viewModel.actions)
             .disposed(by: disposeBag)
+        viewModel.coordinate
+            .filterNil()
+            .map { .setCoordinate($0) }
+            .bind(to: spinningViewModel.actions)
+            .disposed(by: disposeBag)
+        
         let categoryViewModel = CategoryViewModel(serviceProvider: viewModel.serviceProvider)
         categoryViewModel.onAction = { categories in
             spinningViewModel.actions.accept(.setCategories(categories))

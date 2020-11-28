@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RxCocoa
+import RxRelay
 import RxSwift
 
 enum MainAction {
@@ -23,9 +23,14 @@ class MainViewModel: BaseViewModel {
 
     let selectedChild: Observable<MainTab>
 
+    let coordinate: Observable<Coordinate?>
+
     override init(serviceProvider: ServiceProviderType) {
         let selectedChild = BehaviorRelay<MainTab>(value: .spinning)
         self.selectedChild = selectedChild.asObservable().distinctUntilChanged()
+
+        let coordinate = BehaviorRelay<Coordinate?>(value: nil)
+        self.coordinate = coordinate.asObservable()
 
         super.init(serviceProvider: serviceProvider)
 
@@ -38,6 +43,11 @@ class MainViewModel: BaseViewModel {
                     selectedChild.accept(.category)
                 }
             })
+            .disposed(by: disposeBag)
+
+        serviceProvider.locationService
+            .requestCoordinate()
+            .bind(to: coordinate)
             .disposed(by: disposeBag)
     }
 }

@@ -17,6 +17,7 @@ enum SpinningAction {
     case changeDistance
     case selectCategory(Int)
     case setCategories([Category])
+    case setCoordinate(Coordinate)
 }
 
 class SpinningViewModel: BaseViewModel {
@@ -31,7 +32,7 @@ class SpinningViewModel: BaseViewModel {
     let categoriesCount: Observable<[Int]>
 
     let distance: Observable<Distance>
-    let coordinate: Observable<Coordinate?>
+    let coordinate: Observable<Coordinate>
 
     override init(serviceProvider: ServiceProviderType) {
         let isAnimating = BehaviorRelay(value: false)
@@ -49,7 +50,7 @@ class SpinningViewModel: BaseViewModel {
 
         let distance = BehaviorRelay<Distance>(value: .nearest)
         self.distance = distance.asObservable()
-        let coordinate = BehaviorRelay<Coordinate?>(value: nil)
+        let coordinate = PublishRelay<Coordinate>()
         self.coordinate = coordinate.asObservable()
 
         super.init(serviceProvider: serviceProvider)
@@ -91,12 +92,14 @@ class SpinningViewModel: BaseViewModel {
                 case let .setCategories(newCategories):
                     guard newCategories.count > 1 else { return }
                     categories.accept(newCategories)
+                case let .setCoordinate(newCoordinate):
+                    coordinate.accept(newCoordinate)
                 }
             })
             .disposed(by: disposeBag)
 
         Observable
-            .combineLatest(coordinate.filterNil(), distance.distinctUntilChanged())
+            .combineLatest(coordinate, distance.distinctUntilChanged())
             .flatMap { coordinate, distance in
                 Single.zip(Category.allCases.map { category in
                     serviceProvider.networkService
@@ -114,11 +117,6 @@ class SpinningViewModel: BaseViewModel {
                 categoriesList.accept(locations)
                 categoriesCount.accept(counts)
             })
-            .disposed(by: disposeBag)
-
-        serviceProvider.locationService
-            .requestCoordinate()
-            .bind(to: coordinate)
             .disposed(by: disposeBag)
     }
 }
