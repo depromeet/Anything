@@ -9,6 +9,16 @@
 import UIKit
 
 extension UIFont {
+    static var h1: UIFont? = sdgothicneo(size: 30, weight: .black)
+    static var h2: UIFont? = sdgothicneo(size: 20, weight: .bold)
+    static var subtitle1: UIFont? = sdgothicneo(size: 18, weight: .bold)
+    static var subtitle2: UIFont? = sdgothicneo(size: 17, weight: .medium)
+    static var subtitle3: UIFont? = sdgothicneo(size: 17, weight: .bold)
+    static var body1: UIFont? = sdgothicneo(size: 15, weight: .regular)
+    static var body2: UIFont? = sdgothicneo(size: 15, weight: .bold)
+    static var caption1: UIFont? = sdgothicneo(size: 12, weight: .medium)
+    static var caption2: UIFont? = sdgothicneo(size: 12, weight: .bold)
+
     static func sdgothicneo(size: CGFloat, weight: Weight) -> UIFont? {
         switch weight {
         case .thin:
