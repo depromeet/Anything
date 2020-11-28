@@ -15,11 +15,6 @@ import RxSwift
 protocol NetworkServiceType {
     func request<T: Decodable>(
         _ target: AnythingAPI,
-        onSuccess: @escaping ((T) -> Void),
-        onError: ((Error) -> Void)?
-    )
-    func request<T: Decodable>(
-        _ target: AnythingAPI,
         type: T.Type,
         _ file: StaticString,
         _ function: StaticString,
@@ -35,29 +30,6 @@ class NetworkService: BaseService, NetworkServiceType {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
-
-    /// 기본 API 호출 메소드
-    /// - Parameters:
-    ///   - target: 호출할 API 예) HoneyPotAPI.user
-    ///   - onSuccess: 성공 콜백
-    ///   - onError: 실패 콜백
-    func request<T: Decodable>(
-        _ target: AnythingAPI,
-        onSuccess: @escaping ((T) -> Void),
-        onError: ((Error) -> Void)?
-    ) {
-        networkProvider.rx.request(target)
-            .map(T.self, using: decoder)
-            .subscribe(
-                onSuccess: { data in
-                    onSuccess(data)
-                },
-                onError: { error in
-                    onError?(error)
-                }
-            )
-            .disposed(by: disposeBag)
-    }
 
     func request<T: Decodable>(
         _ target: AnythingAPI,
