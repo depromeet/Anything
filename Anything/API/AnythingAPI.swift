@@ -11,7 +11,7 @@ import Moya
 import MoyaSugar
 
 enum AnythingAPI {
-    case search(String, Double, Double, Int, Int)
+    case search(String, Double?, Double?, Int?, Int)
 }
 
 extension AnythingAPI: SugarTargetType {
@@ -30,15 +30,19 @@ extension AnythingAPI: SugarTargetType {
     var parameters: Parameters? {
         switch self {
         case let .search(keyword, latitude, longitude, radius, page):
-            let values: [String: Any] = [
+            var values: [String: Any] = [
                 "query": keyword,
-                "x": longitude,
-                "y": latitude,
                 "page": page,
-                "radius": radius,
                 "size": 15,
             ]
-            return .init(encoding: URLEncoding(), values: values)
+            if let latitude = latitude,
+               let longitude = longitude,
+               let radius = radius {
+                values["x"] = longitude
+                values["y"] = latitude
+                values["radius"] = radius
+            }
+            return .init(encoding: URLEncoding.default, values: values)
         }
     }
 
