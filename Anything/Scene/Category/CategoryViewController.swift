@@ -113,6 +113,7 @@ extension CategoryViewController {
 
     private func layoutBottom(parent: UIView) {
         buttonCancel = UILabel().then { v in
+            v.font = .subtitle3
             v.text = "취소"
             v.textColor = .white
             v.textAlignment = .center
@@ -123,6 +124,7 @@ extension CategoryViewController {
             v.layer.borderWidth = 1
         }
         buttonSave = UILabel().then { v in
+            v.font = .subtitle3
             v.text = "저장"
             v.textColor = .white
             v.textAlignment = .center
