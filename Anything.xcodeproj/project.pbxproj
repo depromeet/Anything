@@ -51,6 +51,9 @@
 		9CBCEA04256A716700308C64 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA03256A716700308C64 /* PaddingLabel.swift */; };
 		9CBCEA06256A892800308C64 /* CategoryOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA05256A892800308C64 /* CategoryOptionCell.swift */; };
 		9CBCEA08256A897400308C64 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA07256A897400308C64 /* CategoryViewModel.swift */; };
+		9CE2A8282571ECBA00ACD7E5 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2A8262571ECBA00ACD7E5 /* AddressViewModel.swift */; };
+		9CE2A8292571ECBA00ACD7E5 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2A8272571ECBA00ACD7E5 /* AddressViewController.swift */; };
+		9CE2A82B2571EE3200ACD7E5 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2A82A2571EE3200ACD7E5 /* AddressCell.swift */; };
 		9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4342542FF89008AD754 /* AppDelegate.swift */; };
 		9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4362542FF89008AD754 /* SceneDelegate.swift */; };
 		9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F4382542FF89008AD754 /* MainViewController.swift */; };
@@ -118,6 +121,9 @@
 		9CBCEA03256A716700308C64 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		9CBCEA05256A892800308C64 /* CategoryOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryOptionCell.swift; sourceTree = "<group>"; };
 		9CBCEA07256A897400308C64 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		9CE2A8262571ECBA00ACD7E5 /* AddressViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		9CE2A8272571ECBA00ACD7E5 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		9CE2A82A2571EE3200ACD7E5 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		9CE8F4312542FF89008AD754 /* Anything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anything.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE8F4342542FF89008AD754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE8F4362542FF89008AD754 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 				9C8DCD4A2557DD45001F8F56 /* Main */,
 				9C9FEA1E256A3D660071DC86 /* Spinning */,
 				9CBCE9E5256A65AC00308C64 /* Category */,
+				9CE2A8252571ECBA00ACD7E5 /* Address */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -303,6 +310,16 @@
 				9CBCEA05256A892800308C64 /* CategoryOptionCell.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		9CE2A8252571ECBA00ACD7E5 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				9CE2A8272571ECBA00ACD7E5 /* AddressViewController.swift */,
+				9CE2A8262571ECBA00ACD7E5 /* AddressViewModel.swift */,
+				9CE2A82A2571EE3200ACD7E5 /* AddressCell.swift */,
+			);
+			path = Address;
 			sourceTree = "<group>";
 		};
 		9CE8F4282542FF89008AD754 = {
@@ -484,6 +501,7 @@
 				9CE8F4372542FF89008AD754 /* SceneDelegate.swift in Sources */,
 				9C2AF73D2560DF06007F3FAE /* Global.swift in Sources */,
 				9C31FE82256E8ABF0009AE9A /* DistanceCell.swift in Sources */,
+				9CE2A8292571ECBA00ACD7E5 /* AddressViewController.swift in Sources */,
 				9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */,
 				9C2AF7422560DF06007F3FAE /* UIColor+Custom.swift in Sources */,
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
@@ -501,7 +519,9 @@
 				9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */,
 				9C2AF7362560DECA007F3FAE /* Location.swift in Sources */,
 				9C2AF72F2560DE6E007F3FAE /* Logger.swift in Sources */,
+				9CE2A8282571ECBA00ACD7E5 /* AddressViewModel.swift in Sources */,
 				9CBCE9E7256A65C100308C64 /* CategoryViewController.swift in Sources */,
+				9CE2A82B2571EE3200ACD7E5 /* AddressCell.swift in Sources */,
 				9CBCE9F3256A6D8400308C64 /* ResizableTableView.swift in Sources */,
 				9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */,
 				9C31FE83256E8ABF0009AE9A /* DistanceViewController.swift in Sources */,
