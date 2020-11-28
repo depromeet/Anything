@@ -1,5 +1,5 @@
 //
-//  Restaurant.swift
+//  Location.swift
 //  Anything
 //
 //  Created by Soso on 2020/11/14.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Restaurant: Decodable {
+struct Location: Decodable {
     let addressName: String
     let categoryGroupCode: String
     let categoryGroupName: String

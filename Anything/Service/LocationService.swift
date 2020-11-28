@@ -11,8 +11,10 @@ import Foundation
 import RxCoreLocation
 import RxSwift
 
+typealias Coordinate = CLLocationCoordinate2D
+
 protocol LocationServiceType {
-    func requestLocation() -> Observable<CLLocation?>
+    func requestCoordinate() -> Observable<Coordinate?>
 }
 
 class LocationService: BaseService, LocationServiceType {
@@ -28,7 +30,7 @@ class LocationService: BaseService, LocationServiceType {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 
-    func requestLocation() -> Observable<CLLocation?> {
+    func requestCoordinate() -> Observable<Coordinate?> {
         let locationManager = self.locationManager
         return locationManager.rx.location
             .takeUntil(.inclusive, predicate: { $0 != nil })
@@ -37,5 +39,6 @@ class LocationService: BaseService, LocationServiceType {
             }, onDispose: {
                 locationManager.stopUpdatingLocation()
             })
+            .map { $0?.coordinate }
     }
 }

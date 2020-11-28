@@ -27,11 +27,11 @@ class SpinningViewModel: BaseViewModel {
     let currentIndex: Observable<Int>
 
     let categories: Observable<[Category]>
-    let categoriesList: Observable<[[Restaurant]]>
+    let categoriesList: Observable<[[Location]]>
     let categoriesCount: Observable<[Int]>
 
     let distance: Observable<Distance>
-    let location: Observable<CLLocation?>
+    let coordinate: Observable<Coordinate?>
 
     override init(serviceProvider: ServiceProviderType) {
         let isAnimating = BehaviorRelay(value: false)
@@ -42,15 +42,15 @@ class SpinningViewModel: BaseViewModel {
 
         let categories = BehaviorRelay(value: Category.allCases)
         self.categories = categories.asObservable()
-        let categoriesList = BehaviorRelay<[[Restaurant]]>(value: [])
+        let categoriesList = BehaviorRelay<[[Location]]>(value: [])
         self.categoriesList = categoriesList.asObservable()
         let categoriesCount = BehaviorRelay<[Int]>(value: [])
         self.categoriesCount = categoriesCount.asObservable()
 
         let distance = BehaviorRelay<Distance>(value: .nearest)
         self.distance = distance.asObservable()
-        let location = BehaviorRelay<CLLocation?>(value: nil)
-        self.location = location.asObservable()
+        let coordinate = BehaviorRelay<Coordinate?>(value: nil)
+        self.coordinate = coordinate.asObservable()
 
         super.init(serviceProvider: serviceProvider)
 
@@ -96,29 +96,29 @@ class SpinningViewModel: BaseViewModel {
             .disposed(by: disposeBag)
 
         Observable
-            .combineLatest(location.filterNil(), distance.distinctUntilChanged())
-            .flatMap { location, distance in
+            .combineLatest(coordinate.filterNil(), distance.distinctUntilChanged())
+            .flatMap { coordinate, distance in
                 Single.zip(Category.allCases.map { category in
                     serviceProvider.networkService
-                        .request(.search(category.rawValue, location.coordinate.latitude, location.coordinate.longitude, distance.rawValue, 1), type: List<Restaurant>.self, #file, #function, #line)
+                        .request(.search(category.rawValue, coordinate.latitude, coordinate.longitude, distance.rawValue, 1), type: List<Location>.self, #file, #function, #line)
                         .map { ($0.documents, $0.meta.totalCount) }
                 })
             }
             .subscribe(onNext: { list in
-                var restaurants: [[Restaurant]] = []
+                var locations: [[Location]] = []
                 var counts: [Int] = []
-                for (restaurant, count) in list {
-                    restaurants.append(restaurant)
+                for (location, count) in list {
+                    locations.append(location)
                     counts.append(count)
                 }
-                categoriesList.accept(restaurants)
+                categoriesList.accept(locations)
                 categoriesCount.accept(counts)
             })
             .disposed(by: disposeBag)
 
         serviceProvider.locationService
-            .requestLocation()
-            .bind(to: location)
+            .requestCoordinate()
+            .bind(to: coordinate)
             .disposed(by: disposeBag)
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,7 @@
 		9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72D2560DE6E007F3FAE /* ServiceProvider.swift */; };
 		9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72E2560DE6E007F3FAE /* BaseService.swift */; };
 		9C2AF7352560DECA007F3FAE /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7332560DECA007F3FAE /* List.swift */; };
-		9C2AF7362560DECA007F3FAE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7342560DECA007F3FAE /* Restaurant.swift */; };
+		9C2AF7362560DECA007F3FAE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7342560DECA007F3FAE /* Location.swift */; };
 		9C2AF73D2560DF06007F3FAE /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7372560DF06007F3FAE /* Global.swift */; };
 		9C2AF73E2560DF06007F3FAE /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7382560DF06007F3FAE /* UIFont+Custom.swift */; };
 		9C2AF73F2560DF06007F3FAE /* UIView+Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7392560DF06007F3FAE /* UIView+Tap.swift */; };
@@ -86,7 +86,7 @@
 		9C2AF72D2560DE6E007F3FAE /* ServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		9C2AF72E2560DE6E007F3FAE /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		9C2AF7332560DECA007F3FAE /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
-		9C2AF7342560DECA007F3FAE /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		9C2AF7342560DECA007F3FAE /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9C2AF7372560DF06007F3FAE /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		9C2AF7382560DF06007F3FAE /* UIFont+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
 		9C2AF7392560DF06007F3FAE /* UIView+Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Tap.swift"; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				9C2AF7332560DECA007F3FAE /* List.swift */,
-				9C2AF7342560DECA007F3FAE /* Restaurant.swift */,
+				9C2AF7342560DECA007F3FAE /* Location.swift */,
 				9C8DCD472557DD18001F8F56 /* Category.swift */,
 				9C2AF7492560E519007F3FAE /* Distance.swift */,
 			);
@@ -347,7 +347,6 @@
 				5FA990465A21655122445307 /* Pods-Anything.debug.xcconfig */,
 				686467D99D5310B73482D4CD /* Pods-Anything.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -500,7 +499,7 @@
 				9C9FEA25256A43520071DC86 /* RxSwift+Previous.swift in Sources */,
 				9C2AF74E2560ECEC007F3FAE /* LocationService.swift in Sources */,
 				9C2AF7312560DE6E007F3FAE /* ServiceProvider.swift in Sources */,
-				9C2AF7362560DECA007F3FAE /* Restaurant.swift in Sources */,
+				9C2AF7362560DECA007F3FAE /* Location.swift in Sources */,
 				9C2AF72F2560DE6E007F3FAE /* Logger.swift in Sources */,
 				9CBCE9E7256A65C100308C64 /* CategoryViewController.swift in Sources */,
 				9CBCE9F3256A6D8400308C64 /* ResizableTableView.swift in Sources */,
