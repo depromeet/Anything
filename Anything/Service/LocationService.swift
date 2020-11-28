@@ -15,14 +15,16 @@ typealias Coordinate = CLLocationCoordinate2D
 
 protocol LocationServiceType {
     func requestCoordinate() -> Observable<Coordinate?>
+    func requestName(coordinate: Coordinate) -> Observable<String>
 }
 
 class LocationService: BaseService, LocationServiceType {
-    var locationManager: CLLocationManager
+    let locationManager: CLLocationManager
+    let geocoder: CLGeocoder
 
     override init(provider: ServiceProviderType) {
-        let locationManager = CLLocationManager()
-        self.locationManager = locationManager
+        locationManager = CLLocationManager()
+        geocoder = CLGeocoder()
 
         super.init(provider: provider)
 
@@ -40,5 +42,22 @@ class LocationService: BaseService, LocationServiceType {
                 locationManager.stopUpdatingLocation()
             })
             .map { $0?.coordinate }
+    }
+
+    func requestName(coordinate: Coordinate) -> Observable<String> {
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+
+        return Observable<String>.create { [weak self] emitter -> Disposable in
+            guard let self = self else { return Disposables.create() }
+
+            self.geocoder.reverseGeocodeLocation(location, preferredLocale: Locale.init(identifier: "ko_KR")) { placemarks, _ in
+                if let name = placemarks?.first?.name {
+                    emitter.onNext(name)
+                }
+                emitter.onCompleted()
+            }
+
+            return Disposables.create()
+        }
     }
 }
