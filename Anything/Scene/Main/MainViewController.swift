@@ -19,9 +19,10 @@ class MainViewController: BaseViewController, View {
     private var category = CategoryViewController()
 
     private var viewTitle: UIView!
+    private var labelTitle: UILabel!
     private var viewBlacklist: UIView!
-    private var viewContainer: UIView!
 
+    private var viewContainer: UIView!
 
     override func layout(parent: UIView) {
         layoutContent(parent: parent)
@@ -53,6 +54,10 @@ class MainViewController: BaseViewController, View {
 
 extension MainViewController {
     func bindNavigation(viewModel: ViewModelType) {
+        viewModel.titleText
+            .bind(to: labelTitle.rx.text)
+            .disposed(by: disposeBag)
+
         viewTitle.whenTapped()
             .map { _ in .address }
             .bind(to: viewModel.actions)
@@ -71,7 +76,7 @@ extension MainViewController {
             .map { .setCoordinate($0) }
             .bind(to: spinningViewModel.actions)
             .disposed(by: disposeBag)
-        
+
         let categoryViewModel = CategoryViewModel(serviceProvider: viewModel.serviceProvider)
         categoryViewModel.onAction = { categories in
             spinningViewModel.actions.accept(.setCategories(categories))
@@ -110,7 +115,7 @@ extension MainViewController {
         let viewNavigation = UIView().then { v in
             v.backgroundColor = 0x141414.color
             viewTitle = UIView().then { v in
-                let labelTitle = UILabel().then { v in
+                labelTitle = UILabel().then { v in
                     v.text = "서울 관악구 신림동 538"
                     v.textColor = .white
                     v.font = .sdgothicneo(size: 17, weight: .medium)

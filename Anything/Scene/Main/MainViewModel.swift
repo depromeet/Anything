@@ -22,12 +22,15 @@ class MainViewModel: BaseViewModel {
     let actions = PublishRelay<MainAction>()
 
     let selectedChild: Observable<MainTab>
+    let titleText: Observable<String>
 
     let coordinate: Observable<Coordinate?>
 
     override init(serviceProvider: ServiceProviderType) {
         let selectedChild = BehaviorRelay<MainTab>(value: .spinning)
         self.selectedChild = selectedChild.asObservable().distinctUntilChanged()
+        let titleText = BehaviorRelay(value: "현재 주소를 설정해주세요")
+        self.titleText = titleText.asObservable()
 
         let coordinate = BehaviorRelay<Coordinate?>(value: nil)
         self.coordinate = coordinate.asObservable()
@@ -57,6 +60,12 @@ class MainViewModel: BaseViewModel {
         serviceProvider.locationService
             .requestCoordinate()
             .bind(to: coordinate)
+            .disposed(by: disposeBag)
+
+        coordinate
+            .filterNil()
+            .flatMap(serviceProvider.locationService.requestName)
+            .bind(to: titleText)
             .disposed(by: disposeBag)
     }
 }
