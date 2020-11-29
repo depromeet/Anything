@@ -54,7 +54,14 @@ class AddressViewModel: BaseViewModel {
                         })
                         .disposed(by: self.disposeBag)
                 case .map:
-                    print("map")
+                    let vc = MapViewController()
+                    let viewModel = MapViewModel(serviceProvider: serviceProvider)
+                    viewModel.onSelect = { [weak self] newCoordinate in
+                        self?.onSelect(newCoordinate)
+                        self?.presentable.accept(.pop)
+                    }
+                    vc.viewModel = viewModel
+                    self.presentable.accept(.push(vc))
                 case let .selectLocation(index):
                     guard let location = locationList.value[safe: index] else { return }
                     guard let latitude = Double(location.y) else { return }
