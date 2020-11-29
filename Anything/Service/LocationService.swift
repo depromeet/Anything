@@ -50,7 +50,10 @@ class LocationService: BaseService, LocationServiceType {
         return Observable<String>.create { [weak self] emitter -> Disposable in
             guard let self = self else { return Disposables.create() }
 
-            self.geocoder.reverseGeocodeLocation(location, preferredLocale: Locale.init(identifier: "ko_KR")) { placemarks, _ in
+            self.geocoder.reverseGeocodeLocation(location, preferredLocale: Locale(identifier: "ko_KR")) { placemarks, error in
+                if let error = error {
+                    log.error(error, file: #file, function: #function, line: #line)
+                }
                 if let name = placemarks?.first?.name {
                     emitter.onNext(name)
                 }
