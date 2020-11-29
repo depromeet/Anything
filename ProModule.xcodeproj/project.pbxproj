@@ -23,9 +23,6 @@
 		9CA2CBC324E8C81D00AE5322 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 9CA2CBC224E8C81D00AE5322 /* PanModal */; };
 		9CB525A524B05D15005CEFEA /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB525A424B05D15005CEFEA /* RxViewController */; };
 		9CBCE9F6256A6E9B00308C64 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBCE9F5256A6E9B00308C64 /* Reusable */; };
-		9CBCE9FB256A6F4000308C64 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBCE9FA256A6F4000308C64 /* RxCocoa */; };
-		9CBCE9FD256A6F4000308C64 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBCE9FC256A6F4000308C64 /* RxSwift */; };
-		9CBCE9FF256A6F4000308C64 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBCE9FE256A6F4000308C64 /* RxRelay */; };
 		9CEE727224AADBAD00F649EC /* ProModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CEE727024AADBAD00F649EC /* ProModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CEE727A24AADBEC00F649EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9CEE727924AADBEC00F649EC /* SnapKit */; };
 		9CEE728224AADC8D00F649EC /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 9CEE728124AADC8D00F649EC /* Then */; };
@@ -46,12 +43,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C59C2F724B190E700402BC5 /* Differentiator in Frameworks */,
-				9CBCE9FD256A6F4000308C64 /* RxSwift in Frameworks */,
 				9C39B5B324AF27BA0003D013 /* SwiftyColor in Frameworks */,
-				9CBCE9FB256A6F4000308C64 /* RxCocoa in Frameworks */,
 				9CB525A524B05D15005CEFEA /* RxViewController in Frameworks */,
 				9C2AF7552560F02F007F3FAE /* RxOptional in Frameworks */,
-				9CBCE9FF256A6F4000308C64 /* RxRelay in Frameworks */,
 				9CEE727A24AADBEC00F649EC /* SnapKit in Frameworks */,
 				9C697D4B24ED4D4500ABCC7C /* RxKingfisher in Frameworks */,
 				9CBCE9F6256A6E9B00308C64 /* Reusable in Frameworks */,
@@ -150,9 +144,6 @@
 				9C2AF7502560ED35007F3FAE /* RxCoreLocation */,
 				9C2AF7542560F02F007F3FAE /* RxOptional */,
 				9CBCE9F5256A6E9B00308C64 /* Reusable */,
-				9CBCE9FA256A6F4000308C64 /* RxCocoa */,
-				9CBCE9FC256A6F4000308C64 /* RxSwift */,
-				9CBCE9FE256A6F4000308C64 /* RxRelay */,
 			);
 			productName = ProModule;
 			productReference = 9CEE726D24AADBAD00F649EC /* ProModule.framework */;
@@ -200,7 +191,6 @@
 				9C2AF74F2560ED35007F3FAE /* XCRemoteSwiftPackageReference "RxCoreLocation" */,
 				9C2AF7532560F02F007F3FAE /* XCRemoteSwiftPackageReference "RxOptional" */,
 				9CBCE9F4256A6E9B00308C64 /* XCRemoteSwiftPackageReference "Reusable" */,
-				9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 9CEE726E24AADBAD00F649EC /* Products */;
 			projectDirPath = "";
@@ -540,14 +530,6 @@
 				minimumVersion = 4.1.1;
 			};
 		};
-		9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.1;
-			};
-		};
 		9CEE727824AADBEC00F649EC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -670,21 +652,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9CBCE9F4256A6E9B00308C64 /* XCRemoteSwiftPackageReference "Reusable" */;
 			productName = Reusable;
-		};
-		9CBCE9FA256A6F4000308C64 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		9CBCE9FC256A6F4000308C64 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		9CBCE9FE256A6F4000308C64 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9CBCE9F9256A6F3F00308C64 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
 		};
 		9CEE727924AADBEC00F649EC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
