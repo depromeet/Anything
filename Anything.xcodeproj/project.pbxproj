@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		10492E1461E9812958DCEF6A /* Pods_Anything.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880CBC4CFCE87C336BE76628 /* Pods_Anything.framework */; };
+		9C0AECE825725823009349AD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0AECE725725823009349AD /* MapViewController.swift */; };
+		9C0AECEA2572582C009349AD /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0AECE92572582C009349AD /* MapViewModel.swift */; };
 		9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */; };
 		9C2437C0255F5E6600EB9C38 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437BF255F5E6600EB9C38 /* View.swift */; };
 		9C2437C2255F5EBA00EB9C38 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */; };
@@ -79,6 +81,8 @@
 		5FA990465A21655122445307 /* Pods-Anything.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anything.debug.xcconfig"; path = "Target Support Files/Pods-Anything/Pods-Anything.debug.xcconfig"; sourceTree = "<group>"; };
 		686467D99D5310B73482D4CD /* Pods-Anything.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anything.release.xcconfig"; path = "Target Support Files/Pods-Anything/Pods-Anything.release.xcconfig"; sourceTree = "<group>"; };
 		880CBC4CFCE87C336BE76628 /* Pods_Anything.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Anything.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C0AECE725725823009349AD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9C0AECE92572582C009349AD /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9C2437BF255F5E6600EB9C38 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -146,6 +150,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C0AECE625725810009349AD /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				9C0AECE725725823009349AD /* MapViewController.swift */,
+				9C0AECE92572582C009349AD /* MapViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		9C1B6B182557DEF100854566 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +265,7 @@
 				9C9FEA1E256A3D660071DC86 /* Spinning */,
 				9CBCE9E5256A65AC00308C64 /* Category */,
 				9CE2A8252571ECBA00ACD7E5 /* Address */,
+				9C0AECE625725810009349AD /* Map */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -506,6 +520,7 @@
 				9C2AF7422560DF06007F3FAE /* UIColor+Custom.swift in Sources */,
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
 				9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */,
+				9C0AECEA2572582C009349AD /* MapViewModel.swift in Sources */,
 				9C8DCD482557DD18001F8F56 /* Category.swift in Sources */,
 				9CBCEA02256A709A00308C64 /* Reusable+Rx.swift in Sources */,
 				9C2AF74A2560E519007F3FAE /* Distance.swift in Sources */,
@@ -527,6 +542,7 @@
 				9C31FE83256E8ABF0009AE9A /* DistanceViewController.swift in Sources */,
 				9CBCEA04256A716700308C64 /* PaddingLabel.swift in Sources */,
 				9C2437C5255F5F6000EB9C38 /* PresentableType.swift in Sources */,
+				9C0AECE825725823009349AD /* MapViewController.swift in Sources */,
 				9C2AF7352560DECA007F3FAE /* List.swift in Sources */,
 				9C2AF7462560DF44007F3FAE /* CategoryView.swift in Sources */,
 			);
