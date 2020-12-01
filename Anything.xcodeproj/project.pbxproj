@@ -35,6 +35,7 @@
 		9C31FE82256E8ABF0009AE9A /* DistanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31FE80256E8ABC0009AE9A /* DistanceCell.swift */; };
 		9C31FE83256E8ABF0009AE9A /* DistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31FE81256E8ABE0009AE9A /* DistanceViewController.swift */; };
 		9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */; };
+		9C79B9BB2576943500A2B2EB /* UIScrollView+Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79B9BA2576943500A2B2EB /* UIScrollView+Paging.swift */; };
 		9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3C2557DA8D001F8F56 /* Radians.swift */; };
 		9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD412557DB80001F8F56 /* Cubic.swift */; };
 		9C8DCD482557DD18001F8F56 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD472557DD18001F8F56 /* Category.swift */; };
@@ -108,6 +109,7 @@
 		9C31FE80256E8ABC0009AE9A /* DistanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceCell.swift; sourceTree = "<group>"; };
 		9C31FE81256E8ABE0009AE9A /* DistanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceViewController.swift; sourceTree = "<group>"; };
 		9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
+		9C79B9BA2576943500A2B2EB /* UIScrollView+Paging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Paging.swift"; sourceTree = "<group>"; };
 		9C8DCD3C2557DA8D001F8F56 /* Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
 		9C8DCD412557DB80001F8F56 /* Cubic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubic.swift; sourceTree = "<group>"; };
 		9C8DCD472557DD18001F8F56 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */,
 				9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */,
 				9CBCEA01256A709A00308C64 /* Reusable+Rx.swift */,
+				9C79B9BA2576943500A2B2EB /* UIScrollView+Paging.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				9C2AF73D2560DF06007F3FAE /* Global.swift in Sources */,
 				9C31FE82256E8ABF0009AE9A /* DistanceCell.swift in Sources */,
 				9CE2A8292571ECBA00ACD7E5 /* AddressViewController.swift in Sources */,
+				9C79B9BB2576943500A2B2EB /* UIScrollView+Paging.swift in Sources */,
 				9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */,
 				9C2AF7422560DF06007F3FAE /* UIColor+Custom.swift in Sources */,
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
