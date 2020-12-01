@@ -12,18 +12,27 @@ import MoyaSugar
 
 enum AnythingAPI {
     case search(String, Double?, Double?, Int?, Int)
+    case detail(String)
 }
 
 extension AnythingAPI: SugarTargetType {
     var baseURL: URL {
-        let string = "https://dapi.kakao.com/v2/local"
-        return URL(string: string)!
+        switch self {
+        case .search:
+            let string = "https://dapi.kakao.com"
+            return URL(string: string)!
+        case .detail:
+            let string = "https://place.map.kakao.com"
+            return URL(string: string)!
+        }
     }
 
     var route: Route {
         switch self {
         case .search:
-            return .get("/search/keyword.json")
+            return .get("/v2/local/search/keyword.json")
+        case let .detail(id):
+            return .get("/main/v/\(id)")
         }
     }
 
@@ -43,6 +52,8 @@ extension AnythingAPI: SugarTargetType {
                 values["radius"] = radius
             }
             return .init(encoding: URLEncoding.default, values: values)
+        case .detail:
+            return nil
         }
     }
 
