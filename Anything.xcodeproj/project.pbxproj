@@ -35,10 +35,14 @@
 		9C31FE82256E8ABF0009AE9A /* DistanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31FE80256E8ABC0009AE9A /* DistanceCell.swift */; };
 		9C31FE83256E8ABF0009AE9A /* DistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31FE81256E8ABE0009AE9A /* DistanceViewController.swift */; };
 		9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */; };
+		9C79B9B725767CC100A2B2EB /* ListLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79B9B625767CC100A2B2EB /* ListLocationCell.swift */; };
+		9C79B9B9257686A000A2B2EB /* ListLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79B9B8257686A000A2B2EB /* ListLocationViewModel.swift */; };
 		9C79B9BB2576943500A2B2EB /* UIScrollView+Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79B9BA2576943500A2B2EB /* UIScrollView+Paging.swift */; };
 		9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3C2557DA8D001F8F56 /* Radians.swift */; };
 		9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD412557DB80001F8F56 /* Cubic.swift */; };
 		9C8DCD482557DD18001F8F56 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD472557DD18001F8F56 /* Category.swift */; };
+		9C903992257393E200D74E99 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C903991257393E200D74E99 /* ListViewController.swift */; };
+		9C903994257393EB00D74E99 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C903993257393EB00D74E99 /* ListViewModel.swift */; };
 		9C9039962573A19200D74E99 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9039952573A19200D74E99 /* Detail.swift */; };
 		9C95E3722543D2930028FDFD /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E3712543D2930028FDFD /* CircularView.swift */; };
 		9C95E3752543D2DD0028FDFD /* ProModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; };
@@ -110,10 +114,14 @@
 		9C31FE80256E8ABC0009AE9A /* DistanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceCell.swift; sourceTree = "<group>"; };
 		9C31FE81256E8ABE0009AE9A /* DistanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceViewController.swift; sourceTree = "<group>"; };
 		9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
+		9C79B9B625767CC100A2B2EB /* ListLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLocationCell.swift; sourceTree = "<group>"; };
+		9C79B9B8257686A000A2B2EB /* ListLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLocationViewModel.swift; sourceTree = "<group>"; };
 		9C79B9BA2576943500A2B2EB /* UIScrollView+Paging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Paging.swift"; sourceTree = "<group>"; };
 		9C8DCD3C2557DA8D001F8F56 /* Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
 		9C8DCD412557DB80001F8F56 /* Cubic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubic.swift; sourceTree = "<group>"; };
 		9C8DCD472557DD18001F8F56 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9C903991257393E200D74E99 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		9C903993257393EB00D74E99 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		9C9039952573A19200D74E99 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		9C95E3712543D2930028FDFD /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		9C95E3742543D2DD0028FDFD /* ProModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +280,7 @@
 				9CBCE9E5256A65AC00308C64 /* Category */,
 				9CE2A8252571ECBA00ACD7E5 /* Address */,
 				9C0AECE625725810009349AD /* Map */,
+				9C903990257393CD00D74E99 /* List */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -283,6 +292,17 @@
 				9C2AF7472560DFCF007F3FAE /* MainViewModel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		9C903990257393CD00D74E99 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				9C903991257393E200D74E99 /* ListViewController.swift */,
+				9C903993257393EB00D74E99 /* ListViewModel.swift */,
+				9C79B9B625767CC100A2B2EB /* ListLocationCell.swift */,
+				9C79B9B8257686A000A2B2EB /* ListLocationViewModel.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		9C95E3732543D2DD0028FDFD /* Frameworks */ = {
@@ -513,8 +533,10 @@
 				9CE8F4392542FF89008AD754 /* MainViewController.swift in Sources */,
 				9CBCEA08256A897400308C64 /* CategoryViewModel.swift in Sources */,
 				9C2AF7402560DF06007F3FAE /* CALayer+SketchSahdow.swift in Sources */,
+				9C79B9B725767CC100A2B2EB /* ListLocationCell.swift in Sources */,
 				9C2AF7482560DFCF007F3FAE /* MainViewModel.swift in Sources */,
 				9CBCEA06256A892800308C64 /* CategoryOptionCell.swift in Sources */,
+				9C79B9B9257686A000A2B2EB /* ListLocationViewModel.swift in Sources */,
 				9C2437C0255F5E6600EB9C38 /* View.swift in Sources */,
 				9C95E3722543D2930028FDFD /* CircularView.swift in Sources */,
 				9CE8F4352542FF89008AD754 /* AppDelegate.swift in Sources */,
@@ -545,7 +567,9 @@
 				9CE2A8282571ECBA00ACD7E5 /* AddressViewModel.swift in Sources */,
 				9CBCE9E7256A65C100308C64 /* CategoryViewController.swift in Sources */,
 				9CE2A82B2571EE3200ACD7E5 /* AddressCell.swift in Sources */,
+				9C903994257393EB00D74E99 /* ListViewModel.swift in Sources */,
 				9CBCE9F3256A6D8400308C64 /* ResizableTableView.swift in Sources */,
+				9C903992257393E200D74E99 /* ListViewController.swift in Sources */,
 				9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */,
 				9C31FE83256E8ABF0009AE9A /* DistanceViewController.swift in Sources */,
 				9CBCEA04256A716700308C64 /* PaddingLabel.swift in Sources */,
