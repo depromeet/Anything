@@ -39,6 +39,7 @@
 		9C8DCD3D2557DA8D001F8F56 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD3C2557DA8D001F8F56 /* Radians.swift */; };
 		9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD412557DB80001F8F56 /* Cubic.swift */; };
 		9C8DCD482557DD18001F8F56 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DCD472557DD18001F8F56 /* Category.swift */; };
+		9C9039962573A19200D74E99 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9039952573A19200D74E99 /* Detail.swift */; };
 		9C95E3722543D2930028FDFD /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E3712543D2930028FDFD /* CircularView.swift */; };
 		9C95E3752543D2DD0028FDFD /* ProModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; };
 		9C95E3762543D2DD0028FDFD /* ProModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -113,6 +114,7 @@
 		9C8DCD3C2557DA8D001F8F56 /* Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
 		9C8DCD412557DB80001F8F56 /* Cubic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubic.swift; sourceTree = "<group>"; };
 		9C8DCD472557DD18001F8F56 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9C9039952573A19200D74E99 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		9C95E3712543D2930028FDFD /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		9C95E3742543D2DD0028FDFD /* ProModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9FEA20256A3DA10071DC86 /* SpinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				9C2AF7342560DECA007F3FAE /* Location.swift */,
 				9C8DCD472557DD18001F8F56 /* Category.swift */,
 				9C2AF7492560E519007F3FAE /* Distance.swift */,
+				9C9039952573A19200D74E99 /* Detail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				9CE2A8292571ECBA00ACD7E5 /* AddressViewController.swift in Sources */,
 				9C79B9BB2576943500A2B2EB /* UIScrollView+Paging.swift in Sources */,
 				9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */,
+				9C9039962573A19200D74E99 /* Detail.swift in Sources */,
 				9C2AF7422560DF06007F3FAE /* UIColor+Custom.swift in Sources */,
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
 				9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */,
