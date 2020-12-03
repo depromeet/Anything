@@ -32,7 +32,7 @@ class SpinningViewModel: BaseViewModel {
     let categoriesCount: Observable<[Int]>
 
     let distance: Observable<Distance>
-    let coordinate: Observable<Coordinate>
+    let coordinate: Observable<Coordinate?>
 
     override init(serviceProvider: ServiceProviderType) {
         let isAnimating = BehaviorRelay(value: false)
@@ -50,7 +50,7 @@ class SpinningViewModel: BaseViewModel {
 
         let distance = BehaviorRelay<Distance>(value: .nearest)
         self.distance = distance.asObservable()
-        let coordinate = PublishRelay<Coordinate>()
+        let coordinate = BehaviorRelay<Coordinate?>(value: nil)
         self.coordinate = coordinate.asObservable()
 
         super.init(serviceProvider: serviceProvider)
@@ -88,7 +88,19 @@ class SpinningViewModel: BaseViewModel {
                         .disposed(by: vc.disposeBag)
                     self.presentable.accept(.panModal(vc))
                 case let .selectCategory(index):
-                    print(index)
+                    guard let category = categories.value[safe: index] else { return }
+                    guard let coordinate = coordinate.value else { return }
+                    guard let locations = categoriesList.value[safe: index] else { return }
+                    let vc = ListViewController()
+                    let viewModel = ListViewModel(
+                        serviceProvider: serviceProvider,
+                        category: category,
+                        coordinate: coordinate,
+                        distance: distance.value,
+                        locations: locations
+                    )
+                    vc.viewModel = viewModel
+                    self.presentable.accept(.push(vc))
                 case let .setCategories(newCategories):
                     guard newCategories.count > 1 else { return }
                     categories.accept(newCategories)
@@ -99,7 +111,7 @@ class SpinningViewModel: BaseViewModel {
             .disposed(by: disposeBag)
 
         Observable
-            .combineLatest(coordinate, distance.distinctUntilChanged())
+            .combineLatest(coordinate.filterNil(), distance.distinctUntilChanged())
             .flatMap { coordinate, distance in
                 Single.zip(Category.allCases.map { category in
                     serviceProvider.networkService
