@@ -59,6 +59,7 @@
 		9CBCEA04256A716700308C64 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA03256A716700308C64 /* PaddingLabel.swift */; };
 		9CBCEA06256A892800308C64 /* CategoryOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA05256A892800308C64 /* CategoryOptionCell.swift */; };
 		9CBCEA08256A897400308C64 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEA07256A897400308C64 /* CategoryViewModel.swift */; };
+		9CE1D261257BC66000C70E5B /* UITableView+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1D260257BC66000C70E5B /* UITableView+Header.swift */; };
 		9CE2A8282571ECBA00ACD7E5 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2A8262571ECBA00ACD7E5 /* AddressViewModel.swift */; };
 		9CE2A8292571ECBA00ACD7E5 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2A8272571ECBA00ACD7E5 /* AddressViewController.swift */; };
 		9CE2A82B2571EE3200ACD7E5 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2A82A2571EE3200ACD7E5 /* AddressCell.swift */; };
@@ -137,6 +138,7 @@
 		9CBCEA03256A716700308C64 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		9CBCEA05256A892800308C64 /* CategoryOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryOptionCell.swift; sourceTree = "<group>"; };
 		9CBCEA07256A897400308C64 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		9CE1D260257BC66000C70E5B /* UITableView+Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Header.swift"; sourceTree = "<group>"; };
 		9CE2A8262571ECBA00ACD7E5 /* AddressViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		9CE2A8272571ECBA00ACD7E5 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		9CE2A82A2571EE3200ACD7E5 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */,
 				9CBCEA01256A709A00308C64 /* Reusable+Rx.swift */,
 				9C79B9BA2576943500A2B2EB /* UIScrollView+Paging.swift */,
+				9CE1D260257BC66000C70E5B /* UITableView+Header.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				9CBCEA02256A709A00308C64 /* Reusable+Rx.swift in Sources */,
 				9C2AF74A2560E519007F3FAE /* Distance.swift in Sources */,
 				9C9FEA21256A3DA10071DC86 /* SpinningViewController.swift in Sources */,
+				9CE1D261257BC66000C70E5B /* UITableView+Header.swift in Sources */,
 				9CBCE9EF256A69B900308C64 /* BaseTableViewCell.swift in Sources */,
 				9C2AF7452560DF44007F3FAE /* NavigationBar.swift in Sources */,
 				9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */,
