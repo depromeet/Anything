@@ -22,6 +22,8 @@ class ListViewController: BaseViewController, View {
 
     private var tableViewLocation: UITableView!
 
+    private var viewRandom: UIView!
+
     private var markers: [String: NMFMarker] = [:]
 
     override func layout(parent: UIView) {
@@ -154,6 +156,25 @@ extension ListViewController {
             m.top.equalTo(parent.safeAreaLayoutGuide).inset(4)
             m.left.equalToSuperview().inset(20)
             m.width.height.equalTo(36)
+        }
+
+        viewRandom = UIView().then { v in
+            v.layer.applySketchShadow(color: .rgbFD4145, alpha: 0.3, x: 5, y: 5, blur: 10)
+            UILabel().then { v in
+                v.font = .subtitle3
+                v.text = "음식점도 골라주세요!"
+                v.textColor = .rgbFFFFFF
+                v.textAlignment = .center
+                v.backgroundColor = .rgbFD4145
+                v.layer.cornerRadius = 8
+                v.layer.masksToBounds = true
+            }.layout(v) { m in
+                m.edges.equalToSuperview()
+            }
+        }.layout(parent) { m in
+            m.left.right.equalToSuperview().inset(20)
+            m.bottom.equalTo(parent.safeAreaLayoutGuide).inset(14)
+            m.height.equalTo(48)
         }
     }
 
