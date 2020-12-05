@@ -105,7 +105,7 @@ extension ListViewController {
         }.layout(parent) { m in
             m.top.equalTo(viewMap.snp.bottom)
             m.left.right.equalToSuperview()
-            m.bottom.equalTo(parent.safeAreaLayoutGuide)
+            m.bottom.equalToSuperview()
         }
         layoutList(parent: viewList)
 
