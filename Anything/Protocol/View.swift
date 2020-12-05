@@ -6,8 +6,8 @@
 //  Copyright © 2020 n.code. All rights reserved.
 //
 
-import Foundation
 import RxSwift
+import UIKit
 import WeakMapTable
 
 private typealias AnyView = AnyObject
@@ -54,6 +54,23 @@ extension View where Self: BaseViewController {
                     self.dismiss(animated: true, completion: completion)
                 case let .panModal(vc):
                     self.presentPanModal(vc)
+                case let .alert(title, message, action):
+                    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    if action != nil {
+                        let actionCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                        alertController.addAction(actionCancel)
+                    }
+                    let actionDone = UIAlertAction(title: "확인", style: .default) { _ in
+                        action?()
+                    }
+                    alertController.addAction(actionDone)
+                    self.present(alertController, animated: true, completion: nil)
+                case .openAppSetting:
+                    if let bundleId = Bundle.main.bundleIdentifier,
+                       let settingUrl = URL(string: UIApplication.openSettingsURLString + bundleId),
+                       UIApplication.shared.canOpenURL(settingUrl) {
+                        UIApplication.shared.open(settingUrl, options: [:]) { _ in }
+                    }
                 }
             })
             .disposed(by: disposeBag)

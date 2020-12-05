@@ -14,6 +14,8 @@ enum PresentableType {
     case present(BaseViewController, (() -> Void)? = nil)
     case dismiss((() -> Void)? = nil)
     case panModal(PanModalViewController)
+    case alert(String, String?, (() -> Void)? = nil)
+    case openAppSetting
 }
 
 enum ProgressStatus {
