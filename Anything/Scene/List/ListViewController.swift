@@ -67,6 +67,16 @@ extension ListViewController {
             .bind(to: labelDistance.rx.text)
             .disposed(by: disposeBag)
 
+        viewModel.cameraPosition
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] coordinate in
+                guard let self = self else { return }
+                let target = NMGLatLng(lat: coordinate.latitude, lng: coordinate.longitude)
+                self.viewMap.mapView.moveCamera(NMFCameraUpdate(scrollTo: target))
+                self.viewMap.mapView.locationOverlay.location = target
+            })
+            .disposed(by: disposeBag)
+
         viewModel.locationList
             .do(onNext: { [weak self] list in
                 guard let self = self else { return }
@@ -85,6 +95,10 @@ extension ListViewController {
             .bind(to: tableViewLocation.rx.items(cellType: ListLocationCell.self)) { index, cellViewModel, cell in
                 cell.viewModel = cellViewModel
                 cell.labelKey.text = "\(index + 1)"
+                cell.whenTapped()
+                    .map { _ in .position(index) }
+                    .bind(to: viewModel.actions)
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
 

@@ -11,13 +11,14 @@ import RxRelay
 import RxSwift
 
 enum ListAction {
-    case back, loadMore
+    case back, loadMore, position(Int)
 }
 
 class ListViewModel: BaseViewModel {
     let actions = PublishRelay<ListAction>()
 
     let category: Observable<Category>
+    let cameraPosition: Observable<Coordinate>
     let coordinate: Observable<Coordinate>
     let distance: Observable<Distance>
     let locationList: Observable<[ListLocationViewModel]>
@@ -39,6 +40,8 @@ class ListViewModel: BaseViewModel {
     ) {
         let category = BehaviorRelay<Category>(value: category)
         self.category = category.asObservable()
+        let cameraPosition = BehaviorRelay<Coordinate>(value: coordinate)
+        self.cameraPosition = cameraPosition.asObservable()
         let coordinate = BehaviorRelay<Coordinate>(value: coordinate)
         self.coordinate = coordinate.asObservable()
         let distance = BehaviorRelay<Distance>(value: distance)
@@ -77,6 +80,9 @@ class ListViewModel: BaseViewModel {
                             locationList.accept(current + locations)
                         })
                         .disposed(by: self.disposeBag)
+                case let .position(index):
+                    guard let coordinate = locationList.value[safe: index]?.location.coordinate else { return }
+                    cameraPosition.accept(coordinate)
                 }
             })
             .disposed(by: disposeBag)
