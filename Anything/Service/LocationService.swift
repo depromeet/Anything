@@ -12,15 +12,17 @@ import RxCoreLocation
 import RxSwift
 
 typealias Coordinate = CLLocationCoordinate2D
+typealias AuthorizationStatus = CLAuthorizationStatus
 
 protocol LocationServiceType {
     func requestCoordinate() -> Observable<Coordinate?>
     func requestName(coordinate: Coordinate) -> Observable<String>
+    func requestAuthorizationStatus() -> Observable<CLAuthorizationEvent>
 }
 
 class LocationService: BaseService, LocationServiceType {
-    let locationManager: CLLocationManager
-    let geocoder: CLGeocoder
+    private let locationManager: CLLocationManager
+    private let geocoder: CLGeocoder
 
     override init(provider: ServiceProviderType) {
         locationManager = CLLocationManager()
@@ -62,5 +64,11 @@ class LocationService: BaseService, LocationServiceType {
 
             return Disposables.create()
         }
+    }
+
+    func requestAuthorizationStatus() -> Observable<CLAuthorizationEvent> {
+        return locationManager.rx.didChangeAuthorization
+            .startWith(CLAuthorizationEvent(manager: locationManager, status: locationManager.authorizationStatus))
+            .asObservable()
     }
 }
