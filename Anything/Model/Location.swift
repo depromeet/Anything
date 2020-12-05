@@ -17,8 +17,8 @@ struct Location: Decodable {
     let placeUrl: String
     let roadAddressName, x, y: String
 
-    lazy var coordinate: Coordinate? = {
+    var coordinate: Coordinate? {
         guard let latitude = Double(y), let longitude = Double(x) else { return nil }
         return Coordinate(latitude: latitude, longitude: longitude)
-    }()
+    }
 }
