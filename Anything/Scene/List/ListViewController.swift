@@ -14,6 +14,8 @@ class ListViewController: BaseViewController, View {
     typealias ViewModelType = ListViewModel
 
     private var imageViewBack: UIImageView!
+    private var imageViewLocation: UIImageView!
+
     private var labelAddress: UILabel!
     private var labelCategory: UILabel!
     private var labelDistance: UILabel!
@@ -47,13 +49,27 @@ extension ListViewController {
     }
 
     func bindMap(viewModel: ViewModelType) {
-        viewModel.coordinate
-            .take(1)
+        viewModel.cameraPosition
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] coordinate in
                 guard let self = self else { return }
                 let target = NMGLatLng(lat: coordinate.latitude, lng: coordinate.longitude)
                 self.viewMap.mapView.moveCamera(NMFCameraUpdate(scrollTo: target))
+                self.viewMap.mapView.locationOverlay.location = target
+            })
+            .disposed(by: disposeBag)
+
+        Observable.from([
+            rx.viewWillAppear.map { _ in .location },
+            imageViewLocation.whenTapped().map { _ in .location },
+        ]).merge()
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
+
+        viewModel.authorizationStatus
+            .subscribe(onNext: { [weak self] status in
+                let position: NMFMyPositionMode = status == .denied ? .disabled : .normal
+                self?.viewMap.mapView.positionMode = position
             })
             .disposed(by: disposeBag)
     }
@@ -67,16 +83,6 @@ extension ListViewController {
             .disposed(by: disposeBag)
         viewModel.distanceText
             .bind(to: labelDistance.rx.text)
-            .disposed(by: disposeBag)
-
-        viewModel.cameraPosition
-            .observeOn(MainScheduler.asyncInstance)
-            .subscribe(onNext: { [weak self] coordinate in
-                guard let self = self else { return }
-                let target = NMGLatLng(lat: coordinate.latitude, lng: coordinate.longitude)
-                self.viewMap.mapView.moveCamera(NMFCameraUpdate(scrollTo: target))
-                self.viewMap.mapView.locationOverlay.location = target
-            })
             .disposed(by: disposeBag)
 
         viewModel.locationList
@@ -125,7 +131,8 @@ extension ListViewController {
 
         viewMap = NMFNaverMapView().then { v in
             v.mapView.positionMode = .disabled
-            v.showLocationButton = true
+            v.showScaleBar = false
+            v.showLocationButton = false
             v.mapView.contentInset = .init(top: 44, left: 0, bottom: 0, right: 0)
         }.layout(parent) { m in
             m.top.left.right.equalToSuperview()
@@ -155,6 +162,23 @@ extension ListViewController {
         }.layout(parent) { m in
             m.top.equalTo(parent.safeAreaLayoutGuide).inset(4)
             m.left.equalToSuperview().inset(20)
+            m.width.height.equalTo(36)
+        }
+
+        UIView().then { v in
+            v.layer.applySketchShadow(color: .black, alpha: 0.3, y: 0, blur: 5)
+
+            imageViewLocation = UIImageView(image: #imageLiteral(resourceName: "ic_location")).then { v in
+                v.contentMode = .center
+                v.backgroundColor = .white
+                v.layer.cornerRadius = 5
+                v.layer.masksToBounds = true
+            }.layout(v) { m in
+                m.edges.equalToSuperview()
+            }
+        }.layout(parent) { m in
+            m.right.equalToSuperview().inset(20)
+            m.bottom.equalTo(viewMap).offset(-20)
             m.width.height.equalTo(36)
         }
 
