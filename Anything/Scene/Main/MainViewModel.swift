@@ -11,7 +11,7 @@ import RxRelay
 import RxSwift
 
 enum MainAction {
-    case address, spinning, category
+    case address, spinning, category, firstLoad
 }
 
 enum MainTab {
@@ -53,6 +53,16 @@ class MainViewModel: BaseViewModel {
                     selectedChild.accept(.spinning)
                 case .category:
                     selectedChild.accept(.category)
+                case .firstLoad:
+                    serviceProvider.locationService.requestAuthorizationStatus()
+                        .take(1)
+                        .subscribe(onNext: { [weak self] event in
+                            guard event.status == .denied else { return }
+                            self?.presentable.accept(.alert("위치 권한", "위치 권한이 없습니다. 앱 설정에서 권한을 허용해주세요.") {
+                                self?.presentable.accept(.openAppSetting)
+                            })
+                        })
+                        .disposed(by: self.disposeBag)
                 }
             })
             .disposed(by: disposeBag)

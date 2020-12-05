@@ -62,6 +62,10 @@ extension MainViewController {
             .map { _ in .address }
             .bind(to: viewModel.actions)
             .disposed(by: disposeBag)
+        rx.viewDidAppear.take(1)
+            .map { _ in .firstLoad }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
     }
 
     func bindChilds(viewModel: ViewModelType) {
