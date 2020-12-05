@@ -14,6 +14,7 @@ class MapViewController: BaseViewController, View {
     typealias ViewModelType = MapViewModel
 
     private var imageViewBack: UIImageView!
+    private var imageViewLocation: UIImageView!
 
     private var viewMap: NMFNaverMapView!
 
@@ -79,8 +80,9 @@ extension MapViewController {
         view.backgroundColor = .black
 
         viewMap = NMFNaverMapView().then { v in
-            v.mapView.positionMode = .normal
-            v.showLocationButton = true
+            v.mapView.positionMode = .disabled
+            v.showScaleBar = false
+            v.showLocationButton = false
             v.mapView.contentInset = .init(top: 44, left: 0, bottom: 0, right: 0)
             v.mapView.addCameraDelegate(delegate: self)
         }.layout(parent) { m in
@@ -104,7 +106,7 @@ extension MapViewController {
         UIView().then { v in
             v.layer.applySketchShadow(color: .black, alpha: 0.3, y: 0, blur: 5)
 
-            imageViewBack = UIImageView(image: #imageLiteral(resourceName: "ic_arrow_left_16")).then { v in
+            imageViewBack = UIImageView(image: #imageLiteral(resourceName: "ic_arrow_left_20")).then { v in
                 v.contentMode = .center
                 v.backgroundColor = .white
                 v.layer.cornerRadius = 5
@@ -115,6 +117,23 @@ extension MapViewController {
         }.layout(parent) { m in
             m.top.equalTo(parent.safeAreaLayoutGuide).inset(4)
             m.left.equalToSuperview().inset(20)
+            m.width.height.equalTo(36)
+        }
+
+        UIView().then { v in
+            v.layer.applySketchShadow(color: .black, alpha: 0.3, y: 0, blur: 5)
+
+            imageViewLocation = UIImageView(image: #imageLiteral(resourceName: "ic_location")).then { v in
+                v.contentMode = .center
+                v.backgroundColor = .white
+                v.layer.cornerRadius = 5
+                v.layer.masksToBounds = true
+            }.layout(v) { m in
+                m.edges.equalToSuperview()
+            }
+        }.layout(parent) { m in
+            m.right.equalToSuperview().inset(20)
+            m.bottom.equalTo(viewMap).offset(-20)
             m.width.height.equalTo(36)
         }
     }
