@@ -8,6 +8,7 @@
 
 import NMapsMap
 import RxSwift
+import RxViewController
 import UIKit
 
 class MapViewController: BaseViewController, View {
@@ -50,9 +51,7 @@ extension MapViewController {
     }
 
     func bindMap(viewModel: ViewModelType) {
-        viewModel.coordinate
-            .filterNil()
-            .take(1)
+        viewModel.newCoordinate
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] coordinate in
                 guard let self = self else { return }
@@ -60,6 +59,13 @@ extension MapViewController {
                 self.viewMap.mapView.moveCamera(NMFCameraUpdate(scrollTo: target))
                 self.viewMap.mapView.locationOverlay.location = target
             })
+            .disposed(by: disposeBag)
+
+        Observable.from([
+            rx.viewWillAppear.map { _ in .location },
+            imageViewLocation.whenTapped().map { _ in .location },
+        ]).merge()
+            .bind(to: viewModel.actions)
             .disposed(by: disposeBag)
     }
 
