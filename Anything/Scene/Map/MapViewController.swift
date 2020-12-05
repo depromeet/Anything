@@ -67,6 +67,13 @@ extension MapViewController {
         ]).merge()
             .bind(to: viewModel.actions)
             .disposed(by: disposeBag)
+
+        viewModel.authorizationStatus
+            .subscribe(onNext: { [weak self] status in
+                let position: NMFMyPositionMode = status == .denied ? .disabled : .normal
+                self?.viewMap.mapView.positionMode = position
+            })
+            .disposed(by: disposeBag)
     }
 
     func bindBottom(viewModel: ViewModelType) {
