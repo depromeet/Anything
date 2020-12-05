@@ -28,6 +28,7 @@ class ListViewModel: BaseViewModel {
 
     private var currentPage: Int = 1
     private var isLoading: Bool = false
+    private var isLast: Bool = false
 
     init(
         serviceProvider: ServiceProviderType,
@@ -62,10 +63,12 @@ class ListViewModel: BaseViewModel {
                     self.presentable.accept(.pop)
                 case .loadMore:
                     guard !self.isLoading else { return }
+                    guard !self.isLast else { return }
                     self.isLoading = true
                     self.currentPage += 1
                     serviceProvider.networkService
                         .request(.search(category.value.rawValue, coordinate.value.latitude, coordinate.value.longitude, distance.value.rawValue, self.currentPage), type: List<Location>.self, #file, #function, #line)
+                        .do(onSuccess: { [weak self] in self?.isLast = $0.meta.isEnd })
                         .map { $0.documents }
                         .map { $0.map { ListLocationViewModel(serviceProvider: serviceProvider, location: $0) } }
                         .do(onDispose: { [weak self] in self?.isLoading = false })
