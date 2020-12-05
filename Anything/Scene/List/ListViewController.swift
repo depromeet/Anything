@@ -22,6 +22,8 @@ class ListViewController: BaseViewController, View {
 
     private var tableViewLocation: UITableView!
 
+    private var markers: [String: NMFMarker] = [:]
+
     override func layout(parent: UIView) {
         layoutContent(parent: parent)
     }
@@ -66,6 +68,20 @@ extension ListViewController {
             .disposed(by: disposeBag)
 
         viewModel.locationList
+            .do(onNext: { [weak self] list in
+                guard let self = self else { return }
+                list.suffix(15).forEach { e in
+                    let location = e.location
+                    guard self.markers[location.id] == nil else { return }
+                    guard let latitude = Double(location.y), let longitude = Double(location.x) else { return }
+                    let target = NMGLatLng(lat: latitude, lng: longitude)
+                    let marker = NMFMarker()
+                    marker.iconImage = NMFOverlayImage(image: #imageLiteral(resourceName: "ic_pin_solid_21"))
+                    marker.position = target
+                    marker.mapView = self.viewMap.mapView
+                    self.markers[location.id] = marker
+                }
+            })
             .bind(to: tableViewLocation.rx.items(cellType: ListLocationCell.self)) { index, cellViewModel, cell in
                 cell.viewModel = cellViewModel
                 cell.labelKey.text = "\(index + 1)"
