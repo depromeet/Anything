@@ -96,6 +96,10 @@ extension ListViewController {
             .disposed(by: disposeBag)
 
         viewModel.selectedLocationId
+            .map { $0 != "" }
+            .bind(to: viewRandom.rx.isHidden)
+            .disposed(by: disposeBag)
+        viewModel.selectedLocationId
             .map { $0 == "" }
             .bind(to: viewDetail.rx.isHidden)
             .disposed(by: disposeBag)
