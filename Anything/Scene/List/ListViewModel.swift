@@ -11,7 +11,7 @@ import RxRelay
 import RxSwift
 
 enum ListAction {
-    case back, loadMore, position(Int), location
+    case back, loadMore, select(Int), location
 }
 
 class ListViewModel: BaseViewModel {
@@ -24,6 +24,8 @@ class ListViewModel: BaseViewModel {
     let distance: Observable<Distance>
     let authorizationStatus: Observable<AuthorizationStatus>
     let locationList: Observable<[ListLocationViewModel]>
+
+    let selectedLocationId: Observable<String>
 
     let addressText: Observable<String>
     let categoryText: Observable<String>
@@ -54,6 +56,9 @@ class ListViewModel: BaseViewModel {
         self.authorizationStatus = authorizationStatus.asObservable()
         let locationList = BehaviorRelay<[ListLocationViewModel]>(value: locations.map { ListLocationViewModel(serviceProvider: serviceProvider, location: $0) })
         self.locationList = locationList.asObservable()
+
+        let selectedLocationId = BehaviorRelay(value: "")
+        self.selectedLocationId = selectedLocationId.asObservable()
 
         let addressText = BehaviorRelay(value: "")
         self.addressText = addressText.asObservable()
@@ -86,9 +91,11 @@ class ListViewModel: BaseViewModel {
                             locationList.accept(current + locations)
                         })
                         .disposed(by: self.disposeBag)
-                case let .position(index):
+                case let .select(index):
                     guard let coordinate = locationList.value[safe: index]?.location.coordinate else { return }
                     cameraPosition.accept(coordinate)
+                    guard let id = locationList.value[safe: index]?.location.id else { return }
+                    selectedLocationId.accept(id)
                 case .location:
                     guard authorizationStatus.value != .denied else {
                         self.presentable.accept(.alert("위치 권한", "위치 권한이 없습니다. 위치 권한을 활성화하러 가시겠습니까?") {

@@ -80,6 +80,19 @@ extension ListViewController {
                 self?.viewMap.mapView.positionMode = position
             })
             .disposed(by: disposeBag)
+
+        viewModel.selectedLocationId
+            .withPrevious()
+            .subscribe(onNext: { [weak self] previous, next in
+                guard let self = self else { return }
+                if let previous = previous, let marker = self.markers[previous] {
+                    marker.iconImage = NMFOverlayImage(image: #imageLiteral(resourceName: "ic_pin_solid_21"))
+                }
+                if let marker = self.markers[next] {
+                    marker.iconImage = NMFOverlayImage(image: #imageLiteral(resourceName: "ic_picker_red"))
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     func bindList(viewModel: ViewModelType) {
@@ -112,7 +125,7 @@ extension ListViewController {
                 cell.viewModel = cellViewModel
                 cell.labelKey.text = "\(index + 1)"
                 cell.whenTapped()
-                    .map { _ in .position(index) }
+                    .map { _ in .select(index) }
                     .bind(to: viewModel.actions)
                     .disposed(by: cell.disposeBag)
             }
