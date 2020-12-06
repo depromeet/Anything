@@ -26,6 +26,13 @@ class DetailViewController: BaseViewController, View {
                 cell.labelName.text = item.menu
                 cell.labelPrice.text = item.price
                 return cell
+            case let .commentHeader(item):
+                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentHeaderCell.self)
+                cell.labelCount.text = "\(item.scorecnt)"
+                return cell
+            case let .commentItem(item):
+                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentItemCell.self)
+                return cell
             }
         })
     }
@@ -97,6 +104,8 @@ extension DetailViewController {
         tableViewDetail = UITableView().then { v in
             v.register(cellType: DetailMenuHeaderCell.self)
             v.register(cellType: DetailMenuItemCell.self)
+            v.register(cellType: DetailCommentHeaderCell.self)
+            v.register(cellType: DetailCommentItemCell.self)
             v.contentInsetAdjustmentBehavior = .never
             v.separatorStyle = .none
         }.layout(parent) { m in

@@ -27,6 +27,10 @@ class DetailViewModel: BaseViewModel {
             .menuItem(.init(price: "32,000", menu: "생 연어회")),
             .menuItem(.init(price: "19,000", menu: "베이컨 크림 홍합")),
         ]),
+        DetailSection.menu([
+            .commentHeader(.init(allComntcnt: 21, kamapComntcnt: 20, kaplaceComntcnt: 0, daumComntcnt: 1, scoresum: 94, scorecnt: 21, currentPage: 1, nextPage: nil, pageList: nil, list: nil)),
+            .commentItem(.init(commentid: "2370467", contents: "여기 국물도 적당히 맛깔나게 맵고 등갈비도 커요\n아쉬운건 등갈비 2개추가 8천원 메뉴가 사이드로 있었으면 좋겠음", point: 5, username: "알유인", profile: "http://t1.daumcdn.net/local/kakaomapPhoto/profile/c2cb108ee5b0b665343b0826f4ee13a2df1511e3?original", profileStatus: "S", photoCnt: 0, likeCnt: 0, kakaoMapUserID: "fkd3oc", platform: "kakaomap", date: "2020.09.09.", isMy: false, isBlock: false, isEditable: false, isMyLike: false, thumbnail: nil, photoList: nil)),
+        ]),
     ]).asObservable()
 
     init(

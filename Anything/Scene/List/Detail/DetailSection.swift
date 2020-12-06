@@ -31,4 +31,6 @@ extension DetailSection: SectionModelType {
 enum DetailSectionItem {
     case menuHeader
     case menuItem(MenuList)
+    case commentHeader(Comment)
+    case commentItem(CommentList)
 }

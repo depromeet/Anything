@@ -65,6 +65,8 @@
 		9CE1D263257BD61E00C70E5B /* DetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1D262257BD61E00C70E5B /* DetailSection.swift */; };
 		9CE1D298257BD91C00C70E5B /* DetailMenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1D297257BD91C00C70E5B /* DetailMenuHeaderCell.swift */; };
 		9CE1D29A257BDDB900C70E5B /* DetailMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1D299257BDDB900C70E5B /* DetailMenuItemCell.swift */; };
+		9CE1D29C257C652900C70E5B /* DetailCommentHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1D29B257C652900C70E5B /* DetailCommentHeaderCell.swift */; };
+		9CE1D29E257C654700C70E5B /* DetailCommentItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1D29D257C654700C70E5B /* DetailCommentItemCell.swift */; };
 		9CE2A8282571ECBA00ACD7E5 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2A8262571ECBA00ACD7E5 /* AddressViewModel.swift */; };
 		9CE2A8292571ECBA00ACD7E5 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2A8272571ECBA00ACD7E5 /* AddressViewController.swift */; };
 		9CE2A82B2571EE3200ACD7E5 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2A82A2571EE3200ACD7E5 /* AddressCell.swift */; };
@@ -149,6 +151,8 @@
 		9CE1D262257BD61E00C70E5B /* DetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSection.swift; sourceTree = "<group>"; };
 		9CE1D297257BD91C00C70E5B /* DetailMenuHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMenuHeaderCell.swift; sourceTree = "<group>"; };
 		9CE1D299257BDDB900C70E5B /* DetailMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMenuItemCell.swift; sourceTree = "<group>"; };
+		9CE1D29B257C652900C70E5B /* DetailCommentHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentHeaderCell.swift; sourceTree = "<group>"; };
+		9CE1D29D257C654700C70E5B /* DetailCommentItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentItemCell.swift; sourceTree = "<group>"; };
 		9CE2A8262571ECBA00ACD7E5 /* AddressViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		9CE2A8272571ECBA00ACD7E5 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		9CE2A82A2571EE3200ACD7E5 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 				9CE1D25C257BBDB500C70E5B /* DetailViewModel.swift */,
 				9CE1D297257BD91C00C70E5B /* DetailMenuHeaderCell.swift */,
 				9CE1D299257BDDB900C70E5B /* DetailMenuItemCell.swift */,
+				9CE1D29B257C652900C70E5B /* DetailCommentHeaderCell.swift */,
+				9CE1D29D257C654700C70E5B /* DetailCommentItemCell.swift */,
 				9CE1D262257BD61E00C70E5B /* DetailSection.swift */,
 			);
 			name = Detail;
@@ -564,6 +570,7 @@
 				9CE1D25E257BBDB500C70E5B /* DetailViewModel.swift in Sources */,
 				9C79B9B725767CC100A2B2EB /* ListLocationCell.swift in Sources */,
 				9C2AF7482560DFCF007F3FAE /* MainViewModel.swift in Sources */,
+				9CE1D29E257C654700C70E5B /* DetailCommentItemCell.swift in Sources */,
 				9CBCEA06256A892800308C64 /* CategoryOptionCell.swift in Sources */,
 				9C79B9B9257686A000A2B2EB /* ListLocationViewModel.swift in Sources */,
 				9C2437C0255F5E6600EB9C38 /* View.swift in Sources */,
@@ -587,6 +594,7 @@
 				9CE1D29A257BDDB900C70E5B /* DetailMenuItemCell.swift in Sources */,
 				9CE1D261257BC66000C70E5B /* UITableView+Header.swift in Sources */,
 				9CBCE9EF256A69B900308C64 /* BaseTableViewCell.swift in Sources */,
+				9CE1D29C257C652900C70E5B /* DetailCommentHeaderCell.swift in Sources */,
 				9C2AF7452560DF44007F3FAE /* NavigationBar.swift in Sources */,
 				9C2AF7322560DE6E007F3FAE /* BaseService.swift in Sources */,
 				9C2AF7412560DF06007F3FAE /* Array+Subscript.swift in Sources */,
