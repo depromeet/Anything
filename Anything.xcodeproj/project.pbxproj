@@ -10,6 +10,7 @@
 		10492E1461E9812958DCEF6A /* Pods_Anything.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880CBC4CFCE87C336BE76628 /* Pods_Anything.framework */; };
 		9C031A7B257CC76B004BB0A4 /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C031A7A257CC76B004BB0A4 /* RandomViewController.swift */; };
 		9C031A7D257CCA14004BB0A4 /* RandomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C031A7C257CCA14004BB0A4 /* RandomViewModel.swift */; };
+		9C031A7F257CED43004BB0A4 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C031A7E257CED43004BB0A4 /* ResultViewController.swift */; };
 		9C0AECE825725823009349AD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0AECE725725823009349AD /* MapViewController.swift */; };
 		9C0AECEA2572582C009349AD /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0AECE92572582C009349AD /* MapViewModel.swift */; };
 		9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */; };
@@ -103,6 +104,7 @@
 		880CBC4CFCE87C336BE76628 /* Pods_Anything.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Anything.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C031A7A257CC76B004BB0A4 /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		9C031A7C257CCA14004BB0A4 /* RandomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewModel.swift; sourceTree = "<group>"; };
+		9C031A7E257CED43004BB0A4 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		9C0AECE725725823009349AD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9C0AECE92572582C009349AD /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */,
 				9C31FE81256E8ABE0009AE9A /* DistanceViewController.swift */,
 				9C31FE80256E8ABC0009AE9A /* DistanceCell.swift */,
+				9C031A7E257CED43004BB0A4 /* ResultViewController.swift */,
 			);
 			path = Spinning;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				9C79B9BB2576943500A2B2EB /* UIScrollView+Paging.swift in Sources */,
 				9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */,
 				9C9039962573A19200D74E99 /* Detail.swift in Sources */,
+				9C031A7F257CED43004BB0A4 /* ResultViewController.swift in Sources */,
 				9C2AF7422560DF06007F3FAE /* UIColor+Custom.swift in Sources */,
 				9C8DCD422557DB80001F8F56 /* Cubic.swift in Sources */,
 				9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */,
