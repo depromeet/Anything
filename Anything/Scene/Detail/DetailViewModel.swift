@@ -71,7 +71,8 @@ class DetailViewModel: BaseViewModel {
                 case .way:
                     print("way")
                 case .share:
-                    print("share")
+                    let items = [location.value.placeUrl]
+                    self.presentable.accept(.activity(items, nil))
                 case .external:
                     guard let url = URL(string: location.value.placeUrl) else { return }
                     self.presentable.accept(.internalBrowser(url))

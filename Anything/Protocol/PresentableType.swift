@@ -18,6 +18,7 @@ enum PresentableType {
     case openAppSetting
     case openUrl(URL)
     case internalBrowser(URL)
+    case activity([Any], [Activity]?)
 }
 
 enum ProgressStatus {

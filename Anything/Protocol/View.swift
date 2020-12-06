@@ -79,8 +79,13 @@ extension View where Self: BaseViewController {
                 case let .internalBrowser(url):
                     let safariViewController = SFSafariViewController(url: url)
                     self.present(safariViewController, animated: true, completion: nil)
+                case let .activity(items, activities):
+                    let vc = UIActivityViewController(activityItems: items, applicationActivities: activities)
+                    self.present(vc, animated: true, completion: nil)
                 }
             })
             .disposed(by: disposeBag)
     }
 }
+
+typealias Activity = UIActivity
