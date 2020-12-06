@@ -23,6 +23,7 @@
 		9CA2CBC324E8C81D00AE5322 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 9CA2CBC224E8C81D00AE5322 /* PanModal */; };
 		9CB525A524B05D15005CEFEA /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB525A424B05D15005CEFEA /* RxViewController */; };
 		9CBCE9F6256A6E9B00308C64 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBCE9F5256A6E9B00308C64 /* Reusable */; };
+		9CE1D2A1257C673A00C70E5B /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 9CE1D2A0257C673A00C70E5B /* Cosmos */; };
 		9CEE727224AADBAD00F649EC /* ProModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CEE727024AADBAD00F649EC /* ProModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CEE727A24AADBEC00F649EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9CEE727924AADBEC00F649EC /* SnapKit */; };
 		9CEE728224AADC8D00F649EC /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 9CEE728124AADC8D00F649EC /* Then */; };
@@ -52,6 +53,7 @@
 				9CFDA61A24B4166C00097BF0 /* RxGesture in Frameworks */,
 				9CA2CBC324E8C81D00AE5322 /* PanModal in Frameworks */,
 				9C39B5B624AF27E20003D013 /* ReactorKit in Frameworks */,
+				9CE1D2A1257C673A00C70E5B /* Cosmos in Frameworks */,
 				9C7AD86024C0212A00AAEBB0 /* MoyaSugar in Frameworks */,
 				9CF439F024E6BD510029D6FA /* RxKeyboard in Frameworks */,
 				9C697D3624ED247E00ABCC7C /* CocoaLumberjack in Frameworks */,
@@ -144,6 +146,7 @@
 				9C2AF7502560ED35007F3FAE /* RxCoreLocation */,
 				9C2AF7542560F02F007F3FAE /* RxOptional */,
 				9CBCE9F5256A6E9B00308C64 /* Reusable */,
+				9CE1D2A0257C673A00C70E5B /* Cosmos */,
 			);
 			productName = ProModule;
 			productReference = 9CEE726D24AADBAD00F649EC /* ProModule.framework */;
@@ -191,6 +194,7 @@
 				9C2AF74F2560ED35007F3FAE /* XCRemoteSwiftPackageReference "RxCoreLocation" */,
 				9C2AF7532560F02F007F3FAE /* XCRemoteSwiftPackageReference "RxOptional" */,
 				9CBCE9F4256A6E9B00308C64 /* XCRemoteSwiftPackageReference "Reusable" */,
+				9CE1D29F257C673A00C70E5B /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 9CEE726E24AADBAD00F649EC /* Products */;
 			projectDirPath = "";
@@ -530,6 +534,14 @@
 				minimumVersion = 4.1.1;
 			};
 		};
+		9CE1D29F257C673A00C70E5B /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
 		9CEE727824AADBEC00F649EC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -652,6 +664,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9CBCE9F4256A6E9B00308C64 /* XCRemoteSwiftPackageReference "Reusable" */;
 			productName = Reusable;
+		};
+		9CE1D2A0257C673A00C70E5B /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CE1D29F257C673A00C70E5B /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
 		};
 		9CEE727924AADBEC00F649EC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
