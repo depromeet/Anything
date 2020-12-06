@@ -384,8 +384,7 @@
 				9CE1D29D257C654700C70E5B /* DetailCommentItemCell.swift */,
 				9CE1D262257BD61E00C70E5B /* DetailSection.swift */,
 			);
-			name = Detail;
-			path = List/Detail;
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		9CE2A8252571ECBA00ACD7E5 /* Address */ = {
