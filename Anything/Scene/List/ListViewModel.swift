@@ -11,7 +11,7 @@ import RxRelay
 import RxSwift
 
 enum ListAction {
-    case back, loadMore, select(Int), location, detail
+    case back, loadMore, select(Int), location, detail, random
 }
 
 class ListViewModel: BaseViewModel {
@@ -123,6 +123,36 @@ class ListViewModel: BaseViewModel {
                     let vc = DetailViewController()
                     vc.viewModel = DetailViewModel(serviceProvider: serviceProvider, location: locationViewModel.location, detail: detail)
                     self.presentable.accept(.push(vc))
+                case .random:
+                    let handler: (() -> Observable<(Location, Detail)>) = {
+                        let random = Int.random(in: 1 ... min(totalCount, 45))
+                        return serviceProvider.networkService
+                            .request(.search(category.value.rawValue, coordinate.value.latitude, coordinate.value.longitude, distance.value.rawValue, random, 1), type: List<Location>.self, #file, #function, #line)
+                            .do(onSuccess: { [weak self] in self?.isLast = $0.meta.isEnd })
+                            .compactMap { $0.documents.first }
+                            .asObservable()
+                            .flatMap { location -> Observable<(Location, Detail)> in
+                                serviceProvider.networkService.request(.detail(location.id), type: Detail.self, #file, #function, #line)
+                                    .asObservable()
+                                    .map { (location, $0) }
+                            }
+                    }
+                    handler()
+                        .subscribe(onNext: { [weak self] location, detail in
+                            let vc = RandomViewController()
+                            let viewModel = RandomViewModel(serviceProvider: serviceProvider, location: location, detail: detail)
+                            viewModel.onDetail = { [weak self] location, detail in
+                                let vc = DetailViewController()
+                                vc.viewModel = DetailViewModel(serviceProvider: serviceProvider, location: location, detail: detail)
+                                self?.presentable.accept(.push(vc))
+                            }
+                            viewModel.onReload = {
+                                handler()
+                            }
+                            vc.viewModel = viewModel
+                            self?.presentable.accept(.present(vc, nil))
+                        })
+                        .disposed(by: self.disposeBag)
                 }
             })
             .disposed(by: disposeBag)

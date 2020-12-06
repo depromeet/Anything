@@ -103,6 +103,10 @@ extension ListViewController {
             .map { $0 == "" }
             .bind(to: viewDetail.rx.isHidden)
             .disposed(by: disposeBag)
+        viewRandom.whenTapped()
+            .map { _ in .random }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
         viewDetail.whenTapped()
             .map { _ in .detail }
             .bind(to: viewModel.actions)
