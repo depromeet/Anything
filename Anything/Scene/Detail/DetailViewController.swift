@@ -40,13 +40,34 @@ class DetailViewController: BaseViewController, View {
             case let .commentItem(item):
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentItemCell.self)
                 if let string = item.profile, let url = URL(string: string) {
-                    cell.imageViewProfile.kf.setImage(with: url)
+                    cell.imageViewProfile.kf.setImage(with: url, options: [.transition(.fade(0.2))])
                 }
                 cell.viewRating.rating = Double(item.point ?? 0)
                 cell.labelName.text = item.username
                 cell.labelDate.text = item.date
                 cell.labelContent.text = item.contents
                 cell.labelContent.setLineSpacing(lineSpacing: 5)
+                return cell
+            case let .reviewHeader(item):
+                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailReviewHeaderCell.self)
+                cell.labelCount.text = "\(item.blogrvwcnt)"
+                return cell
+            case let .reviewItem(item):
+                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailReviewItemCell.self)
+                cell.labelTitle.text = item.title
+                cell.labelContent.text = item.contents
+                cell.labelContent.setLineSpacing(lineSpacing: 5)
+                if let string = item.photoList?[safe: 0]?.orgurl, let url = URL(string: string) {
+                    cell.imageView1.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+                }
+                if let string = item.photoList?[safe: 1]?.orgurl, let url = URL(string: string) {
+                    cell.imageView2.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+                }
+                if let string = item.photoList?[safe: 2]?.orgurl, let url = URL(string: string) {
+                    cell.imageView3.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+                }
+                cell.labelName.text = item.blogname
+                cell.labelDate.text = item.date
                 return cell
             }
         })
@@ -122,6 +143,8 @@ extension DetailViewController {
             v.register(cellType: DetailMenuItemCell.self)
             v.register(cellType: DetailCommentHeaderCell.self)
             v.register(cellType: DetailCommentItemCell.self)
+            v.register(cellType: DetailReviewHeaderCell.self)
+            v.register(cellType: DetailReviewItemCell.self)
             v.contentInsetAdjustmentBehavior = .never
             v.contentInset = .init(top: 0, left: 0, bottom: bottomMargin, right: 0)
             v.separatorStyle = .none

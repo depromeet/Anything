@@ -74,6 +74,7 @@ class DetailViewModel: BaseViewModel {
                 return [
                     self.mapMenu(detail: detail),
                     self.mapComment(detail: detail),
+                    self.mapReview(detail: detail),
                 ].compactMap { $0 }
             }
             .bind(to: items)
@@ -92,5 +93,13 @@ class DetailViewModel: BaseViewModel {
         let list = commentList.map(DetailSectionItem.commentItem)
         guard !list.isEmpty else { return nil }
         return .detail([.commentHeader(detail.comment)] + list)
+    }
+
+    func mapReview(detail: Detail) -> DetailSection? {
+        guard let review = detail.blogReview else { return nil }
+        guard let reviewList = review.list else { return nil }
+        let list = reviewList.map(DetailSectionItem.reviewItem)
+        guard !list.isEmpty else { return nil }
+        return .detail([.reviewHeader(review)] + list)
     }
 }

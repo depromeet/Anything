@@ -34,4 +34,6 @@ enum DetailSectionItem {
     case menuSeparator
     case commentHeader(Comment)
     case commentItem(CommentList)
+    case reviewHeader(BlogReview)
+    case reviewItem(BlogReviewList)
 }
