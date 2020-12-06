@@ -106,6 +106,7 @@ class SpinningViewModel: BaseViewModel {
                     guard let coordinate = coordinate.value else { return }
                     guard let locations = categoriesList.value[safe: index] else { return }
                     guard let count = categoriesCount.value[safe: index] else { return }
+                    guard !locations.isEmpty else { return}
                     let vc = ListViewController()
                     let viewModel = ListViewModel(
                         serviceProvider: serviceProvider,
