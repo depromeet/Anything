@@ -83,6 +83,7 @@ class DetailViewController: BaseViewController, View {
     private var tableViewDetail: UITableView!
 
     private var viewMap: NMFNaverMapView!
+    private var marker: NMFMarker!
 
     private var labelTitle: UILabel!
     private var labelRating: UILabel!
@@ -132,7 +133,6 @@ extension DetailViewController {
             .disposed(by: disposeBag)
 
         Observable.from([
-            rx.viewWillAppear.map { _ in .location },
             imageViewLocation.whenTapped().map { _ in .location },
         ]).merge()
             .bind(to: viewModel.actions)
@@ -142,6 +142,15 @@ extension DetailViewController {
             .subscribe(onNext: { [weak self] status in
                 let position: NMFMyPositionMode = status == .denied ? .disabled : .normal
                 self?.viewMap.mapView.positionMode = position
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.location
+            .subscribe(onNext: { location in
+                guard let coordinate = location.coordinate else { return }
+                let target = NMGLatLng(lat: coordinate.latitude, lng: coordinate.longitude)
+                self.viewMap.mapView.moveCamera(NMFCameraUpdate(scrollTo: target))
+                self.marker.position = target
             })
             .disposed(by: disposeBag)
     }
@@ -273,6 +282,12 @@ extension DetailViewController {
             v.mapView.contentInset = .init(top: 44, left: 0, bottom: 0, right: 0)
         }.layout(parent) { m in
             m.edges.equalToSuperview()
+        }
+
+        marker = NMFMarker().then { v in
+            v.iconImage = NMFOverlayImage(image: #imageLiteral(resourceName: "ic_picker_red"))
+            v.position = .init()
+            v.mapView = viewMap.mapView
         }
 
         UIView().then { v in

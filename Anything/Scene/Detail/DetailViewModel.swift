@@ -17,6 +17,7 @@ enum DetailAction {
 class DetailViewModel: BaseViewModel {
     let actions = PublishRelay<DetailAction>()
 
+    let location: Observable<Location>
     let detail: Observable<Detail>
     let items: Observable<[DetailSection]>
 
@@ -28,6 +29,8 @@ class DetailViewModel: BaseViewModel {
         location: Location,
         detail: Detail
     ) {
+        let location = BehaviorRelay<Location>(value: location)
+        self.location = location.asObservable()
         let detail = BehaviorRelay<Detail>(value: detail)
         self.detail = detail.asObservable()
         let items = BehaviorRelay<[DetailSection]>(value: [])
