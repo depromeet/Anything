@@ -17,26 +17,22 @@ enum DetailAction {
 class DetailViewModel: BaseViewModel {
     let actions = PublishRelay<DetailAction>()
 
+    let detail: Observable<Detail>
+    let items: Observable<[DetailSection]>
+
     let cameraPosition: Observable<Coordinate>
     let authorizationStatus: Observable<AuthorizationStatus>
 
-    let items: Observable<[DetailSection]> = BehaviorRelay(value: [
-        DetailSection.menu([
-            .menuHeader,
-            .menuItem(.init(price: "33,000", menu: "수제 훈제 연어")),
-            .menuItem(.init(price: "32,000", menu: "생 연어회")),
-            .menuItem(.init(price: "19,000", menu: "베이컨 크림 홍합")),
-        ]),
-        DetailSection.menu([
-            .commentHeader(.init(allComntcnt: 21, kamapComntcnt: 20, kaplaceComntcnt: 0, daumComntcnt: 1, scoresum: 94, scorecnt: 21, currentPage: 1, nextPage: nil, pageList: nil, list: nil)),
-            .commentItem(.init(commentid: "2370467", contents: "여기 국물도 적당히 맛깔나게 맵고 등갈비도 커요\n아쉬운건 등갈비 2개추가 8천원 메뉴가 사이드로 있었으면 좋겠음", point: 5, username: "알유인", profile: "http://t1.daumcdn.net/local/kakaomapPhoto/profile/c2cb108ee5b0b665343b0826f4ee13a2df1511e3?original", profileStatus: "S", photoCnt: 0, likeCnt: 0, kakaoMapUserID: "fkd3oc", platform: "kakaomap", date: "2020.09.09.", isMy: false, isBlock: false, isEditable: false, isMyLike: false, thumbnail: nil, photoList: nil)),
-        ]),
-    ]).asObservable()
-
     init(
         serviceProvider: ServiceProviderType,
-        location: Location
+        location: Location,
+        detail: Detail
     ) {
+        let detail = BehaviorRelay<Detail>(value: detail)
+        self.detail = detail.asObservable()
+        let items = BehaviorRelay<[DetailSection]>(value: [])
+        self.items = items.asObservable()
+
         let cameraPosition = PublishRelay<Coordinate>()
         self.cameraPosition = cameraPosition.asObservable()
         let authorizationStatus = BehaviorRelay<AuthorizationStatus>(value: .denied)
@@ -71,5 +67,30 @@ class DetailViewModel: BaseViewModel {
             .map { $0.status }
             .bind(to: authorizationStatus)
             .disposed(by: disposeBag)
+
+        detail
+            .map { [weak self] detail -> [DetailSection] in
+                guard let self = self else { return [] }
+                return [
+                    self.mapMenu(detail: detail),
+                    self.mapComment(detail: detail),
+                ].compactMap { $0 }
+            }
+            .bind(to: items)
+            .disposed(by: disposeBag)
+    }
+
+    func mapMenu(detail: Detail) -> DetailSection? {
+        guard let menuList = detail.menuInfo?.menuList else { return nil }
+        let list = menuList.map(DetailSectionItem.menuItem)
+        guard !list.isEmpty else { return nil }
+        return .detail([.menuHeader] + list)
+    }
+
+    func mapComment(detail: Detail) -> DetailSection? {
+        guard let commentList = detail.comment.list else { return nil }
+        let list = commentList.map(DetailSectionItem.commentItem)
+        guard !list.isEmpty else { return nil }
+        return .detail([.commentHeader(detail.comment)] + list)
     }
 }

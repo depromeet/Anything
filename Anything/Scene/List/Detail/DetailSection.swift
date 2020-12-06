@@ -9,21 +9,21 @@
 import RxDataSources
 
 enum DetailSection {
-    case menu([DetailSectionItem])
+    case detail([DetailSectionItem])
 }
 
 extension DetailSection: SectionModelType {
     var items: [DetailSectionItem] {
         switch self {
-        case let .menu(items):
+        case let .detail(items):
             return items
         }
     }
 
     init(original: DetailSection, items: [DetailSectionItem]) {
         switch original {
-        case .menu:
-            self = .menu(items)
+        case .detail:
+            self = .detail(items)
         }
     }
 }
