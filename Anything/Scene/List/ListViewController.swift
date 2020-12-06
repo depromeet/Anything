@@ -55,6 +55,14 @@ extension ListViewController {
                 guard let self = self else { return }
                 let target = NMGLatLng(lat: coordinate.latitude, lng: coordinate.longitude)
                 self.viewMap.mapView.moveCamera(NMFCameraUpdate(scrollTo: target))
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.currentPosition
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] coordinate in
+                guard let self = self else { return }
+                let target = NMGLatLng(lat: coordinate.latitude, lng: coordinate.longitude)
                 self.viewMap.mapView.locationOverlay.location = target
             })
             .disposed(by: disposeBag)

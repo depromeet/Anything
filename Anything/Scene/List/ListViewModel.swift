@@ -19,6 +19,7 @@ class ListViewModel: BaseViewModel {
 
     let category: Observable<Category>
     let cameraPosition: Observable<Coordinate>
+    let currentPosition: Observable<Coordinate>
     let coordinate: Observable<Coordinate>
     let distance: Observable<Distance>
     let authorizationStatus: Observable<AuthorizationStatus>
@@ -43,6 +44,8 @@ class ListViewModel: BaseViewModel {
         self.category = category.asObservable()
         let cameraPosition = BehaviorRelay<Coordinate>(value: coordinate)
         self.cameraPosition = cameraPosition.asObservable()
+        let currentPosition = BehaviorRelay<Coordinate>(value: coordinate)
+        self.currentPosition = currentPosition.asObservable()
         let coordinate = BehaviorRelay<Coordinate>(value: coordinate)
         self.coordinate = coordinate.asObservable()
         let distance = BehaviorRelay<Distance>(value: distance)
@@ -97,7 +100,10 @@ class ListViewModel: BaseViewModel {
                         .requestCoordinate()
                         .filterNil()
                         .take(.milliseconds(300), scheduler: MainScheduler.asyncInstance)
-                        .bind(to: cameraPosition)
+                        .subscribe(onNext: { coordinate in
+                            cameraPosition.accept(coordinate)
+                            currentPosition.accept(coordinate)
+                        })
                         .disposed(by: self.disposeBag)
                 }
             })
