@@ -95,7 +95,11 @@ class ListViewModel: BaseViewModel {
                     guard let coordinate = locationList.value[safe: index]?.location.coordinate else { return }
                     cameraPosition.accept(coordinate)
                     guard let id = locationList.value[safe: index]?.location.id else { return }
-                    selectedLocationId.accept(id)
+                    if selectedLocationId.value == id {
+                        selectedLocationId.accept("")
+                    } else {
+                        selectedLocationId.accept(id)
+                    }
                 case .location:
                     guard authorizationStatus.value != .denied else {
                         self.presentable.accept(.alert("위치 권한", "위치 권한이 없습니다. 위치 권한을 활성화하러 가시겠습니까?") {

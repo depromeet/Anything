@@ -128,6 +128,11 @@ extension ListViewController {
                     .map { _ in .select(index) }
                     .bind(to: viewModel.actions)
                     .disposed(by: cell.disposeBag)
+                viewModel.selectedLocationId
+                    .subscribe(onNext: { id in
+                        cell.backgroundColor = cellViewModel.location.id == id ? .rgbF1F1F1 : .clear
+                    })
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
 
