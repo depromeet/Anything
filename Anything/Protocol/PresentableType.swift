@@ -16,6 +16,7 @@ enum PresentableType {
     case panModal(PanModalViewController)
     case alert(String, String?, (() -> Void)? = nil)
     case openAppSetting
+    case openUrl(URL)
     case internalBrowser(URL)
 }
 

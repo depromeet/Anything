@@ -66,7 +66,8 @@ class DetailViewModel: BaseViewModel {
                         .bind(to: cameraPosition)
                         .disposed(by: self.disposeBag)
                 case .phone:
-                    print("phone")
+                    guard let url = URL(string: "tel://\(location.value.phone)") else { return }
+                    self.presentable.accept(.openUrl(url))
                 case .way:
                     print("way")
                 case .share:
