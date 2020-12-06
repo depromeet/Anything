@@ -123,6 +123,7 @@ extension DetailViewController {
             v.register(cellType: DetailCommentHeaderCell.self)
             v.register(cellType: DetailCommentItemCell.self)
             v.contentInsetAdjustmentBehavior = .never
+            v.contentInset = .init(top: 0, left: 0, bottom: bottomMargin, right: 0)
             v.separatorStyle = .none
         }.layout(parent) { m in
             m.edges.equalToSuperview()
