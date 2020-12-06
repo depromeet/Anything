@@ -36,4 +36,5 @@ enum DetailSectionItem {
     case commentItem(CommentList)
     case reviewHeader(BlogReview)
     case reviewItem(BlogReviewList)
+    case more(String)
 }

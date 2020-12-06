@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailMenuHeaderCell: BaseTableViewCell {
+class DetailMoreCell: BaseTableViewCell {
     var labelMore: UILabel!
 
     override func layout(parent: UIView) {
@@ -16,26 +16,17 @@ class DetailMenuHeaderCell: BaseTableViewCell {
     }
 }
 
-extension DetailMenuHeaderCell {
+extension DetailMoreCell {
     private func layoutContent(parent: UIView) {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         selectionStyle = .none
 
-        UIView().then { v in
-            v.backgroundColor = .rgbF1F1F1
-        }.layout(parent) { m in
-            m.top.equalToSuperview()
-            m.left.right.equalToSuperview()
-            m.height.equalTo(6)
-        }
-
         let viewContent = UIView().then { v in
             v.backgroundColor = .clear
         }.layout(parent) { m in
-            m.top.equalToSuperview().inset(6)
-            m.left.right.equalToSuperview()
-            m.bottom.equalToSuperview()
+            m.edges.equalToSuperview()
+            m.height.equalTo(40)
         }
 
         UIView().then { v in
@@ -50,21 +41,11 @@ extension DetailMenuHeaderCell {
     }
 
     private func layoutContainer(parent: UIView) {
-        let labelTitle = UILabel().then { v in
-            v.text = "메뉴"
-            v.textColor = .rgb3C3C3C
-            v.font = .subtitle3
-        }.layout(parent) { m in
-            m.top.equalToSuperview().inset(13)
-            m.left.equalToSuperview().inset(20)
-            m.bottom.equalToSuperview().inset(15)
-        }
         labelMore = UILabel().then { v in
-            v.text = "사진으로 보기"
             v.textColor = .rgb8C8C8C
             v.font = .body1
         }.layout(parent) { m in
-            m.centerY.equalTo(labelTitle)
+            m.centerY.equalToSuperview()
         }
         UIImageView(image: #imageLiteral(resourceName: "ic_arrow_right_16")).then { v in
             v.contentMode = .center

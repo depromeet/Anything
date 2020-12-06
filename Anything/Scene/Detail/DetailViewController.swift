@@ -69,6 +69,10 @@ class DetailViewController: BaseViewController, View {
                 cell.labelName.text = item.blogname
                 cell.labelDate.text = item.date
                 return cell
+            case let .more(text):
+                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailMoreCell.self)
+                cell.labelMore.text = text
+                return cell
             }
         })
     }
@@ -145,6 +149,7 @@ extension DetailViewController {
             v.register(cellType: DetailCommentItemCell.self)
             v.register(cellType: DetailReviewHeaderCell.self)
             v.register(cellType: DetailReviewItemCell.self)
+            v.register(cellType: DetailMoreCell.self)
             v.contentInsetAdjustmentBehavior = .never
             v.contentInset = .init(top: 0, left: 0, bottom: bottomMargin, right: 0)
             v.separatorStyle = .none

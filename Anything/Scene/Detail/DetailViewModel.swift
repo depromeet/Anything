@@ -92,7 +92,7 @@ class DetailViewModel: BaseViewModel {
         guard let commentList = detail.comment.list else { return nil }
         let list = commentList.map(DetailSectionItem.commentItem)
         guard !list.isEmpty else { return nil }
-        return .detail([.commentHeader(detail.comment)] + list)
+        return .detail([.commentHeader(detail.comment)] + list + [.more("리뷰 더보기")])
     }
 
     func mapReview(detail: Detail) -> DetailSection? {
@@ -100,6 +100,6 @@ class DetailViewModel: BaseViewModel {
         guard let reviewList = review.list else { return nil }
         let list = reviewList.map(DetailSectionItem.reviewItem)
         guard !list.isEmpty else { return nil }
-        return .detail([.reviewHeader(review)] + list)
+        return .detail([.reviewHeader(review)] + list + [.more("블로그 리뷰 더보기")])
     }
 }
