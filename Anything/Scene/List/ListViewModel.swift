@@ -11,7 +11,7 @@ import RxRelay
 import RxSwift
 
 enum ListAction {
-    case back, loadMore, select(Int), location
+    case back, loadMore, select(Int), location, detail
 }
 
 class ListViewModel: BaseViewModel {
@@ -116,6 +116,12 @@ class ListViewModel: BaseViewModel {
                             currentPosition.accept(coordinate)
                         })
                         .disposed(by: self.disposeBag)
+                case .detail:
+                    guard let locationViewModel = locationList.value.first(where: { $0.location.id == selectedLocationId.value }) else { return }
+                    guard let detail = locationViewModel.detail else { return }
+                    let vc = DetailViewController()
+                    vc.viewModel = DetailViewModel(serviceProvider: serviceProvider, location: locationViewModel.location, detail: detail)
+                    self.presentable.accept(.push(vc))
                 }
             })
             .disposed(by: disposeBag)

@@ -15,6 +15,7 @@ class ListViewController: BaseViewController, View {
 
     private var imageViewBack: UIImageView!
     private var imageViewLocation: UIImageView!
+    private var viewDetail: UIView!
 
     private var labelAddress: UILabel!
     private var labelCategory: UILabel!
@@ -92,6 +93,15 @@ extension ListViewController {
                     marker.iconImage = NMFOverlayImage(image: #imageLiteral(resourceName: "ic_picker_red"))
                 }
             })
+            .disposed(by: disposeBag)
+
+        viewModel.selectedLocationId
+            .map { $0 == "" }
+            .bind(to: viewDetail.rx.isHidden)
+            .disposed(by: disposeBag)
+        viewDetail.whenTapped()
+            .map { _ in .detail }
+            .bind(to: viewModel.actions)
             .disposed(by: disposeBag)
     }
 
@@ -206,6 +216,32 @@ extension ListViewController {
             m.right.equalToSuperview().inset(20)
             m.bottom.equalTo(viewMap).offset(-20)
             m.width.height.equalTo(36)
+        }
+
+        viewDetail = UIView().then { v in
+            v.backgroundColor = .rgbFD4145
+            v.layer.cornerRadius = 6
+            v.layer.masksToBounds = true
+
+            let imageViewIcon = UIImageView(image: #imageLiteral(resourceName: "ic_pin_14")).then { v in
+                v.contentMode = .center
+            }.layout(v) { m in
+                m.left.equalToSuperview().inset(14)
+                m.centerY.equalToSuperview()
+            }
+            UILabel().then { v in
+                v.text = "자세히 보기"
+                v.textColor = .white
+                v.font = .caption2
+            }.layout(v) { m in
+                m.left.equalTo(imageViewIcon.snp.right).offset(5)
+                m.right.equalToSuperview().inset(18)
+                m.centerY.equalToSuperview()
+            }
+        }.layout(parent) { m in
+            m.bottom.equalTo(viewMap).offset(-20)
+            m.centerX.equalToSuperview()
+            m.height.equalTo(36)
         }
 
         viewRandom = UIView().then { v in
