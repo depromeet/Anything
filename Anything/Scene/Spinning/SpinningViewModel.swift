@@ -115,7 +115,7 @@ class SpinningViewModel: BaseViewModel {
             .flatMap { coordinate, distance in
                 Single.zip(Category.allCases.map { category in
                     serviceProvider.networkService
-                        .request(.search(category.rawValue, coordinate.latitude, coordinate.longitude, distance.rawValue, 1), type: List<Location>.self, #file, #function, #line)
+                        .request(.search(category.rawValue, coordinate.latitude, coordinate.longitude, distance.rawValue, 1, 15), type: List<Location>.self, #file, #function, #line)
                         .map { ($0.documents, $0.meta.totalCount) }
                 })
             }

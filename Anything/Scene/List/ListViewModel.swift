@@ -81,7 +81,7 @@ class ListViewModel: BaseViewModel {
                     self.isLoading = true
                     self.currentPage += 1
                     serviceProvider.networkService
-                        .request(.search(category.value.rawValue, coordinate.value.latitude, coordinate.value.longitude, distance.value.rawValue, self.currentPage), type: List<Location>.self, #file, #function, #line)
+                        .request(.search(category.value.rawValue, coordinate.value.latitude, coordinate.value.longitude, distance.value.rawValue, self.currentPage, 15), type: List<Location>.self, #file, #function, #line)
                         .do(onSuccess: { [weak self] in self?.isLast = $0.meta.isEnd })
                         .map { $0.documents }
                         .map { $0.map { ListLocationViewModel(serviceProvider: serviceProvider, location: $0) } }

@@ -40,7 +40,7 @@ class AddressViewModel: BaseViewModel {
                     self.presentable.accept(.pop)
                 case let .input(text):
                     serviceProvider.networkService
-                        .request(.search(text, nil, nil, nil, 1), type: List<Location>.self, #file, #function, #line)
+                        .request(.search(text, nil, nil, nil, 1, 15), type: List<Location>.self, #file, #function, #line)
                         .map { $0.documents }
                         .asObservable()
                         .bind(to: locationList)
