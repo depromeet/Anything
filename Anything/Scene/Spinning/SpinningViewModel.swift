@@ -62,16 +62,21 @@ class SpinningViewModel: BaseViewModel {
                 case .animate:
                     guard !isAnimating.value else { return }
 
+                    let count = categories.value.count
                     let total = 100
-                    let angle = 360 / categories.value.count
+                    let angle = 360 / count
                     let start = Float(currentIndex.value * angle)
-                    let random = Float.random(in: 0 ... 360)
+
+                    let list = Category.allCases.enumerated()
+                        .filter { categories.value.contains($0.element) && categoriesCount.value[safe: $0.offset] != 0 }
+                        .map { $0.offset }
+                    let random = Float((list.randomElement() ?? 0) * angle)
                     Observable<Int>
-                        .interval(.milliseconds(50), scheduler: MainScheduler.instance).take(total)
+                        .interval(.milliseconds(50), scheduler: ConcurrentDispatchQueueScheduler(qos: .userInitiated)).take(total)
                         .map { value -> Float in
-                            Cubic.EaseOut(Float(value), start, 360 * 5 - start + random, Float(total))
+                            Cubic.EaseOut(Float(value), Float(angle / 2) + start, 360 * Float(12 - count) - start + random, Float(total))
                         }
-                        .map { Int($0 / Float(angle)) % categories.value.count }
+                        .map { Int($0 / Float(angle)) % count }
                         .do(onSubscribe: {
                             isAnimating.accept(true)
                         }, onDispose: {

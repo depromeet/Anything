@@ -49,6 +49,7 @@ extension SpinningViewController {
             .disposed(by: disposeBag)
         viewModel.currentIndex
             .distinctUntilChanged()
+            .subscribeOn(MainScheduler.instance)
             .bind(to: circularView.rx.currentIndex)
             .disposed(by: disposeBag)
 
