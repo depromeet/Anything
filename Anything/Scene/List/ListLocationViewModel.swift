@@ -18,6 +18,7 @@ class ListLocationViewModel: BaseViewModel {
     let actions = PublishRelay<ListLocationAction>()
 
     let location: Location
+    var detail: Detail?
 
     let keyText: String
     let titleText: String
@@ -57,7 +58,7 @@ class ListLocationViewModel: BaseViewModel {
                     guard !self.didFetch else { return }
                     self.didFetch = true
                     serviceProvider.networkService.request(.detail(location.id), type: Detail.self, #file, #function, #line)
-                        .subscribe(onSuccess: { detail in
+                        .subscribe(onSuccess: { [weak self] detail in
                             let sum = Double(detail.comment.scoresum)
                             let count = Double(detail.comment.scorecnt)
                             let avg = sum / max(count, 1)
@@ -65,6 +66,7 @@ class ListLocationViewModel: BaseViewModel {
                             ratingCountText.accept("\(detail.comment.scorecnt)")
                             reviewText.accept("리뷰 \(detail.blogReview?.blogrvwcnt ?? 0)")
                             imageUrlString.accept(detail.basicInfo?.mainphotourl ?? "")
+                            self?.detail = detail
                         })
                         .disposed(by: self.disposeBag)
                 }
