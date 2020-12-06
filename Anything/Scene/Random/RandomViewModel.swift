@@ -28,10 +28,11 @@ class RandomViewModel: BaseViewModel {
 
     init(
         serviceProvider: ServiceProviderType,
+        coordinate: Coordinate,
         location: Location,
         detail: Detail
     ) {
-        let detailViewModel = BehaviorRelay<DetailViewModel>(value: .init(serviceProvider: serviceProvider, location: location, detail: detail))
+        let detailViewModel = BehaviorRelay<DetailViewModel>(value: .init(serviceProvider: serviceProvider, coordinate: coordinate, location: location, detail: detail))
         self.detailViewModel = detailViewModel.asObservable()
         let location = BehaviorRelay<Location>(value: location)
         self.location = location.asObservable()
@@ -55,7 +56,7 @@ class RandomViewModel: BaseViewModel {
                         .subscribe(onNext: { newLocation, newDetail in
                             location.accept(newLocation)
                             detail.accept(newDetail)
-                            detailViewModel.accept(.init(serviceProvider: serviceProvider, location: newLocation, detail: newDetail))
+                            detailViewModel.accept(.init(serviceProvider: serviceProvider, coordinate: coordinate, location: newLocation, detail: newDetail))
                         })
                         .disposed(by: self.disposeBag)
                 }

@@ -121,7 +121,7 @@ class ListViewModel: BaseViewModel {
                     guard let locationViewModel = locationList.value.first(where: { $0.location.id == selectedLocationId.value }) else { return }
                     guard let detail = locationViewModel.detail else { return }
                     let vc = DetailViewController()
-                    vc.viewModel = DetailViewModel(serviceProvider: serviceProvider, location: locationViewModel.location, detail: detail)
+                    vc.viewModel = DetailViewModel(serviceProvider: serviceProvider, coordinate: coordinate.value, location: locationViewModel.location, detail: detail)
                     self.presentable.accept(.push(vc))
                 case .random:
                     let handler: (() -> Observable<(Location, Detail)>) = {
@@ -140,10 +140,10 @@ class ListViewModel: BaseViewModel {
                     handler()
                         .subscribe(onNext: { [weak self] location, detail in
                             let vc = RandomViewController()
-                            let viewModel = RandomViewModel(serviceProvider: serviceProvider, location: location, detail: detail)
+                            let viewModel = RandomViewModel(serviceProvider: serviceProvider, coordinate: coordinate.value, location: location, detail: detail)
                             viewModel.onDetail = { [weak self] location, detail in
                                 let vc = DetailViewController()
-                                vc.viewModel = DetailViewModel(serviceProvider: serviceProvider, location: location, detail: detail)
+                                vc.viewModel = DetailViewModel(serviceProvider: serviceProvider, coordinate: coordinate.value, location: location, detail: detail)
                                 self?.presentable.accept(.push(vc))
                             }
                             viewModel.onReload = {

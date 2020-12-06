@@ -73,9 +73,7 @@ extension View where Self: BaseViewController {
                         UIApplication.shared.open(settingUrl, options: [:]) { _ in }
                     }
                 case let .openUrl(url):
-                    if UIApplication.shared.canOpenURL(url) {
                         UIApplication.shared.open(url, options: [:]) { _ in }
-                    }
                 case let .internalBrowser(url):
                     let safariViewController = SFSafariViewController(url: url)
                     self.present(safariViewController, animated: true, completion: nil)

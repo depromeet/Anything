@@ -29,6 +29,7 @@ class DetailViewModel: BaseViewModel {
 
     init(
         serviceProvider: ServiceProviderType,
+        coordinate: Coordinate,
         location: Location,
         detail: Detail
     ) {
@@ -69,7 +70,10 @@ class DetailViewModel: BaseViewModel {
                     guard let url = URL(string: "tel://\(location.value.phone)") else { return }
                     self.presentable.accept(.openUrl(url))
                 case .way:
-                    print("way")
+                    let sp = coordinate
+                    let ep = location.value
+                    guard let url = URL(string: "kakaomap://route?sp=\(sp.latitude),\(sp.longitude)&ep=\(ep.y),\(ep.x)&by=FOOT") else { return }
+                    self.presentable.accept(.openUrl(url))
                 case .share:
                     let items = [location.value.placeUrl]
                     self.presentable.accept(.activity(items, nil))
