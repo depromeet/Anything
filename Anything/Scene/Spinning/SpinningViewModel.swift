@@ -79,8 +79,17 @@ class SpinningViewModel: BaseViewModel {
                         .map { Int($0 / Float(angle)) % count }
                         .do(onSubscribe: {
                             isAnimating.accept(true)
-                        }, onDispose: {
+                        }, onDispose: { [weak self] in
                             isAnimating.accept(false)
+                            DispatchQueue.main.async {
+                                guard let category = categories.value[safe: currentIndex.value] else { return }
+                                let vc = ResultViewController(category: category)
+                                vc.onResult = { result in
+                                    guard result else { return }
+                                    self?.actions.accept(.selectCategory(currentIndex.value))
+                                }
+                                self?.presentable.accept(.present(vc, nil))
+                            }
                         })
                         .bind(to: currentIndex)
                         .disposed(by: self.disposeBag)
