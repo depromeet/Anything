@@ -91,13 +91,15 @@ class SpinningViewModel: BaseViewModel {
                     guard let category = categories.value[safe: index] else { return }
                     guard let coordinate = coordinate.value else { return }
                     guard let locations = categoriesList.value[safe: index] else { return }
+                    guard let count = categoriesCount.value[safe: index] else { return }
                     let vc = ListViewController()
                     let viewModel = ListViewModel(
                         serviceProvider: serviceProvider,
                         category: category,
                         coordinate: coordinate,
                         distance: distance.value,
-                        locations: locations
+                        locations: locations,
+                        totalCount: count
                     )
                     vc.viewModel = viewModel
                     self.presentable.accept(.push(vc))

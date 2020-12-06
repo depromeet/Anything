@@ -40,7 +40,8 @@ class ListViewModel: BaseViewModel {
         category: Category,
         coordinate: Coordinate,
         distance: Distance,
-        locations: [Location]
+        locations: [Location],
+        totalCount: Int
     ) {
         let category = BehaviorRelay<Category>(value: category)
         self.category = category.asObservable()
