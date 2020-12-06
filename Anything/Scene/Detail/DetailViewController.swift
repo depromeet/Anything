@@ -15,67 +15,74 @@ import UIKit
 class DetailViewController: BaseViewController, View {
     typealias ViewModelType = DetailViewModel
 
-    static var dataSource: RxTableViewSectionedReloadDataSource<DetailSection> {
-        return .init(configureCell: { (_, tableView, indexPath, sectionItem) -> UITableViewCell in
-            switch sectionItem {
-            case .menuHeader:
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailMenuHeaderCell.self)
-                return cell
-            case let .menuItem(item):
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailMenuItemCell.self)
-                cell.labelName.text = item.menu
-                cell.labelPrice.text = item.price
-                return cell
-            case .menuSeparator:
-                return tableView.dequeueReusableCell(for: indexPath, cellType: DetailMenuSeparatorCell.self)
-            case let .commentHeader(item):
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentHeaderCell.self)
-                cell.labelCount.text = "\(item.scorecnt)"
-                let sum = Double(item.scoresum)
-                let count = Double(item.scorecnt)
-                let avg = sum / max(count, 1)
-                cell.labelScore.text = String(format: "%.1f", avg) + "점"
-                cell.viewRating.rating = avg
-                return cell
-            case let .commentItem(item):
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentItemCell.self)
-                if let string = item.profile, let url = URL(string: string) {
-                    cell.imageViewProfile.kf.setImage(with: url, options: [.transition(.fade(0.2))])
-                }
-                cell.viewRating.rating = Double(item.point ?? 0)
-                cell.labelName.text = item.username
-                cell.labelDate.text = item.date
-                cell.labelContent.text = item.contents
-                cell.labelContent.setLineSpacing(lineSpacing: 5)
-                return cell
-            case let .reviewHeader(item):
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailReviewHeaderCell.self)
-                cell.labelCount.text = "\(item.blogrvwcnt)"
-                return cell
-            case let .reviewItem(item):
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailReviewItemCell.self)
-                cell.labelTitle.text = item.title
-                cell.labelContent.text = item.contents
-                cell.labelContent.setLineSpacing(lineSpacing: 5)
-                if let string = item.photoList?[safe: 0]?.orgurl, let url = URL(string: string) {
-                    cell.imageView1.kf.setImage(with: url, options: [.transition(.fade(0.2))])
-                }
-                if let string = item.photoList?[safe: 1]?.orgurl, let url = URL(string: string) {
-                    cell.imageView2.kf.setImage(with: url, options: [.transition(.fade(0.2))])
-                }
-                if let string = item.photoList?[safe: 2]?.orgurl, let url = URL(string: string) {
-                    cell.imageView3.kf.setImage(with: url, options: [.transition(.fade(0.2))])
-                }
-                cell.labelName.text = item.blogname
-                cell.labelDate.text = item.date
-                return cell
-            case let .more(text):
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailMoreCell.self)
-                cell.labelMore.text = text
-                return cell
+    lazy var dataSource = RxTableViewSectionedReloadDataSource<DetailSection>(configureCell: { [weak self] (_, tableView, indexPath, sectionItem) -> UITableViewCell in
+        guard let viewModel = self?.viewModel else { return .init() }
+        switch sectionItem {
+        case .menuHeader:
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailMenuHeaderCell.self)
+            cell.labelMore.whenTapped()
+                .map { _ in .external }
+                .bind(to: viewModel.actions)
+                .disposed(by: cell.disposeBag)
+            return cell
+        case let .menuItem(item):
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailMenuItemCell.self)
+            cell.labelName.text = item.menu
+            cell.labelPrice.text = item.price
+            return cell
+        case .menuSeparator:
+            return tableView.dequeueReusableCell(for: indexPath, cellType: DetailMenuSeparatorCell.self)
+        case let .commentHeader(item):
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentHeaderCell.self)
+            cell.labelCount.text = "\(item.scorecnt)"
+            let sum = Double(item.scoresum)
+            let count = Double(item.scorecnt)
+            let avg = sum / max(count, 1)
+            cell.labelScore.text = String(format: "%.1f", avg) + "점"
+            cell.viewRating.rating = avg
+            return cell
+        case let .commentItem(item):
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentItemCell.self)
+            if let string = item.profile, let url = URL(string: string) {
+                cell.imageViewProfile.kf.setImage(with: url, options: [.transition(.fade(0.2))])
             }
-        })
-    }
+            cell.viewRating.rating = Double(item.point ?? 0)
+            cell.labelName.text = item.username
+            cell.labelDate.text = item.date
+            cell.labelContent.text = item.contents
+            cell.labelContent.setLineSpacing(lineSpacing: 5)
+            return cell
+        case let .reviewHeader(item):
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailReviewHeaderCell.self)
+            cell.labelCount.text = "\(item.blogrvwcnt)"
+            return cell
+        case let .reviewItem(item):
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailReviewItemCell.self)
+            cell.labelTitle.text = item.title
+            cell.labelContent.text = item.contents
+            cell.labelContent.setLineSpacing(lineSpacing: 5)
+            if let string = item.photoList?[safe: 0]?.orgurl, let url = URL(string: string) {
+                cell.imageView1.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+            }
+            if let string = item.photoList?[safe: 1]?.orgurl, let url = URL(string: string) {
+                cell.imageView2.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+            }
+            if let string = item.photoList?[safe: 2]?.orgurl, let url = URL(string: string) {
+                cell.imageView3.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+            }
+            cell.labelName.text = item.blogname
+            cell.labelDate.text = item.date
+            return cell
+        case let .more(text):
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailMoreCell.self)
+            cell.labelMore.text = text
+            cell.labelMore.whenTapped()
+                .map { _ in .external }
+                .bind(to: viewModel.actions)
+                .disposed(by: cell.disposeBag)
+            return cell
+        }
+    })
 
     var imageViewBack: UIImageView!
     private var imageViewLocation: UIImageView!
@@ -89,6 +96,10 @@ class DetailViewController: BaseViewController, View {
     private var labelRating: UILabel!
     private var labelRatingCount: UILabel!
     private var labelReview: UILabel!
+
+    private var viewPhone: UIView!
+    private var viewWay: UIView!
+    private var viewShare: UIView!
 
     private var labelAddress: UILabel!
     private var labelNumber: UILabel!
@@ -189,11 +200,24 @@ extension DetailViewController {
                 self.tableViewDetail.layoutTableHeaderView()
             })
             .disposed(by: disposeBag)
+
+        viewPhone.whenTapped()
+            .map { _ in .phone }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
+        viewWay.whenTapped()
+            .map { _ in .way }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
+        viewShare.whenTapped()
+            .map { _ in .share }
+            .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
     }
 
     func bindList(viewModel: ViewModelType) {
         viewModel.items
-            .bind(to: tableViewDetail.rx.items(dataSource: DetailViewController.dataSource))
+            .bind(to: tableViewDetail.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
 }
@@ -358,15 +382,15 @@ extension DetailViewController {
     }
 
     private func layoutButton(parent: UIView) {
-        let viewPhone = UIView().layout(parent) { m in
+        viewPhone = UIView().layout(parent) { m in
             m.top.left.bottom.equalToSuperview()
         }
-        let viewWay = UIView().layout(parent) { m in
+        viewWay = UIView().layout(parent) { m in
             m.top.bottom.equalToSuperview()
             m.left.equalTo(viewPhone.snp.right)
             m.width.equalTo(viewPhone)
         }
-        let viewShare = UIView().layout(parent) { m in
+        viewShare = UIView().layout(parent) { m in
             m.top.bottom.equalToSuperview()
             m.left.equalTo(viewWay.snp.right)
             m.right.equalToSuperview()

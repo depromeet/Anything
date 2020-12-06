@@ -11,7 +11,10 @@ import RxRelay
 import RxSwift
 
 enum DetailAction {
-    case back, location
+    case back
+    case location
+    case phone, way, share
+    case external
 }
 
 class DetailViewModel: BaseViewModel {
@@ -62,6 +65,14 @@ class DetailViewModel: BaseViewModel {
                         .take(.milliseconds(300), scheduler: MainScheduler.asyncInstance)
                         .bind(to: cameraPosition)
                         .disposed(by: self.disposeBag)
+                case .phone:
+                    print("phone")
+                case .way:
+                    print("way")
+                case .share:
+                    print("share")
+                case .external:
+                    print("external")
                 }
             })
             .disposed(by: disposeBag)
