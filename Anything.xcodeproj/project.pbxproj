@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		10492E1461E9812958DCEF6A /* Pods_Anything.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880CBC4CFCE87C336BE76628 /* Pods_Anything.framework */; };
+		9C031A7B257CC76B004BB0A4 /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C031A7A257CC76B004BB0A4 /* RandomViewController.swift */; };
+		9C031A7D257CCA14004BB0A4 /* RandomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C031A7C257CCA14004BB0A4 /* RandomViewModel.swift */; };
 		9C0AECE825725823009349AD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0AECE725725823009349AD /* MapViewController.swift */; };
 		9C0AECEA2572582C009349AD /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0AECE92572582C009349AD /* MapViewModel.swift */; };
 		9C2437BE255F5C8900EB9C38 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */; };
@@ -99,6 +101,8 @@
 		5FA990465A21655122445307 /* Pods-Anything.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anything.debug.xcconfig"; path = "Target Support Files/Pods-Anything/Pods-Anything.debug.xcconfig"; sourceTree = "<group>"; };
 		686467D99D5310B73482D4CD /* Pods-Anything.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anything.release.xcconfig"; path = "Target Support Files/Pods-Anything/Pods-Anything.release.xcconfig"; sourceTree = "<group>"; };
 		880CBC4CFCE87C336BE76628 /* Pods_Anything.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Anything.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C031A7A257CC76B004BB0A4 /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
+		9C031A7C257CCA14004BB0A4 /* RandomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewModel.swift; sourceTree = "<group>"; };
 		9C0AECE725725823009349AD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9C0AECE92572582C009349AD /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		9C2437BD255F5C8900EB9C38 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +190,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C031A79257CC756004BB0A4 /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				9C031A7A257CC76B004BB0A4 /* RandomViewController.swift */,
+				9C031A7C257CCA14004BB0A4 /* RandomViewModel.swift */,
+			);
+			path = Random;
+			sourceTree = "<group>";
+		};
 		9C0AECE625725810009349AD /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +320,7 @@
 				9C0AECE625725810009349AD /* Map */,
 				9C903990257393CD00D74E99 /* List */,
 				9CE1D259257BBD7200C70E5B /* Detail */,
+				9C031A79257CC756004BB0A4 /* Random */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -584,6 +598,7 @@
 				9CDBEAAC257CAC480043527C /* DetailMoreCell.swift in Sources */,
 				9C2AF7482560DFCF007F3FAE /* MainViewModel.swift in Sources */,
 				9CE1D29E257C654700C70E5B /* DetailCommentItemCell.swift in Sources */,
+				9C031A7D257CCA14004BB0A4 /* RandomViewModel.swift in Sources */,
 				9CBCEA06256A892800308C64 /* CategoryOptionCell.swift in Sources */,
 				9C79B9B9257686A000A2B2EB /* ListLocationViewModel.swift in Sources */,
 				9CCCED41257CA64200ABA464 /* DetailReviewItemCell.swift in Sources */,
@@ -603,6 +618,7 @@
 				9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */,
 				9C0AECEA2572582C009349AD /* MapViewModel.swift in Sources */,
 				9C8DCD482557DD18001F8F56 /* Category.swift in Sources */,
+				9C031A7B257CC76B004BB0A4 /* RandomViewController.swift in Sources */,
 				9CBCEA02256A709A00308C64 /* Reusable+Rx.swift in Sources */,
 				9C2AF74A2560E519007F3FAE /* Distance.swift in Sources */,
 				9C9FEA21256A3DA10071DC86 /* SpinningViewController.swift in Sources */,
