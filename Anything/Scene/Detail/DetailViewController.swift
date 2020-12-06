@@ -84,6 +84,21 @@ class DetailViewController: BaseViewController, View {
 
     private var viewMap: NMFNaverMapView!
 
+    private var labelTitle: UILabel!
+    private var labelRating: UILabel!
+    private var labelRatingCount: UILabel!
+    private var labelReview: UILabel!
+
+    private var labelAddress: UILabel!
+    private var labelNumber: UILabel!
+    private var labelDate: UILabel!
+    private var labelTime: UILabel!
+
+    private var imageView1: UIImageView!
+    private var imageView2: UIImageView!
+    private var imageView3: UIImageView!
+    private var imageView4: UIImageView!
+
     override func layout(parent: UIView) {
         layoutContent(parent: parent)
     }
@@ -91,6 +106,7 @@ class DetailViewController: BaseViewController, View {
     func bind(viewModel: ViewModelType) {
         bindNavigation(viewModel: viewModel)
         bindMap(viewModel: viewModel)
+        bindHeader(viewModel: viewModel)
         bindList(viewModel: viewModel)
         bindPresentable(viewModel: viewModel)
     }
@@ -126,6 +142,42 @@ extension DetailViewController {
             .subscribe(onNext: { [weak self] status in
                 let position: NMFMyPositionMode = status == .denied ? .disabled : .normal
                 self?.viewMap.mapView.positionMode = position
+            })
+            .disposed(by: disposeBag)
+    }
+
+    func bindHeader(viewModel: ViewModelType) {
+        viewModel.detail
+            .subscribe(onNext: { [weak self] detail in
+                guard let self = self else { return }
+                self.labelTitle.text = detail.basicInfo?.placenamefull
+                let sum = Double(detail.comment.scoresum)
+                let count = Double(detail.comment.scorecnt)
+                let avg = sum / max(count, 1)
+                self.labelRating.text = String(format: "%.1f", avg)
+                self.labelRatingCount.text = "(\(detail.comment.scorecnt))"
+                self.labelReview.text = "리뷰 \(detail.blogReview?.blogrvwcnt ?? 0)"
+                self.labelAddress.text = detail.basicInfo?.address?.newaddr?.newaddrfull
+                self.labelNumber.text = detail.basicInfo?.phonenum
+                self.labelDate.text = detail.basicInfo?.openHour?.periodList?
+                    .first?.timeList?.first?.dayOfWeek ?? "-"
+                self.labelTime.text = detail.basicInfo?.openHour?.periodList?
+                    .first?.timeList?.first?.timeSE ?? "-"
+                if let list = detail.photo?.photoList?.first?.list {
+                    if let string = list[safe: 0]?.orgurl, let url = URL(string: string) {
+                        self.imageView1.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+                    }
+                    if let string = list[safe: 1]?.orgurl, let url = URL(string: string) {
+                        self.imageView2.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+                    }
+                    if let string = list[safe: 2]?.orgurl, let url = URL(string: string) {
+                        self.imageView3.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+                    }
+                    if let string = list[safe: 3]?.orgurl, let url = URL(string: string) {
+                        self.imageView4.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+                    }
+                }
+                self.tableViewDetail.layoutTableHeaderView()
             })
             .disposed(by: disposeBag)
     }
@@ -242,17 +294,16 @@ extension DetailViewController {
     }
 
     private func layoutTitle(parent: UIView) {
-        let viewTitle = UILabel().then { v in
+        labelTitle = UILabel().then { v in
             v.font = .h2
             v.textColor = .rgb3C3C3C
-            v.text = "요란한 부엌"
         }.layout(parent) { m in
             m.top.equalToSuperview()
             m.centerX.equalToSuperview()
         }
 
         let viewInfo = UIView().layout(parent) { m in
-            m.top.equalTo(viewTitle.snp.bottom).offset(10)
+            m.top.equalTo(labelTitle.snp.bottom).offset(10)
             m.centerX.equalToSuperview()
             m.bottom.equalToSuperview()
         }
@@ -267,24 +318,21 @@ extension DetailViewController {
             m.bottom.equalToSuperview().inset(1)
         }
 
-        let labelRating = UILabel().then { v in
-            v.text = "4"
+        labelRating = UILabel().then { v in
             v.font = .body2
             v.textColor = .rgbFF7375
         }.layout(parent) { m in
             m.left.equalTo(imageViewStar.snp.right)
             m.centerY.equalToSuperview()
         }
-        let labelRatingCount = UILabel().then { v in
-            v.text = "(66)"
+        labelRatingCount = UILabel().then { v in
             v.font = .body1
             v.textColor = .rgb8C8C8C
         }.layout(parent) { m in
             m.top.bottom.equalToSuperview()
             m.left.equalTo(labelRating.snp.right).offset(2)
         }
-        UILabel().then { v in
-            v.text = "리뷰 293"
+        labelReview = UILabel().then { v in
             v.font = .body1
             v.textColor = .rgb8C8C8C
         }.layout(parent) { m in
@@ -376,32 +424,28 @@ extension DetailViewController {
             m.left.equalToSuperview().inset(20)
         }
 
-        UILabel().then { v in
-            v.text = "서울 동작구 대림로 12"
+        labelAddress = UILabel().then { v in
             v.textColor = .rgb646464
             v.font = .body1
         }.layout(parent) { m in
             m.top.equalToSuperview()
             m.left.equalToSuperview().inset(88)
         }
-        UILabel().then { v in
-            v.text = "02-124-9533"
+        labelNumber = UILabel().then { v in
             v.textColor = .rgb646464
             v.font = .body1
         }.layout(parent) { m in
             m.top.equalToSuperview().inset(30)
             m.left.equalToSuperview().inset(88)
         }
-        UILabel().then { v in
-            v.text = "월~일"
+        labelDate = UILabel().then { v in
             v.textColor = .rgb646464
             v.font = .body1
         }.layout(parent) { m in
             m.top.equalToSuperview().inset(60)
             m.left.equalToSuperview().inset(88)
         }
-        UILabel().then { v in
-            v.text = "10:00~22:00"
+        labelTime = UILabel().then { v in
             v.textColor = .rgb646464
             v.font = .body1
         }.layout(parent) { m in
@@ -412,31 +456,35 @@ extension DetailViewController {
     }
 
     private func layoutImage(parent: UIView) {
-        let imageView1 = UIImageView().then { v in
+        imageView1 = UIImageView().then { v in
             v.contentMode = .scaleAspectFill
             v.backgroundColor = .rgbDCDCDC
+            v.clipsToBounds = true
         }.layout(parent) { m in
             m.top.left.equalToSuperview()
         }
-        let imageView2 = UIImageView().then { v in
+        imageView2 = UIImageView().then { v in
             v.contentMode = .scaleAspectFill
             v.backgroundColor = .rgbDCDCDC
+            v.clipsToBounds = true
         }.layout(parent) { m in
             m.top.right.equalToSuperview()
             m.left.equalTo(imageView1.snp.right).offset(5)
             m.width.equalTo(imageView1)
         }
-        let imageView3 = UIImageView().then { v in
+        imageView3 = UIImageView().then { v in
             v.contentMode = .scaleAspectFill
             v.backgroundColor = .rgbDCDCDC
+            v.clipsToBounds = true
         }.layout(parent) { m in
             m.top.equalTo(imageView1.snp.bottom).offset(5)
             m.left.bottom.equalToSuperview()
             m.width.height.equalTo(imageView1)
         }
-        UIImageView().then { v in
+        imageView4 = UIImageView().then { v in
             v.contentMode = .scaleAspectFill
             v.backgroundColor = .rgbDCDCDC
+            v.clipsToBounds = true
         }.layout(parent) { m in
             m.top.equalTo(imageView2.snp.bottom).offset(5)
             m.left.equalTo(imageView3.snp.right).offset(5)

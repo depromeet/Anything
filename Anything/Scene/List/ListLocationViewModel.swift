@@ -63,7 +63,7 @@ class ListLocationViewModel: BaseViewModel {
                             let count = Double(detail.comment.scorecnt)
                             let avg = sum / max(count, 1)
                             ratingText.accept(String(format: "%.1f", avg))
-                            ratingCountText.accept("\(detail.comment.scorecnt)")
+                            ratingCountText.accept("(\(detail.comment.scorecnt))")
                             reviewText.accept("리뷰 \(detail.blogReview?.blogrvwcnt ?? 0)")
                             imageUrlString.accept(detail.basicInfo?.mainphotourl ?? "")
                             self?.detail = detail
