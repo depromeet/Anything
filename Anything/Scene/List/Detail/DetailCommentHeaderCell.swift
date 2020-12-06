@@ -63,7 +63,6 @@ extension DetailCommentHeaderCell {
             m.bottom.equalToSuperview().inset(15)
         }
         labelCount = UILabel().then { v in
-            v.text = "66"
             v.textColor = .rgb8C8C8C
             v.font = .subtitle3
         }.layout(parent) { m in
@@ -72,7 +71,6 @@ extension DetailCommentHeaderCell {
             m.bottom.equalToSuperview().inset(15)
         }
         labelScore = UILabel().then { v in
-            v.text = "4점"
             v.textColor = .rgbFF7375
             v.font = .subtitle3
         }.layout(parent) { m in
@@ -85,6 +83,7 @@ extension DetailCommentHeaderCell {
             v.settings.filledImage = #imageLiteral(resourceName: "ic_star_fill_17pt")
             v.settings.starSize = 17
             v.settings.starMargin = 1
+            v.settings.updateOnTouch = false
         }.layout(parent) { m in
             m.left.equalTo(labelScore.snp.right).offset(10)
             m.right.equalToSuperview().inset(12)

@@ -10,6 +10,12 @@ import Cosmos
 import UIKit
 
 class DetailCommentItemCell: BaseTableViewCell {
+    var imageViewProfile: UIImageView!
+    var viewRating: CosmosView!
+    var labelName: UILabel!
+    var labelDate: UILabel!
+    var labelContent: UILabel!
+
     override func layout(parent: UIView) {
         layoutContent(parent: parent)
     }
@@ -28,10 +34,18 @@ extension DetailCommentItemCell {
         }
 
         layoutContainer(parent: viewContent)
+
+        UIView().then { v in
+            v.backgroundColor = .rgbF1F1F1
+        }.layout(parent) { m in
+            m.left.right.equalToSuperview()
+            m.bottom.equalToSuperview()
+            m.height.equalTo(1)
+        }
     }
 
     private func layoutContainer(parent: UIView) {
-        let imageViewProfile = UIImageView().then { v in
+        imageViewProfile = UIImageView().then { v in
             v.backgroundColor = .rgbDCDCDC
             v.layer.cornerRadius = 8
             v.layer.masksToBounds = true
@@ -41,13 +55,14 @@ extension DetailCommentItemCell {
             m.width.height.equalTo(30)
         }
 
-        let viewRating = CosmosView().then { v in
+        viewRating = CosmosView().then { v in
             v.rating = 4
             v.settings.fillMode = .precise
             v.settings.emptyImage = #imageLiteral(resourceName: "ic_star_normal_12pt")
             v.settings.filledImage = #imageLiteral(resourceName: "ic_star_fill_12pt")
             v.settings.starSize = 12
             v.settings.starMargin = 1
+            v.settings.updateOnTouch = false
         }.layout(parent) { m in
             m.top.equalTo(imageViewProfile)
             m.left.equalTo(imageViewProfile.snp.right).offset(10)
@@ -61,8 +76,7 @@ extension DetailCommentItemCell {
         }
         layoutInfo(parent: viewInfo)
 
-        let labelName = UILabel().then { v in
-            v.text = "2줄 맛있나 맛있어요맛있나 맛있나 맛있어요맛있나맛있나 맛있나 맛있어요맛있나 맛있나 맛있어요맛있나"
+        labelContent = UILabel().then { v in
             v.textColor = .rgb646464
             v.font = .body1
             v.numberOfLines = 4
@@ -75,15 +89,13 @@ extension DetailCommentItemCell {
     }
 
     private func layoutInfo(parent: UIView) {
-        let labelName = UILabel().then { v in
-            v.text = "Roheunjong"
+        labelName = UILabel().then { v in
             v.textColor = .rgb646464
             v.font = .caption2
         }.layout(parent) { m in
             m.top.left.bottom.equalToSuperview()
         }
-        let labelDate = UILabel().then { v in
-            v.text = "2018.10.03."
+        labelDate = UILabel().then { v in
             v.textColor = .rgb8C8C8C
             v.font = .caption1
         }.layout(parent) { m in

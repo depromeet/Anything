@@ -31,9 +31,22 @@ class DetailViewController: BaseViewController, View {
             case let .commentHeader(item):
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentHeaderCell.self)
                 cell.labelCount.text = "\(item.scorecnt)"
+                let sum = Double(item.scoresum)
+                let count = Double(item.scorecnt)
+                let avg = sum / max(count, 1)
+                cell.labelScore.text = String(format: "%.1f", avg) + "점"
+                cell.viewRating.rating = avg
                 return cell
             case let .commentItem(item):
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentItemCell.self)
+                if let string = item.profile, let url = URL(string: string) {
+                    cell.imageViewProfile.kf.setImage(with: url)
+                }
+                cell.viewRating.rating = Double(item.point ?? 0)
+                cell.labelName.text = item.username
+                cell.labelDate.text = item.date
+                cell.labelContent.text = item.contents
+                cell.labelContent.setLineSpacing(lineSpacing: 5)
                 return cell
             }
         })
