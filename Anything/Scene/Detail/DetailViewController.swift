@@ -77,7 +77,7 @@ class DetailViewController: BaseViewController, View {
         })
     }
 
-    private var imageViewBack: UIImageView!
+    var imageViewBack: UIImageView!
     private var imageViewLocation: UIImageView!
 
     private var tableViewDetail: UITableView!
@@ -245,7 +245,7 @@ extension DetailViewController {
     private func layoutHeader(parent: UIView) {
         let viewMap = UIView().layout(parent) { m in
             m.top.left.right.equalToSuperview()
-            m.height.equalTo(300)
+            m.height.equalTo(240)
         }
         let viewTitle = UIView().layout(parent) { m in
             m.top.equalTo(viewMap.snp.bottom).offset(32)
@@ -278,6 +278,7 @@ extension DetailViewController {
         viewMap = NMFNaverMapView().then { v in
             v.mapView.positionMode = .disabled
             v.showScaleBar = false
+            v.showZoomControls = false
             v.showLocationButton = false
             v.mapView.contentInset = .init(top: 44, left: 0, bottom: 0, right: 0)
         }.layout(parent) { m in
