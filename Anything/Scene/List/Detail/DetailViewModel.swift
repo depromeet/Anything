@@ -84,7 +84,7 @@ class DetailViewModel: BaseViewModel {
         guard let menuList = detail.menuInfo?.menuList else { return nil }
         let list = menuList.map(DetailSectionItem.menuItem)
         guard !list.isEmpty else { return nil }
-        return .detail([.menuHeader] + list)
+        return .detail([.menuHeader, .menuSeparator] + list + [.menuSeparator])
     }
 
     func mapComment(detail: Detail) -> DetailSection? {

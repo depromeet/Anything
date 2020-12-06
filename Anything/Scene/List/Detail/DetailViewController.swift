@@ -26,6 +26,8 @@ class DetailViewController: BaseViewController, View {
                 cell.labelName.text = item.menu
                 cell.labelPrice.text = item.price
                 return cell
+            case .menuSeparator:
+                return tableView.dequeueReusableCell(for: indexPath, cellType: DetailMenuSeparatorCell.self)
             case let .commentHeader(item):
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailCommentHeaderCell.self)
                 cell.labelCount.text = "\(item.scorecnt)"
@@ -102,6 +104,7 @@ extension DetailViewController {
         view.backgroundColor = .white
 
         tableViewDetail = UITableView().then { v in
+            v.register(cellType: DetailMenuSeparatorCell.self)
             v.register(cellType: DetailMenuHeaderCell.self)
             v.register(cellType: DetailMenuItemCell.self)
             v.register(cellType: DetailCommentHeaderCell.self)

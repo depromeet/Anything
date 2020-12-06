@@ -35,14 +35,14 @@ extension DetailMenuHeaderCell {
         }.layout(parent) { m in
             m.top.equalToSuperview().inset(6)
             m.left.right.equalToSuperview()
-            m.bottom.equalToSuperview().inset(12)
+            m.bottom.equalToSuperview()
         }
 
         UIView().then { v in
             v.backgroundColor = .rgbF1F1F1
         }.layout(parent) { m in
             m.left.right.equalToSuperview()
-            m.bottom.equalToSuperview().inset(12)
+            m.bottom.equalToSuperview()
             m.height.equalTo(1)
         }
 
