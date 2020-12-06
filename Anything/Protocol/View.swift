@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import SafariServices
 import UIKit
 import WeakMapTable
 
@@ -71,6 +72,9 @@ extension View where Self: BaseViewController {
                        UIApplication.shared.canOpenURL(settingUrl) {
                         UIApplication.shared.open(settingUrl, options: [:]) { _ in }
                     }
+                case let .internalBrowser(url):
+                    let safariViewController = SFSafariViewController(url: url)
+                    self.present(safariViewController, animated: true, completion: nil)
                 }
             })
             .disposed(by: disposeBag)

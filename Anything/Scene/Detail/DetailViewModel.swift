@@ -72,7 +72,8 @@ class DetailViewModel: BaseViewModel {
                 case .share:
                     print("share")
                 case .external:
-                    print("external")
+                    guard let url = URL(string: location.value.placeUrl) else { return }
+                    self.presentable.accept(.internalBrowser(url))
                 }
             })
             .disposed(by: disposeBag)
