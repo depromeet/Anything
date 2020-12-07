@@ -32,7 +32,7 @@ class CategoryView: UIView {
     }
 
     private func setupViews() {
-        backgroundColor = .rgb3C3C3C
+        backgroundColor = 0x282828.color
         layer.cornerRadius = 8
         layer.masksToBounds = true
         imageViewIcon = UIImageView().then { v in
