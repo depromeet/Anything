@@ -78,7 +78,6 @@ extension RandomViewController {
                 m.width.equalToSuperview()
             }
             detail.imageViewBack.isHidden = true
-            detail.view.isUserInteractionEnabled = false
         }.layout(parent) { m in
             m.top.equalToSuperview().inset(100)
             m.left.right.equalToSuperview().inset(20)
