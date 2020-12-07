@@ -167,6 +167,11 @@ extension DetailViewController {
     }
 
     func bindHeader(viewModel: ViewModelType) {
+        imageView1.image = nil
+        imageView2.image = nil
+        imageView3.image = nil
+        imageView4.image = nil
+
         viewModel.detail
             .subscribe(onNext: { [weak self] detail in
                 guard let self = self else { return }
