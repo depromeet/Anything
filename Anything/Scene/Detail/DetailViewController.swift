@@ -21,7 +21,7 @@ class DetailViewController: BaseViewController, View {
         case .menuHeader:
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailMenuHeaderCell.self)
             cell.labelMore.whenTapped()
-                .map { _ in .external }
+                .map { _ in .external("") }
                 .bind(to: viewModel.actions)
                 .disposed(by: cell.disposeBag)
             return cell
@@ -73,11 +73,11 @@ class DetailViewController: BaseViewController, View {
             cell.labelName.text = item.blogname
             cell.labelDate.text = item.date
             return cell
-        case let .more(text):
+        case let .more(text, url):
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DetailMoreCell.self)
             cell.labelMore.text = text
             cell.labelMore.whenTapped()
-                .map { _ in .external }
+                .map { _ in .external(url) }
                 .bind(to: viewModel.actions)
                 .disposed(by: cell.disposeBag)
             return cell

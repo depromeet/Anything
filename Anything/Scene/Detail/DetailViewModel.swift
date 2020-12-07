@@ -14,7 +14,7 @@ enum DetailAction {
     case back
     case location
     case phone, way, share
-    case external
+    case external(String)
 }
 
 class DetailViewModel: BaseViewModel {
@@ -77,8 +77,8 @@ class DetailViewModel: BaseViewModel {
                 case .share:
                     let items = [location.value.placeUrl]
                     self.presentable.accept(.activity(items, nil))
-                case .external:
-                    guard let url = URL(string: location.value.placeUrl) else { return }
+                case let .external(string):
+                    guard let url = URL(string: location.value.placeUrl + string) else { return }
                     self.presentable.accept(.internalBrowser(url))
                 }
             })
@@ -113,7 +113,7 @@ class DetailViewModel: BaseViewModel {
         guard let commentList = detail.comment.list else { return nil }
         let list = commentList.map(DetailSectionItem.commentItem)
         guard !list.isEmpty else { return nil }
-        return .detail([.commentHeader(detail.comment)] + list + [.more("리뷰 더보기")])
+        return .detail([.commentHeader(detail.comment)] + list + [.more("리뷰 더보기", "#comment")])
     }
 
     func mapReview(detail: Detail) -> DetailSection? {
@@ -121,6 +121,6 @@ class DetailViewModel: BaseViewModel {
         guard let reviewList = review.list else { return nil }
         let list = reviewList.map(DetailSectionItem.reviewItem)
         guard !list.isEmpty else { return nil }
-        return .detail([.reviewHeader(review)] + list + [.more("블로그 리뷰 더보기")])
+        return .detail([.reviewHeader(review)] + list + [.more("블로그 리뷰 더보기", "#review")])
     }
 }
