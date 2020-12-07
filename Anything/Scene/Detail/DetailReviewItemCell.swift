@@ -53,7 +53,7 @@ extension DetailReviewItemCell {
             v.font = .body2
         }.layout(parent) { m in
             m.top.equalToSuperview().inset(16)
-            m.left.equalToSuperview().inset(20)
+            m.left.right.equalToSuperview().inset(20)
         }
 
         let stackViewImage = UIStackView().then { v in
