@@ -152,13 +152,10 @@ extension MainViewController {
 
         viewContainer = UIView().then { v in
             v.backgroundColor = .clear
+            v.clipsToBounds = true
         }.layout(parent) { m in
             m.top.equalTo(viewNavigation.snp.bottom)
             m.left.right.bottom.equalToSuperview()
-        }
-        UIImageView(image: #imageLiteral(resourceName: "image_main_background")).layout(parent, below: viewContainer) { m in
-            m.top.equalTo(viewNavigation.snp.bottom)
-            m.left.right.equalToSuperview()
         }
     }
 }

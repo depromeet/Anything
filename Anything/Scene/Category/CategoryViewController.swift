@@ -67,7 +67,13 @@ extension CategoryViewController {
 
         let viewTitle = UIView().layout(parent) { m in
             m.top.left.right.equalToSuperview()
-            m.height.equalToSuperview().multipliedBy(0.15)
+            m.height.equalToSuperview().multipliedBy(0.17)
+        }
+        UIImageView(image: #imageLiteral(resourceName: "image_main_background")).then { v in
+            v.contentMode = .bottom
+        }.layout(parent, below: viewTitle) { m in
+            m.left.right.equalTo(viewTitle)
+            m.bottom.equalTo(viewTitle).offset(20)
         }
         UIView().then { v in
             let labelTitle = UILabel().then { v in
