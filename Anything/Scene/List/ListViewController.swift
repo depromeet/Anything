@@ -136,6 +136,10 @@ extension ListViewController {
                     marker.iconImage = NMFOverlayImage(image: #imageLiteral(resourceName: "ic_pin_solid_21"))
                     marker.position = target
                     marker.mapView = self.viewMap.mapView
+                    marker.touchHandler = { [weak self] _ -> Bool in
+                        self?.viewModel?.actions.accept(.marker(location.id))
+                        return true
+                    }
                     self.markers[location.id] = marker
                 }
             })
@@ -164,6 +168,13 @@ extension ListViewController {
         tableViewLocation.whenBottomReached()
             .map { _ in .loadMore }
             .bind(to: viewModel.actions)
+            .disposed(by: disposeBag)
+
+        viewModel.scrollIndex
+            .subscribe(onNext: { [weak self] row in
+                let indexPath = IndexPath(row: row, section: 0)
+                self?.tableViewLocation.scrollToRow(at: indexPath, at: .middle, animated: true)
+            })
             .disposed(by: disposeBag)
     }
 }

@@ -11,7 +11,7 @@ import RxRelay
 import RxSwift
 
 enum ListAction {
-    case back, loadMore, select(Int), location, detail, random
+    case back, loadMore, select(Int), location, detail, random, marker(String)
 }
 
 class ListViewModel: BaseViewModel {
@@ -24,6 +24,7 @@ class ListViewModel: BaseViewModel {
     let distance: Observable<Distance>
     let authorizationStatus: Observable<AuthorizationStatus>
     let locationList: Observable<[ListLocationViewModel]>
+    let scrollIndex: Observable<Int>
 
     let selectedLocationId: Observable<String>
 
@@ -57,6 +58,8 @@ class ListViewModel: BaseViewModel {
         self.authorizationStatus = authorizationStatus.asObservable()
         let locationList = BehaviorRelay<[ListLocationViewModel]>(value: locations.map { ListLocationViewModel(serviceProvider: serviceProvider, location: $0) })
         self.locationList = locationList.asObservable()
+        let scrollIndex = PublishRelay<Int>()
+        self.scrollIndex = scrollIndex.asObservable()
 
         let selectedLocationId = BehaviorRelay(value: "")
         self.selectedLocationId = selectedLocationId.asObservable()
@@ -153,6 +156,10 @@ class ListViewModel: BaseViewModel {
                             self?.presentable.accept(.present(vc, nil))
                         })
                         .disposed(by: self.disposeBag)
+                case let .marker(id):
+                    guard let index = locationList.value.firstIndex(where: { $0.location.id == id }) else { return }
+                    scrollIndex.accept(index)
+                    self.actions.accept(.select(index))
                 }
             })
             .disposed(by: disposeBag)
