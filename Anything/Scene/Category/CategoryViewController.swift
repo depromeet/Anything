@@ -90,23 +90,30 @@ extension CategoryViewController {
             m.center.equalToSuperview()
         }
 
+        let viewCenter = UIView().layout(parent) { m in
+            m.top.equalTo(viewTitle.snp.bottom)
+            m.left.right.equalToSuperview()
+        }
         tableViewCategory = ResizableTableView().then { v in
             v.register(cellType: CategoryOptionCell.self)
             v.separatorStyle = .none
             v.backgroundColor = .clear
             v.rowHeight = 48
             v.isScrollEnabled = false
-        }.layout(parent) { m in
-            m.top.equalTo(viewTitle.snp.bottom).offset(10)
-            m.left.right.equalToSuperview()
+        }.layout(viewCenter) { m in
+            m.top.greaterThanOrEqualToSuperview()
+            m.bottom.lessThanOrEqualToSuperview()
+            m.left.right.equalToSuperview().inset(25)
+            m.centerY.equalToSuperview()
         }
 
         let viewBottom = UIView().then { v in
             v.backgroundColor = 0x141414.color
         }.layout(parent) { m in
-            m.top.equalTo(tableViewCategory.snp.bottom).offset(50)
+            m.top.equalTo(viewCenter.snp.bottom)
             m.left.right.equalToSuperview()
             m.bottom.equalTo(parent.safeAreaLayoutGuide)
+            m.height.equalTo(165)
         }
         layoutBottom(parent: viewBottom)
     }

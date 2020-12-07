@@ -138,6 +138,7 @@ extension SpinningViewController {
             m.top.equalTo(viewCenter.snp.bottom)
             m.left.right.equalToSuperview()
             m.bottom.equalTo(parent.safeAreaLayoutGuide)
+            m.height.equalTo(165)
         }
         layoutBottom(parent: viewBottom)
     }
@@ -195,7 +196,6 @@ extension SpinningViewController {
         }.layout(parent) { m in
             m.top.equalTo(stackViewFirst.snp.bottom).offset(10)
             m.left.right.equalToSuperview().inset(20)
-            m.bottom.equalToSuperview().inset(10)
             m.height.equalTo(40)
         }
     }
