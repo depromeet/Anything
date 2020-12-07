@@ -12,7 +12,6 @@ import UIKit
 class ListLocationCell: BaseTableViewCell, View {
     typealias ViewModelType = ListLocationViewModel
 
-    var labelKey: UILabel!
     var labelTitle: UILabel!
     var labelRating: UILabel!
     var labelRatingCount: UILabel!
@@ -25,7 +24,6 @@ class ListLocationCell: BaseTableViewCell, View {
     }
 
     func bind(viewModel: ViewModelType) {
-        labelKey.text = viewModel.keyText
         labelTitle.text = viewModel.titleText
         viewModel.ratingText
             .bind(to: labelRating.rx.text)
@@ -108,20 +106,11 @@ extension ListLocationCell {
     }
 
     private func layoutTop(parent: UIView) {
-        labelKey = UILabel().then { v in
-            v.font = .subtitle3
-            v.textColor = .rgbFF7375
-            v.setContentCompressionResistancePriority(.required, for: .horizontal)
-        }.layout(parent) { m in
-            m.top.left.bottom.equalToSuperview()
-        }
-
         labelTitle = UILabel().then { v in
             v.font = .subtitle3
             v.textColor = .rgb3C3C3C
         }.layout(parent) { m in
-            m.top.right.bottom.equalToSuperview()
-            m.left.equalTo(labelKey.snp.right).offset(6)
+            m.top.left.right.bottom.equalToSuperview()
         }
     }
 

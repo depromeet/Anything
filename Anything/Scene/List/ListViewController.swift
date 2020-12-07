@@ -141,7 +141,6 @@ extension ListViewController {
             })
             .bind(to: tableViewLocation.rx.items(cellType: ListLocationCell.self)) { index, cellViewModel, cell in
                 cell.viewModel = cellViewModel
-                cell.labelKey.text = "\(index + 1)"
                 cell.whenTapped()
                     .map { _ in .select(index) }
                     .bind(to: viewModel.actions)
