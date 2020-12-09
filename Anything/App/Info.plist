@@ -79,5 +79,7 @@
 	</dict>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>CFBundleDisplayName</key>
+	<string>아무거나</string>
 </dict>
 </plist>
