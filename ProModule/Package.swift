@@ -34,7 +34,8 @@ let package = Package(
         .package(url: "https://github.com/slackhq/PanModal", .upToNextMajor(from: "1.2.7")),
         .package(url: "https://github.com/AliSoftware/Reusable", .upToNextMajor(from: "4.1.1")),
         .package(url: "https://github.com/evgenyneu/Cosmos", .upToNextMajor(from: "23.0.0")),
-        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack", .upToNextMajor(from: "3.6.2"))
+        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack", .upToNextMajor(from: "3.6.2")),
+        .package(name: "Lottie", url: "https://github.com/airbnb/lottie-ios", .upToNextMajor(from: "3.1.9")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -66,6 +67,7 @@ let package = Package(
                 "Cosmos",
                 "CocoaLumberjack",
                 .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
+                "Lottie",
         ]),
         .testTarget(
             name: "ProModuleTests",
