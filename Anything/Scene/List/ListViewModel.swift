@@ -71,6 +71,8 @@ class ListViewModel: BaseViewModel {
         let distanceText = BehaviorRelay(value: distance.value.titleText)
         self.distanceText = distanceText.asObservable()
 
+        isLast = locations.count >= totalCount
+
         super.init(serviceProvider: serviceProvider)
 
         actions
