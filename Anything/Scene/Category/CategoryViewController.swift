@@ -109,7 +109,7 @@ extension CategoryViewController {
         }.layout(viewCenter) { m in
             m.top.greaterThanOrEqualToSuperview()
             m.bottom.lessThanOrEqualToSuperview()
-            m.left.right.equalToSuperview().inset(25)
+            m.left.right.equalToSuperview()
             m.centerY.equalToSuperview()
         }
 
