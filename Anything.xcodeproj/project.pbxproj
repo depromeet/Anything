@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,6 +37,7 @@
 		9C2AF74E2560ECEC007F3FAE /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF74D2560ECEC007F3FAE /* LocationService.swift */; };
 		9C31FE82256E8ABF0009AE9A /* DistanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31FE80256E8ABC0009AE9A /* DistanceCell.swift */; };
 		9C31FE83256E8ABF0009AE9A /* DistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31FE81256E8ABE0009AE9A /* DistanceViewController.swift */; };
+		9C5566D925805CB100506954 /* ProModule in Frameworks */ = {isa = PBXBuildFile; productRef = 9C5566D825805CB100506954 /* ProModule */; };
 		9C6845D7255F6C72007D3433 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6845D6255F6C72007D3433 /* UIView+SnapKit.swift */; };
 		9C79B9B725767CC100A2B2EB /* ListLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79B9B625767CC100A2B2EB /* ListLocationCell.swift */; };
 		9C79B9B9257686A000A2B2EB /* ListLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79B9B8257686A000A2B2EB /* ListLocationViewModel.swift */; };
@@ -48,8 +49,6 @@
 		9C903994257393EB00D74E99 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C903993257393EB00D74E99 /* ListViewModel.swift */; };
 		9C9039962573A19200D74E99 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9039952573A19200D74E99 /* Detail.swift */; };
 		9C95E3722543D2930028FDFD /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95E3712543D2930028FDFD /* CircularView.swift */; };
-		9C95E3752543D2DD0028FDFD /* ProModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; };
-		9C95E3762543D2DD0028FDFD /* ProModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95E3742543D2DD0028FDFD /* ProModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C9FEA21256A3DA10071DC86 /* SpinningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA20256A3DA10071DC86 /* SpinningViewController.swift */; };
 		9C9FEA23256A3DF40071DC86 /* SpinningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */; };
 		9C9FEA25256A43520071DC86 /* RxSwift+Previous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */; };
@@ -83,20 +82,6 @@
 		9CE8F43E2542FF89008AD754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CE8F43D2542FF89008AD754 /* Assets.xcassets */; };
 		9CE8F4412542FF89008AD754 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE8F43F2542FF89008AD754 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		9C95E3772543D2DD0028FDFD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				9C95E3762543D2DD0028FDFD /* ProModule.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5FA990465A21655122445307 /* Pods-Anything.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anything.debug.xcconfig"; path = "Target Support Files/Pods-Anything/Pods-Anything.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,7 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C95E3752543D2DD0028FDFD /* ProModule.framework in Frameworks */,
+				9C5566D925805CB100506954 /* ProModule in Frameworks */,
 				10492E1461E9812958DCEF6A /* Pods_Anything.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,7 +464,6 @@
 				9CE8F42D2542FF89008AD754 /* Sources */,
 				9CE8F42E2542FF89008AD754 /* Frameworks */,
 				9CE8F42F2542FF89008AD754 /* Resources */,
-				9C95E3772543D2DD0028FDFD /* Embed Frameworks */,
 				FD46E80B00272A6F5E6F53AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -487,6 +471,9 @@
 			dependencies = (
 			);
 			name = Anything;
+			packageProductDependencies = (
+				9C5566D825805CB100506954 /* ProModule */,
+			);
 			productName = Anything;
 			productReference = 9CE8F4312542FF89008AD754 /* Anything.app */;
 			productType = "com.apple.product-type.application";
@@ -854,6 +841,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C5566D825805CB100506954 /* ProModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ProModule;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CE8F4292542FF89008AD754 /* Project object */;
 }
