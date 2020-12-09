@@ -85,7 +85,7 @@ extension CategoryViewController {
                 m.bottom.equalToSuperview()
                 m.left.equalToSuperview()
             }
-            UIImageView(image: #imageLiteral(resourceName: "btn_edit")).then { v in
+            UIImageView(image: #imageLiteral(resourceName: "btn_slice")).then { v in
                 v.contentMode = .scaleAspectFit
             }.layout(v) { m in
                 m.top.right.bottom.equalToSuperview()
