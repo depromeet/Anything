@@ -124,6 +124,7 @@ extension MainViewController {
                     v.textColor = .white
                     v.font = .sdgothicneo(size: 17, weight: .medium)
                     v.textAlignment = .center
+                    v.setContentCompressionResistancePriority(.init(0), for: .horizontal)
                 }.layout(v) { m in
                     m.top.left.bottom.equalToSuperview()
                 }
@@ -134,8 +135,8 @@ extension MainViewController {
                     m.right.centerY.equalToSuperview()
                 }
             }.layout(v) { m in
-                m.left.equalToSuperview().inset(20)
-                m.centerY.equalToSuperview()
+                m.left.right.greaterThanOrEqualToSuperview().inset(20).priority(.low)
+                m.center.equalToSuperview()
             }
             viewBlacklist = UIImageView(image: #imageLiteral(resourceName: "ic_blacklist")).then { v in
                 v.contentMode = .scaleAspectFit
