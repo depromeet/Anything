@@ -139,6 +139,7 @@ extension MainViewController {
             }
             viewBlacklist = UIImageView(image: #imageLiteral(resourceName: "ic_blacklist")).then { v in
                 v.contentMode = .scaleAspectFit
+                v.isHidden = true
             }.layout(v) { m in
                 m.right.equalToSuperview().inset(20)
                 m.centerY.equalToSuperview()
