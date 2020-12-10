@@ -25,13 +25,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Get tag version
-      run: echo ::set-env name=RELEASE_VERSION::$(echo ${GITHUB_REF:11})
+      run: |
+        tag=${GITHUB_REF:11}
+        echo ::set-env name=VERSION_NUMBER::$(echo ${tag%_*})
+        echo ::set-env name=BUILD_NUMBER::$(echo ${tag##*_})
     - name: Install Cocoapods
       run: |
         gem install cocoapods
         pod install --repo-update
     - name: Set app version
-      run: sed -i .bak 's/MARKETING_VERSION = 1.0.0;/MARKETING_VERSION = ${{ env.RELEASE_VERSION }};/g' Anything.xcodeproj/project.pbxproj
+      run: |
+        sed -i .bak 's/MARKETING_VERSION = 1.0.0;/MARKETING_VERSION = ${{ env.VERSION_NUMBER }};/g' Anything.xcodeproj/project.pbxproj
+        sed -i .bak 's/CURRENT_PROJECT_VERSION = 1;/CURRENT_PROJECT_VERSION = ${{ env.BUILD_NUMBER }};/g' Anything.xcodeproj/project.pbxproj
     - name: Configure Keychain
       run: |
         security create-keychain -p "" "$KEYCHAIN"
