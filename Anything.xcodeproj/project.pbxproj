@@ -17,6 +17,7 @@
 		9C2437C0255F5E6600EB9C38 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437BF255F5E6600EB9C38 /* View.swift */; };
 		9C2437C2255F5EBA00EB9C38 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */; };
 		9C2437C5255F5F6000EB9C38 /* PresentableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2437C4255F5F6000EB9C38 /* PresentableType.swift */; };
+		9C296472258249A7001D7C77 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C296471258249A7001D7C77 /* splash.json */; };
 		9C2AF7292560DE4A007F3FAE /* AnythingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF7282560DE4A007F3FAE /* AnythingAPI.swift */; };
 		9C2AF72F2560DE6E007F3FAE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72B2560DE6E007F3FAE /* Logger.swift */; };
 		9C2AF7302560DE6E007F3FAE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AF72C2560DE6E007F3FAE /* NetworkService.swift */; };
@@ -52,6 +53,7 @@
 		9C9FEA21256A3DA10071DC86 /* SpinningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA20256A3DA10071DC86 /* SpinningViewController.swift */; };
 		9C9FEA23256A3DF40071DC86 /* SpinningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */; };
 		9C9FEA25256A43520071DC86 /* RxSwift+Previous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */; };
+		9CB1D21F258112B100BA12A1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1D21E258112B100BA12A1 /* SplashViewController.swift */; };
 		9CBCE9E2256A653100308C64 /* AppleSDGothicNeo.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */; };
 		9CBCE9E4256A655C00308C64 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */; };
 		9CBCE9E7256A65C100308C64 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE9E6256A65C100308C64 /* CategoryViewController.swift */; };
@@ -96,6 +98,7 @@
 		9C2437BF255F5E6600EB9C38 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		9C2437C1255F5EBA00EB9C38 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9C2437C4255F5F6000EB9C38 /* PresentableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableType.swift; sourceTree = "<group>"; };
+		9C296471258249A7001D7C77 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		9C2AF7282560DE4A007F3FAE /* AnythingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnythingAPI.swift; sourceTree = "<group>"; };
 		9C2AF72B2560DE6E007F3FAE /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9C2AF72C2560DE6E007F3FAE /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -131,6 +134,7 @@
 		9C9FEA20256A3DA10071DC86 /* SpinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningViewController.swift; sourceTree = "<group>"; };
 		9C9FEA22256A3DF40071DC86 /* SpinningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningViewModel.swift; sourceTree = "<group>"; };
 		9C9FEA24256A43520071DC86 /* RxSwift+Previous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+Previous.swift"; sourceTree = "<group>"; };
+		9CB1D21E258112B100BA12A1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		9CBCE9E1256A653100308C64 /* AppleSDGothicNeo.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeo.ttc; sourceTree = "<group>"; };
 		9CBCE9E3256A655C00308C64 /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		9CBCE9E6256A65C100308C64 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +229,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		9C29647025824991001D7C77 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				9C296471258249A7001D7C77 /* splash.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		9C2AF7272560DE4A007F3FAE /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +312,7 @@
 		9C8DCD492557DD3F001F8F56 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				9CB1D21D258112A700BA12A1 /* Splash */,
 				9C8DCD4A2557DD45001F8F56 /* Main */,
 				9C9FEA1E256A3D660071DC86 /* Spinning */,
 				9CBCE9E5256A65AC00308C64 /* Category */,
@@ -353,10 +366,19 @@
 			path = Spinning;
 			sourceTree = "<group>";
 		};
+		9CB1D21D258112A700BA12A1 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9CB1D21E258112B100BA12A1 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		9CBCE9DA256A64DD00308C64 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				9CBCE9E0256A653100308C64 /* Font */,
+				9C29647025824991001D7C77 /* Lottie */,
 				9CE8F43D2542FF89008AD754 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -518,6 +540,7 @@
 			files = (
 				9CE8F4412542FF89008AD754 /* LaunchScreen.storyboard in Resources */,
 				9CBCE9E2256A653100308C64 /* AppleSDGothicNeo.ttc in Resources */,
+				9C296472258249A7001D7C77 /* splash.json in Resources */,
 				9CE8F43E2542FF89008AD754 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,6 +613,7 @@
 				9CE1D29E257C654700C70E5B /* DetailCommentItemCell.swift in Sources */,
 				9C031A7D257CCA14004BB0A4 /* RandomViewModel.swift in Sources */,
 				9CBCEA06256A892800308C64 /* CategoryOptionCell.swift in Sources */,
+				9CB1D21F258112B100BA12A1 /* SplashViewController.swift in Sources */,
 				9C79B9B9257686A000A2B2EB /* ListLocationViewModel.swift in Sources */,
 				9CCCED41257CA64200ABA464 /* DetailReviewItemCell.swift in Sources */,
 				9CCCED37257C9BCC00ABA464 /* DetailMenuSeparatorCell.swift in Sources */,

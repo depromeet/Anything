@@ -17,13 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
-        let serviceProvider = ServiceProvider()
-        let vc = MainViewController()
-        vc.viewModel = MainViewModel(serviceProvider: serviceProvider)
-        let navC = UINavigationController(rootViewController: vc)
-        navC.navigationBar.isOpaque = false
-        navC.navigationBar.isHidden = true
-        window.rootViewController = navC
+        let vc = SplashViewController()
+        vc.onAnimationCompletion = { finished in
+            let serviceProvider = ServiceProvider()
+            let vc = MainViewController()
+            vc.viewModel = MainViewModel(serviceProvider: serviceProvider)
+            let navC = UINavigationController(rootViewController: vc)
+            navC.navigationBar.isOpaque = false
+            navC.navigationBar.isHidden = true
+            window.rootViewController = navC
+        }
+        window.rootViewController = vc
         window.makeKeyAndVisible()
         self.window = window
     }
