@@ -67,8 +67,14 @@ class LocationService: BaseService, LocationServiceType {
     }
 
     func requestAuthorizationStatus() -> Observable<CLAuthorizationEvent> {
+        let status: CLAuthorizationStatus
+        if #available(iOS 14.0, *) {
+            status = locationManager.authorizationStatus
+        } else {
+            status = CLLocationManager.authorizationStatus()
+        }
         return locationManager.rx.didChangeAuthorization
-            .startWith(CLAuthorizationEvent(manager: locationManager, status: locationManager.authorizationStatus))
+            .startWith(CLAuthorizationEvent(manager: locationManager, status: status))
             .asObservable()
     }
 }
