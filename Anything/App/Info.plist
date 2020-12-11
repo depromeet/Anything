@@ -32,9 +32,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>위치 정보를 요청합니다.</string>
+	<string>주변 음식점 검색에 위치 정보를 사용합니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치 정보를 요청합니다.</string>
+	<string>주변 음식점 검색에 위치 정보를 사용합니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AppleSDGothicNeo.ttc</string>
